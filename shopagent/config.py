@@ -29,6 +29,18 @@ def _get_int(name: str, default: int, minimum: int = 1) -> int:
     return max(minimum, value)
 
 
+def _get_weights(name: str, default: str = "1,1") -> tuple[float, float]:
+    """RRF 两路权重（向量, BM25），支持 `1,1` 或 `1:1` 写法。"""
+    raw = _get(name, default).replace(":", ",")
+    try:
+        parts = [float(x) for x in raw.split(",") if x.strip()]
+        if len(parts) != 2:
+            raise ValueError
+        return parts[0], parts[1]
+    except ValueError:
+        return 1.0, 1.0
+
+
 # 让 huggingface_hub 走镜像；必须在下载模型前生效
 _hf_endpoint = _get("HF_ENDPOINT")
 if _hf_endpoint:
@@ -59,6 +71,9 @@ class Settings:
     rerank_model: str
     # 送进精排的 RRF 候选数（50 融合池里截前 N 条），见 README §4.3
     rerank_candidates: int
+    # RRF 的平滑常数和两路权重（向量, BM25），见 README §4.7 消融
+    rrf_k: int
+    rrf_weights: tuple[float, float]
     root_dir: Path
     data_dir: Path
     eval_dir: Path
@@ -79,6 +94,8 @@ settings = Settings(
     embed_dim=int(_get("EMBED_DIM", "384")),
     rerank_model=_get("RERANK_MODEL", "BAAI/bge-reranker-base"),
     rerank_candidates=_get_int("SHOPAGENT_RERANK_CANDIDATES", 20),
+    rrf_k=_get_int("SHOPAGENT_RRF_K", 60),
+    rrf_weights=_get_weights("SHOPAGENT_RRF_WEIGHTS", "1,1"),
     root_dir=ROOT_DIR,
     data_dir=ROOT_DIR / "data",
     eval_dir=ROOT_DIR / "eval",

@@ -29,6 +29,21 @@ def set_rerank_candidates(value: int) -> int:
     return RERANK_CANDIDATES
 
 
+# RRF 融合参数：k 越小越看重头部名次，weights 是 [向量, BM25] 两路权重。
+# 默认值来自 SHOPAGENT_RRF_K / SHOPAGENT_RRF_WEIGHTS，脚本里也能调用 set_rrf 热改。
+RRF_K = settings.rrf_k
+RRF_WEIGHTS = list(settings.rrf_weights)
+
+
+def set_rrf(k: int | None = None, weights: list[float] | None = None) -> tuple[int, list[float]]:
+    global RRF_K, RRF_WEIGHTS
+    if k is not None:
+        RRF_K = max(1, int(k))
+    if weights is not None:
+        RRF_WEIGHTS = [float(w) for w in weights]
+    return RRF_K, list(RRF_WEIGHTS)
+
+
 class Retriever:
     """四种模式的统一入口，后端可以是 PgBackend 或 MemoryBackend。
 
@@ -63,7 +78,10 @@ class Retriever:
 
         bm25_hits = self._get_bm25().search(query, top_k=candidate_k)
         vec_hits = self.backend.vector_search(query_emb, top_k=candidate_k)
-        fused = dedupe_by_asin(rrf([vec_hits, bm25_hits]), limit=candidate_k)
+        fused = dedupe_by_asin(
+            rrf([vec_hits, bm25_hits], k=RRF_K, weights=RRF_WEIGHTS),
+            limit=candidate_k,
+        )
 
         if self.mode == "hybrid":
             return fused[:top_k]

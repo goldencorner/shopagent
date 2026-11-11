@@ -1,0 +1,2235 @@
+{
+  "store": "pg",
+  "mode": "hybrid_rerank",
+  "n_tasks": 21,
+  "configs": {
+    "baseline": {
+      "env": {
+        "SHOPAGENT_ROUTER": "llm",
+        "SHOPAGENT_GENERATE_GUARD": "1"
+      },
+      "summary": {
+        "task_pass_rate": 1.0,
+        "by_check": {
+          "intent": 1.0,
+          "forbidden_tools": 1.0,
+          "grounded_prices": 1.0,
+          "max_answer_chars": 1.0,
+          "required_tools": 1.0,
+          "must_retrieve_title_regex": 1.0,
+          "budget": 1.0,
+          "must_retrieve_any": 1.0,
+          "must_mention_any": 1.0,
+          "expect_no_match": 1.0
+        },
+        "avg_steps": 1.0476190476190477,
+        "avg_llm_calls": 4.904761904761905,
+        "latency_p50_s": 10.31,
+        "latency_p95_s": 12.38
+      },
+      "tasks": [
+        {
+          "id": "chitchat_hello",
+          "passed": true,
+          "error": null,
+          "checks": [
+            {
+              "name": "intent",
+              "ok": true,
+              "detail": "got=chitchat want=chitchat"
+            },
+            {
+              "name": "forbidden_tools",
+              "ok": true,
+              "detail": "called=[]"
+            },
+            {
+              "name": "grounded_prices",
+              "ok": true,
+              "detail": "ungrounded=[]"
+            },
+            {
+              "name": "max_answer_chars",
+              "ok": true,
+              "detail": "len=32"
+            }
+          ],
+          "steps": 0,
+          "llm_calls": 3,
+          "latency_s": 2.58
+        },
+        {
+          "id": "chitchat_who",
+          "passed": true,
+          "error": null,
+          "checks": [
+            {
+              "name": "intent",
+              "ok": true,
+              "detail": "got=chitchat want=chitchat"
+            },
+            {
+              "name": "forbidden_tools",
+              "ok": true,
+              "detail": "called=[]"
+            },
+            {
+              "name": "grounded_prices",
+              "ok": true,
+              "detail": "ungrounded=[]"
+            },
+            {
+              "name": "max_answer_chars",
+              "ok": true,
+              "detail": "len=42"
+            }
+          ],
+          "steps": 0,
+          "llm_calls": 3,
+          "latency_s": 2.66
+        },
+        {
+          "id": "search_yoga_mat",
+          "passed": true,
+          "error": null,
+          "checks": [
+            {
+              "name": "required_tools",
+              "ok": true,
+              "detail": "missing=[] called=['search_products']"
+            },
+            {
+              "name": "must_retrieve_title_regex",
+              "ok": true,
+              "detail": "hit=['Gaiam Premium Print Yoga Mat, Extra Thic', 'ONEGenug Yoga Mat Bag, Long Strap Yoga M']"
+            },
+            {
+              "name": "grounded_prices",
+              "ok": true,
+              "detail": "ungrounded=[]"
+            }
+          ],
+          "steps": 1,
+          "llm_calls": 5,
+          "latency_s": 12.37
+        },
+        {
+          "id": "search_tent",
+          "passed": true,
+          "error": null,
+          "checks": [
+            {
+              "name": "required_tools",
+              "ok": true,
+              "detail": "missing=[] called=['search_products']"
+            },
+            {
+              "name": "must_retrieve_title_regex",
+              "ok": true,
+              "detail": "hit=['MOUNTAINTOP Waterproof 2 Person Camping ', 'LevelOne Two Person Camping Tent with Ra']"
+            },
+            {
+              "name": "grounded_prices",
+              "ok": true,
+              "detail": "ungrounded=[]"
+            }
+          ],
+          "steps": 1,
+          "llm_calls": 5,
+          "latency_s": 10.57
+        },
+        {
+          "id": "search_dumbbell",
+          "passed": true,
+          "error": null,
+          "checks": [
+            {
+              "name": "required_tools",
+              "ok": true,
+              "detail": "missing=[] called=['search_products']"
+            },
+            {
+              "name": "must_retrieve_title_regex",
+              "ok": true,
+              "detail": "hit=['Dumbbell Set Adjustable Weights 20LB Pai', 'VORCOOL 2PCS Dumbbell Bars, Durable Dumb']"
+            },
+            {
+              "name": "grounded_prices",
+              "ok": true,
+              "detail": "ungrounded=[]"
+            }
+          ],
+          "steps": 1,
+          "llm_calls": 5,
+          "latency_s": 11.06
+        },
+        {
+          "id": "search_water_bottle",
+          "passed": true,
+          "error": null,
+          "checks": [
+            {
+              "name": "required_tools",
+              "ok": true,
+              "detail": "missing=[] called=['search_products']"
+            },
+            {
+              "name": "must_retrieve_title_regex",
+              "ok": true,
+              "detail": "hit=['Water Bottle with Handle 2.5L Large Spor', 'Half Gallon Water Bottle 2.2L Gym Water ']"
+            },
+            {
+              "name": "grounded_prices",
+              "ok": true,
+              "detail": "ungrounded=[]"
+            }
+          ],
+          "steps": 1,
+          "llm_calls": 5,
+          "latency_s": 8.64
+        },
+        {
+          "id": "search_fishing_rod",
+          "passed": true,
+          "error": null,
+          "checks": [
+            {
+              "name": "required_tools",
+              "ok": true,
+              "detail": "missing=[] called=['search_products']"
+            },
+            {
+              "name": "must_retrieve_title_regex",
+              "ok": true,
+              "detail": "hit=['Sougayilang Casting Fishing Rods – Desig', 'Lanaak Kids Fishing Pole and Tackle Box ']"
+            },
+            {
+              "name": "grounded_prices",
+              "ok": true,
+              "detail": "ungrounded=[]"
+            }
+          ],
+          "steps": 1,
+          "llm_calls": 5,
+          "latency_s": 11.33
+        },
+        {
+          "id": "search_bike_helmet",
+          "passed": true,
+          "error": null,
+          "checks": [
+            {
+              "name": "required_tools",
+              "ok": true,
+              "detail": "missing=[] called=['search_products']"
+            },
+            {
+              "name": "must_retrieve_title_regex",
+              "ok": true,
+              "detail": "hit=['VICTGOAL Bike Helmet for Adults Men Wome', 'VICTGOAL Bike Helmet for Adults Men Wome']"
+            },
+            {
+              "name": "grounded_prices",
+              "ok": true,
+              "detail": "ungrounded=[]"
+            }
+          ],
+          "steps": 1,
+          "llm_calls": 5,
+          "latency_s": 10.46
+        },
+        {
+          "id": "search_golf_ball",
+          "passed": true,
+          "error": null,
+          "checks": [
+            {
+              "name": "required_tools",
+              "ok": true,
+              "detail": "missing=[] called=['search_products']"
+            },
+            {
+              "name": "must_retrieve_title_regex",
+              "ok": true,
+              "detail": "hit=['Funny Golf Balls, 6-Pack Colored Golf Ba', 'Clean Green Golf Balls 48 Used Golf Ball']"
+            },
+            {
+              "name": "grounded_prices",
+              "ok": true,
+              "detail": "ungrounded=[]"
+            }
+          ],
+          "steps": 1,
+          "llm_calls": 5,
+          "latency_s": 8.9
+        },
+        {
+          "id": "search_resistance_band",
+          "passed": true,
+          "error": null,
+          "checks": [
+            {
+              "name": "required_tools",
+              "ok": true,
+              "detail": "missing=[] called=['search_products']"
+            },
+            {
+              "name": "must_retrieve_title_regex",
+              "ok": true,
+              "detail": "hit=['Resistance Loop Exercise Bands, Fitness ', 'joypur Resistance Bands Set, Fitness Ban']"
+            },
+            {
+              "name": "grounded_prices",
+              "ok": true,
+              "detail": "ungrounded=[]"
+            }
+          ],
+          "steps": 1,
+          "llm_calls": 5,
+          "latency_s": 11.04
+        },
+        {
+          "id": "budget_yoga_mat_30",
+          "passed": true,
+          "error": null,
+          "checks": [
+            {
+              "name": "required_tools",
+              "ok": true,
+              "detail": "missing=[] called=['search_products']"
+            },
+            {
+              "name": "must_retrieve_title_regex",
+              "ok": true,
+              "detail": "hit=['ONEGenug Yoga Mat Bag, Long Strap Yoga M', 'Yoga Mat, Premium 1/4 inch Imprint Non S']"
+            },
+            {
+              "name": "budget",
+              "ok": true,
+              "detail": "budget=30.0 over=[]"
+            },
+            {
+              "name": "grounded_prices",
+              "ok": true,
+              "detail": "ungrounded=[]"
+            }
+          ],
+          "steps": 1,
+          "llm_calls": 5,
+          "latency_s": 9.07
+        },
+        {
+          "id": "budget_tent_100",
+          "passed": true,
+          "error": null,
+          "checks": [
+            {
+              "name": "required_tools",
+              "ok": true,
+              "detail": "missing=[] called=['search_products']"
+            },
+            {
+              "name": "must_retrieve_title_regex",
+              "ok": true,
+              "detail": "hit=['Camping Tent 4 Person, Waterproof Windpr', 'Cflity Camping Tent, 3 Person Instant Po']"
+            },
+            {
+              "name": "budget",
+              "ok": true,
+              "detail": "budget=100.0 over=[]"
+            },
+            {
+              "name": "grounded_prices",
+              "ok": true,
+              "detail": "ungrounded=[]"
+            }
+          ],
+          "steps": 1,
+          "llm_calls": 5,
+          "latency_s": 10.7
+        },
+        {
+          "id": "budget_dumbbell_60",
+          "passed": true,
+          "error": null,
+          "checks": [
+            {
+              "name": "required_tools",
+              "ok": true,
+              "detail": "missing=[] called=['search_products']"
+            },
+            {
+              "name": "must_retrieve_title_regex",
+              "ok": true,
+              "detail": "hit=['Premium Round Rubber Dumbbells Single, H', 'Balelinko Rubber Grip Encased Dumbbell C']"
+            },
+            {
+              "name": "budget",
+              "ok": true,
+              "detail": "budget=60.0 over=[]"
+            },
+            {
+              "name": "grounded_prices",
+              "ok": true,
+              "detail": "ungrounded=[]"
+            }
+          ],
+          "steps": 1,
+          "llm_calls": 5,
+          "latency_s": 9.34
+        },
+        {
+          "id": "tool_compare_brand",
+          "passed": true,
+          "error": null,
+          "checks": [
+            {
+              "name": "required_tools",
+              "ok": true,
+              "detail": "missing=[] called=['search_products', 'search_products', 'compare_products']"
+            },
+            {
+              "name": "must_retrieve_any",
+              "ok": true,
+              "detail": "hit=['B0BXN8N6VB', 'B0C4MF7J6G']"
+            },
+            {
+              "name": "grounded_prices",
+              "ok": true,
+              "detail": "ungrounded=[]"
+            }
+          ],
+          "steps": 2,
+          "llm_calls": 6,
+          "latency_s": 14.12
+        },
+        {
+          "id": "tool_detail_asin",
+          "passed": true,
+          "error": null,
+          "checks": [
+            {
+              "name": "required_tools",
+              "ok": true,
+              "detail": "missing=[] called=['get_product_detail']"
+            },
+            {
+              "name": "must_retrieve_any",
+              "ok": true,
+              "detail": "hit=['B07FZB48BX']"
+            },
+            {
+              "name": "must_mention_any",
+              "ok": true,
+              "detail": "hit=['CamelBak']"
+            },
+            {
+              "name": "grounded_prices",
+              "ok": true,
+              "detail": "ungrounded=[]"
+            }
+          ],
+          "steps": 1,
+          "llm_calls": 5,
+          "latency_s": 7.34
+        },
+        {
+          "id": "tool_compare_two_asins",
+          "passed": true,
+          "error": null,
+          "checks": [
+            {
+              "name": "required_tools",
+              "ok": true,
+              "detail": "missing=[] called=['compare_products']"
+            },
+            {
+              "name": "must_retrieve_any",
+              "ok": true,
+              "detail": "hit=['B07RT7TCRD', 'B0BCG89J29']"
+            },
+            {
+              "name": "grounded_prices",
+              "ok": true,
+              "detail": "ungrounded=[]"
+            }
+          ],
+          "steps": 1,
+          "llm_calls": 5,
+          "latency_s": 8.21
+        },
+        {
+          "id": "refuse_cat_food",
+          "passed": true,
+          "error": null,
+          "checks": [
+            {
+              "name": "expect_no_match",
+              "ok": true,
+              "detail": "answer='目前没有用户偏好信息，以下按你问的“猫粮”直接筛选给出的商品资料。\\n\\n**结论：资料里没有专门的猫粮商品。** 只有几款'"
+            },
+            {
+              "name": "grounded_prices",
+              "ok": true,
+              "detail": "ungrounded=[]"
+            }
+          ],
+          "steps": 2,
+          "llm_calls": 6,
+          "latency_s": 12.38
+        },
+        {
+          "id": "refuse_baby_formula",
+          "passed": true,
+          "error": null,
+          "checks": [
+            {
+              "name": "expect_no_match",
+              "ok": true,
+              "detail": "answer='目前给出的商品资料里没有婴儿配方奶粉，无法为你推荐具体商品。\\n\\n以下是资料中与\"婴儿/喂养\"沾边、但**都不是配方奶粉*'"
+            },
+            {
+              "name": "grounded_prices",
+              "ok": true,
+              "detail": "ungrounded=[]"
+            }
+          ],
+          "steps": 2,
+          "llm_calls": 6,
+          "latency_s": 10.31
+        },
+        {
+          "id": "refuse_cat_litter",
+          "passed": true,
+          "error": null,
+          "checks": [
+            {
+              "name": "expect_no_match",
+              "ok": true,
+              "detail": "answer='目前给出的商品资料里没有猫砂类商品，无法推荐。以下是资料中与\"猫\"相关、但并非猫砂的商品，供你核对：\\n\\n- **Unic'"
+            },
+            {
+              "name": "grounded_prices",
+              "ok": true,
+              "detail": "ungrounded=[]"
+            }
+          ],
+          "steps": 2,
+          "llm_calls": 6,
+          "latency_s": 11.33
+        },
+        {
+          "id": "multi_turn_second_price",
+          "passed": true,
+          "error": null,
+          "checks": [
+            {
+              "name": "must_mention_any",
+              "ok": true,
+              "detail": "hit=['39.98', '39.9']"
+            }
+          ],
+          "steps": 0,
+          "llm_calls": 3,
+          "latency_s": 2.83
+        },
+        {
+          "id": "multi_turn_cheaper",
+          "passed": true,
+          "error": null,
+          "checks": [
+            {
+              "name": "required_tools",
+              "ok": true,
+              "detail": "missing=[] called=['search_products']"
+            },
+            {
+              "name": "budget",
+              "ok": true,
+              "detail": "budget=30.0 over=[]"
+            },
+            {
+              "name": "grounded_prices",
+              "ok": true,
+              "detail": "ungrounded=[]"
+            }
+          ],
+          "steps": 1,
+          "llm_calls": 5,
+          "latency_s": 8.35
+        }
+      ]
+    },
+    "router=keyword": {
+      "env": {
+        "SHOPAGENT_ROUTER": "keyword",
+        "SHOPAGENT_GENERATE_GUARD": "1"
+      },
+      "summary": {
+        "task_pass_rate": 1.0,
+        "by_check": {
+          "intent": 1.0,
+          "forbidden_tools": 1.0,
+          "grounded_prices": 1.0,
+          "max_answer_chars": 1.0,
+          "required_tools": 1.0,
+          "must_retrieve_title_regex": 1.0,
+          "budget": 1.0,
+          "must_retrieve_any": 1.0,
+          "must_mention_any": 1.0,
+          "expect_no_match": 1.0
+        },
+        "avg_steps": 1.0476190476190477,
+        "avg_llm_calls": 3.9047619047619047,
+        "latency_p50_s": 8.82,
+        "latency_p95_s": 11.46
+      },
+      "tasks": [
+        {
+          "id": "chitchat_hello",
+          "passed": true,
+          "error": null,
+          "checks": [
+            {
+              "name": "intent",
+              "ok": true,
+              "detail": "got=chitchat want=chitchat"
+            },
+            {
+              "name": "forbidden_tools",
+              "ok": true,
+              "detail": "called=[]"
+            },
+            {
+              "name": "grounded_prices",
+              "ok": true,
+              "detail": "ungrounded=[]"
+            },
+            {
+              "name": "max_answer_chars",
+              "ok": true,
+              "detail": "len=33"
+            }
+          ],
+          "steps": 0,
+          "llm_calls": 2,
+          "latency_s": 1.58
+        },
+        {
+          "id": "chitchat_who",
+          "passed": true,
+          "error": null,
+          "checks": [
+            {
+              "name": "intent",
+              "ok": true,
+              "detail": "got=chitchat want=chitchat"
+            },
+            {
+              "name": "forbidden_tools",
+              "ok": true,
+              "detail": "called=[]"
+            },
+            {
+              "name": "grounded_prices",
+              "ok": true,
+              "detail": "ungrounded=[]"
+            },
+            {
+              "name": "max_answer_chars",
+              "ok": true,
+              "detail": "len=47"
+            }
+          ],
+          "steps": 0,
+          "llm_calls": 2,
+          "latency_s": 1.67
+        },
+        {
+          "id": "search_yoga_mat",
+          "passed": true,
+          "error": null,
+          "checks": [
+            {
+              "name": "required_tools",
+              "ok": true,
+              "detail": "missing=[] called=['search_products']"
+            },
+            {
+              "name": "must_retrieve_title_regex",
+              "ok": true,
+              "detail": "hit=['Gaiam Premium Print Yoga Mat, Extra Thic', 'ONEGenug Yoga Mat Bag, Long Strap Yoga M']"
+            },
+            {
+              "name": "grounded_prices",
+              "ok": true,
+              "detail": "ungrounded=[]"
+            }
+          ],
+          "steps": 1,
+          "llm_calls": 4,
+          "latency_s": 8.41
+        },
+        {
+          "id": "search_tent",
+          "passed": true,
+          "error": null,
+          "checks": [
+            {
+              "name": "required_tools",
+              "ok": true,
+              "detail": "missing=[] called=['search_products']"
+            },
+            {
+              "name": "must_retrieve_title_regex",
+              "ok": true,
+              "detail": "hit=['MOUNTAINTOP Waterproof 2 Person Camping ', 'LevelOne Two Person Camping Tent with Ra']"
+            },
+            {
+              "name": "grounded_prices",
+              "ok": true,
+              "detail": "ungrounded=[]"
+            }
+          ],
+          "steps": 1,
+          "llm_calls": 4,
+          "latency_s": 8.44
+        },
+        {
+          "id": "search_dumbbell",
+          "passed": true,
+          "error": null,
+          "checks": [
+            {
+              "name": "required_tools",
+              "ok": true,
+              "detail": "missing=[] called=['search_products']"
+            },
+            {
+              "name": "must_retrieve_title_regex",
+              "ok": true,
+              "detail": "hit=['Dumbbell Set Adjustable Weights 20LB Pai', 'VORCOOL 2PCS Dumbbell Bars, Durable Dumb']"
+            },
+            {
+              "name": "grounded_prices",
+              "ok": true,
+              "detail": "ungrounded=[]"
+            }
+          ],
+          "steps": 1,
+          "llm_calls": 4,
+          "latency_s": 9.52
+        },
+        {
+          "id": "search_water_bottle",
+          "passed": true,
+          "error": null,
+          "checks": [
+            {
+              "name": "required_tools",
+              "ok": true,
+              "detail": "missing=[] called=['search_products']"
+            },
+            {
+              "name": "must_retrieve_title_regex",
+              "ok": true,
+              "detail": "hit=['Water Bottle with Handle 2.5L Large Spor', 'Half Gallon Water Bottle 2.2L Gym Water ']"
+            },
+            {
+              "name": "grounded_prices",
+              "ok": true,
+              "detail": "ungrounded=[]"
+            }
+          ],
+          "steps": 1,
+          "llm_calls": 4,
+          "latency_s": 8.6
+        },
+        {
+          "id": "search_fishing_rod",
+          "passed": true,
+          "error": null,
+          "checks": [
+            {
+              "name": "required_tools",
+              "ok": true,
+              "detail": "missing=[] called=['search_products']"
+            },
+            {
+              "name": "must_retrieve_title_regex",
+              "ok": true,
+              "detail": "hit=['Sougayilang Casting Fishing Rods – Desig', 'Lanaak Kids Fishing Pole and Tackle Box ']"
+            },
+            {
+              "name": "grounded_prices",
+              "ok": true,
+              "detail": "ungrounded=[]"
+            }
+          ],
+          "steps": 1,
+          "llm_calls": 4,
+          "latency_s": 11.46
+        },
+        {
+          "id": "search_bike_helmet",
+          "passed": true,
+          "error": null,
+          "checks": [
+            {
+              "name": "required_tools",
+              "ok": true,
+              "detail": "missing=[] called=['search_products']"
+            },
+            {
+              "name": "must_retrieve_title_regex",
+              "ok": true,
+              "detail": "hit=['VICTGOAL Bike Helmet for Adults Men Wome', 'VICTGOAL Bike Helmet for Adults Men Wome']"
+            },
+            {
+              "name": "grounded_prices",
+              "ok": true,
+              "detail": "ungrounded=[]"
+            }
+          ],
+          "steps": 1,
+          "llm_calls": 4,
+          "latency_s": 10.13
+        },
+        {
+          "id": "search_golf_ball",
+          "passed": true,
+          "error": null,
+          "checks": [
+            {
+              "name": "required_tools",
+              "ok": true,
+              "detail": "missing=[] called=['search_products']"
+            },
+            {
+              "name": "must_retrieve_title_regex",
+              "ok": true,
+              "detail": "hit=['Funny Golf Balls, 6-Pack Colored Golf Ba', 'Clean Green Golf Balls 48 Used Golf Ball']"
+            },
+            {
+              "name": "grounded_prices",
+              "ok": true,
+              "detail": "ungrounded=[]"
+            }
+          ],
+          "steps": 1,
+          "llm_calls": 4,
+          "latency_s": 8.82
+        },
+        {
+          "id": "search_resistance_band",
+          "passed": true,
+          "error": null,
+          "checks": [
+            {
+              "name": "required_tools",
+              "ok": true,
+              "detail": "missing=[] called=['search_products']"
+            },
+            {
+              "name": "must_retrieve_title_regex",
+              "ok": true,
+              "detail": "hit=['Resistance Loop Exercise Bands, Fitness ', 'joypur Resistance Bands Set, Fitness Ban']"
+            },
+            {
+              "name": "grounded_prices",
+              "ok": true,
+              "detail": "ungrounded=[]"
+            }
+          ],
+          "steps": 1,
+          "llm_calls": 4,
+          "latency_s": 10.08
+        },
+        {
+          "id": "budget_yoga_mat_30",
+          "passed": true,
+          "error": null,
+          "checks": [
+            {
+              "name": "required_tools",
+              "ok": true,
+              "detail": "missing=[] called=['search_products']"
+            },
+            {
+              "name": "must_retrieve_title_regex",
+              "ok": true,
+              "detail": "hit=['ONEGenug Yoga Mat Bag, Long Strap Yoga M', 'Yoga Mat, Premium 1/4 inch Imprint Non S']"
+            },
+            {
+              "name": "budget",
+              "ok": true,
+              "detail": "budget=30.0 over=[]"
+            },
+            {
+              "name": "grounded_prices",
+              "ok": true,
+              "detail": "ungrounded=[]"
+            }
+          ],
+          "steps": 1,
+          "llm_calls": 4,
+          "latency_s": 7.4
+        },
+        {
+          "id": "budget_tent_100",
+          "passed": true,
+          "error": null,
+          "checks": [
+            {
+              "name": "required_tools",
+              "ok": true,
+              "detail": "missing=[] called=['search_products']"
+            },
+            {
+              "name": "must_retrieve_title_regex",
+              "ok": true,
+              "detail": "hit=['Camping Tent 4 Person, Waterproof Windpr', 'Cflity Camping Tent, 3 Person Instant Po']"
+            },
+            {
+              "name": "budget",
+              "ok": true,
+              "detail": "budget=100.0 over=[]"
+            },
+            {
+              "name": "grounded_prices",
+              "ok": true,
+              "detail": "ungrounded=[]"
+            }
+          ],
+          "steps": 1,
+          "llm_calls": 4,
+          "latency_s": 9.32
+        },
+        {
+          "id": "budget_dumbbell_60",
+          "passed": true,
+          "error": null,
+          "checks": [
+            {
+              "name": "required_tools",
+              "ok": true,
+              "detail": "missing=[] called=['search_products']"
+            },
+            {
+              "name": "must_retrieve_title_regex",
+              "ok": true,
+              "detail": "hit=['Premium Round Rubber Dumbbells Single, H', 'Balelinko Rubber Grip Encased Dumbbell C']"
+            },
+            {
+              "name": "budget",
+              "ok": true,
+              "detail": "budget=60.0 over=[]"
+            },
+            {
+              "name": "grounded_prices",
+              "ok": true,
+              "detail": "ungrounded=[]"
+            }
+          ],
+          "steps": 1,
+          "llm_calls": 4,
+          "latency_s": 9.14
+        },
+        {
+          "id": "tool_compare_brand",
+          "passed": true,
+          "error": null,
+          "checks": [
+            {
+              "name": "required_tools",
+              "ok": true,
+              "detail": "missing=[] called=['search_products', 'search_products', 'compare_products']"
+            },
+            {
+              "name": "must_retrieve_any",
+              "ok": true,
+              "detail": "hit=['B0BXN8N6VB', 'B0C4MF7J6G']"
+            },
+            {
+              "name": "grounded_prices",
+              "ok": true,
+              "detail": "ungrounded=[]"
+            }
+          ],
+          "steps": 2,
+          "llm_calls": 5,
+          "latency_s": 13.81
+        },
+        {
+          "id": "tool_detail_asin",
+          "passed": true,
+          "error": null,
+          "checks": [
+            {
+              "name": "required_tools",
+              "ok": true,
+              "detail": "missing=[] called=['get_product_detail']"
+            },
+            {
+              "name": "must_retrieve_any",
+              "ok": true,
+              "detail": "hit=['B07FZB48BX']"
+            },
+            {
+              "name": "must_mention_any",
+              "ok": true,
+              "detail": "hit=['CamelBak']"
+            },
+            {
+              "name": "grounded_prices",
+              "ok": true,
+              "detail": "ungrounded=[]"
+            }
+          ],
+          "steps": 1,
+          "llm_calls": 4,
+          "latency_s": 7.24
+        },
+        {
+          "id": "tool_compare_two_asins",
+          "passed": true,
+          "error": null,
+          "checks": [
+            {
+              "name": "required_tools",
+              "ok": true,
+              "detail": "missing=[] called=['compare_products']"
+            },
+            {
+              "name": "must_retrieve_any",
+              "ok": true,
+              "detail": "hit=['B07RT7TCRD', 'B0BCG89J29']"
+            },
+            {
+              "name": "grounded_prices",
+              "ok": true,
+              "detail": "ungrounded=[]"
+            }
+          ],
+          "steps": 1,
+          "llm_calls": 4,
+          "latency_s": 6.96
+        },
+        {
+          "id": "refuse_cat_food",
+          "passed": true,
+          "error": null,
+          "checks": [
+            {
+              "name": "expect_no_match",
+              "ok": true,
+              "detail": "answer='目前没有找到直接卖猫粮的商品。以下是资料中与猫/狗喂食相关的商品，供你参考：\\n\\n1. **ALIENSX Protect'"
+            },
+            {
+              "name": "grounded_prices",
+              "ok": true,
+              "detail": "ungrounded=[]"
+            }
+          ],
+          "steps": 2,
+          "llm_calls": 5,
+          "latency_s": 10.18
+        },
+        {
+          "id": "refuse_baby_formula",
+          "passed": true,
+          "error": null,
+          "checks": [
+            {
+              "name": "expect_no_match",
+              "ok": true,
+              "detail": "answer='目前给出的商品资料里没有婴儿配方奶粉，无法推荐具体商品。\\n\\n以下是资料中与\"奶/喂养\"沾边、但**都不是配方奶粉**的商'"
+            },
+            {
+              "name": "grounded_prices",
+              "ok": true,
+              "detail": "ungrounded=[]"
+            }
+          ],
+          "steps": 2,
+          "llm_calls": 5,
+          "latency_s": 9.6
+        },
+        {
+          "id": "refuse_cat_litter",
+          "passed": true,
+          "error": null,
+          "checks": [
+            {
+              "name": "expect_no_match",
+              "ok": true,
+              "detail": "answer='目前给出的商品资料里没有猫砂类商品，无法推荐具体产品。\\n\\n不过有几点可以帮你核对：\\n\\n1. **Lanforest 射击'"
+            },
+            {
+              "name": "grounded_prices",
+              "ok": true,
+              "detail": "ungrounded=[]"
+            }
+          ],
+          "steps": 2,
+          "llm_calls": 5,
+          "latency_s": 9.12
+        },
+        {
+          "id": "multi_turn_second_price",
+          "passed": true,
+          "error": null,
+          "checks": [
+            {
+              "name": "must_mention_any",
+              "ok": true,
+              "detail": "hit=['39.98', '39.9']"
+            }
+          ],
+          "steps": 0,
+          "llm_calls": 2,
+          "latency_s": 1.46
+        },
+        {
+          "id": "multi_turn_cheaper",
+          "passed": true,
+          "error": null,
+          "checks": [
+            {
+              "name": "required_tools",
+              "ok": true,
+              "detail": "missing=[] called=['search_products']"
+            },
+            {
+              "name": "budget",
+              "ok": true,
+              "detail": "budget=30.0 over=[]"
+            },
+            {
+              "name": "grounded_prices",
+              "ok": true,
+              "detail": "ungrounded=[]"
+            }
+          ],
+          "steps": 1,
+          "llm_calls": 4,
+          "latency_s": 8.67
+        }
+      ]
+    },
+    "router=shop": {
+      "env": {
+        "SHOPAGENT_ROUTER": "shop",
+        "SHOPAGENT_GENERATE_GUARD": "1"
+      },
+      "summary": {
+        "task_pass_rate": 0.9047619047619048,
+        "by_check": {
+          "intent": 0.0,
+          "forbidden_tools": 1.0,
+          "grounded_prices": 1.0,
+          "max_answer_chars": 1.0,
+          "required_tools": 1.0,
+          "must_retrieve_title_regex": 1.0,
+          "budget": 1.0,
+          "must_retrieve_any": 1.0,
+          "must_mention_any": 1.0,
+          "expect_no_match": 1.0
+        },
+        "avg_steps": 1.0476190476190477,
+        "avg_llm_calls": 3.9047619047619047,
+        "latency_p50_s": 8.85,
+        "latency_p95_s": 11.41
+      },
+      "tasks": [
+        {
+          "id": "chitchat_hello",
+          "passed": false,
+          "error": null,
+          "checks": [
+            {
+              "name": "intent",
+              "ok": false,
+              "detail": "got=shop want=chitchat"
+            },
+            {
+              "name": "forbidden_tools",
+              "ok": true,
+              "detail": "called=[]"
+            },
+            {
+              "name": "grounded_prices",
+              "ok": true,
+              "detail": "ungrounded=[]"
+            },
+            {
+              "name": "max_answer_chars",
+              "ok": true,
+              "detail": "len=67"
+            }
+          ],
+          "steps": 0,
+          "llm_calls": 2,
+          "latency_s": 1.47
+        },
+        {
+          "id": "chitchat_who",
+          "passed": false,
+          "error": null,
+          "checks": [
+            {
+              "name": "intent",
+              "ok": false,
+              "detail": "got=shop want=chitchat"
+            },
+            {
+              "name": "forbidden_tools",
+              "ok": true,
+              "detail": "called=[]"
+            },
+            {
+              "name": "grounded_prices",
+              "ok": true,
+              "detail": "ungrounded=[]"
+            },
+            {
+              "name": "max_answer_chars",
+              "ok": true,
+              "detail": "len=96"
+            }
+          ],
+          "steps": 0,
+          "llm_calls": 2,
+          "latency_s": 1.94
+        },
+        {
+          "id": "search_yoga_mat",
+          "passed": true,
+          "error": null,
+          "checks": [
+            {
+              "name": "required_tools",
+              "ok": true,
+              "detail": "missing=[] called=['search_products']"
+            },
+            {
+              "name": "must_retrieve_title_regex",
+              "ok": true,
+              "detail": "hit=['Gaiam Premium Print Yoga Mat, Extra Thic', 'ONEGenug Yoga Mat Bag, Long Strap Yoga M']"
+            },
+            {
+              "name": "grounded_prices",
+              "ok": true,
+              "detail": "ungrounded=[]"
+            }
+          ],
+          "steps": 1,
+          "llm_calls": 4,
+          "latency_s": 8.81
+        },
+        {
+          "id": "search_tent",
+          "passed": true,
+          "error": null,
+          "checks": [
+            {
+              "name": "required_tools",
+              "ok": true,
+              "detail": "missing=[] called=['search_products']"
+            },
+            {
+              "name": "must_retrieve_title_regex",
+              "ok": true,
+              "detail": "hit=['MOUNTAINTOP Waterproof 2 Person Camping ', 'LevelOne Two Person Camping Tent with Ra']"
+            },
+            {
+              "name": "grounded_prices",
+              "ok": true,
+              "detail": "ungrounded=[]"
+            }
+          ],
+          "steps": 1,
+          "llm_calls": 4,
+          "latency_s": 9.55
+        },
+        {
+          "id": "search_dumbbell",
+          "passed": true,
+          "error": null,
+          "checks": [
+            {
+              "name": "required_tools",
+              "ok": true,
+              "detail": "missing=[] called=['search_products']"
+            },
+            {
+              "name": "must_retrieve_title_regex",
+              "ok": true,
+              "detail": "hit=['Dumbbell Set Adjustable Weights 20LB Pai', 'VORCOOL 2PCS Dumbbell Bars, Durable Dumb']"
+            },
+            {
+              "name": "grounded_prices",
+              "ok": true,
+              "detail": "ungrounded=[]"
+            }
+          ],
+          "steps": 1,
+          "llm_calls": 4,
+          "latency_s": 8.85
+        },
+        {
+          "id": "search_water_bottle",
+          "passed": true,
+          "error": null,
+          "checks": [
+            {
+              "name": "required_tools",
+              "ok": true,
+              "detail": "missing=[] called=['search_products']"
+            },
+            {
+              "name": "must_retrieve_title_regex",
+              "ok": true,
+              "detail": "hit=['Water Bottle with Handle 2.5L Large Spor', 'Half Gallon Water Bottle 2.2L Gym Water ']"
+            },
+            {
+              "name": "grounded_prices",
+              "ok": true,
+              "detail": "ungrounded=[]"
+            }
+          ],
+          "steps": 1,
+          "llm_calls": 4,
+          "latency_s": 7.92
+        },
+        {
+          "id": "search_fishing_rod",
+          "passed": true,
+          "error": null,
+          "checks": [
+            {
+              "name": "required_tools",
+              "ok": true,
+              "detail": "missing=[] called=['search_products']"
+            },
+            {
+              "name": "must_retrieve_title_regex",
+              "ok": true,
+              "detail": "hit=['Castaroud Telescopic Fishing Rod Kit, Ca', 'Abu Garcia Ike Dude Junior Starter Spinn']"
+            },
+            {
+              "name": "grounded_prices",
+              "ok": true,
+              "detail": "ungrounded=[]"
+            }
+          ],
+          "steps": 1,
+          "llm_calls": 4,
+          "latency_s": 11.41
+        },
+        {
+          "id": "search_bike_helmet",
+          "passed": true,
+          "error": null,
+          "checks": [
+            {
+              "name": "required_tools",
+              "ok": true,
+              "detail": "missing=[] called=['search_products']"
+            },
+            {
+              "name": "must_retrieve_title_regex",
+              "ok": true,
+              "detail": "hit=['VICTGOAL Bike Helmet for Adults Men Wome', 'VICTGOAL Bike Helmet for Adults Men Wome']"
+            },
+            {
+              "name": "grounded_prices",
+              "ok": true,
+              "detail": "ungrounded=[]"
+            }
+          ],
+          "steps": 1,
+          "llm_calls": 4,
+          "latency_s": 9.99
+        },
+        {
+          "id": "search_golf_ball",
+          "passed": true,
+          "error": null,
+          "checks": [
+            {
+              "name": "required_tools",
+              "ok": true,
+              "detail": "missing=[] called=['search_products']"
+            },
+            {
+              "name": "must_retrieve_title_regex",
+              "ok": true,
+              "detail": "hit=['Funny Golf Balls, 6-Pack Colored Golf Ba', 'Clean Green Golf Balls 48 Used Golf Ball']"
+            },
+            {
+              "name": "grounded_prices",
+              "ok": true,
+              "detail": "ungrounded=[]"
+            }
+          ],
+          "steps": 1,
+          "llm_calls": 4,
+          "latency_s": 8.92
+        },
+        {
+          "id": "search_resistance_band",
+          "passed": true,
+          "error": null,
+          "checks": [
+            {
+              "name": "required_tools",
+              "ok": true,
+              "detail": "missing=[] called=['search_products']"
+            },
+            {
+              "name": "must_retrieve_title_regex",
+              "ok": true,
+              "detail": "hit=['Resistance Loop Exercise Bands, Fitness ', 'joypur Resistance Bands Set, Fitness Ban']"
+            },
+            {
+              "name": "grounded_prices",
+              "ok": true,
+              "detail": "ungrounded=[]"
+            }
+          ],
+          "steps": 1,
+          "llm_calls": 4,
+          "latency_s": 9.16
+        },
+        {
+          "id": "budget_yoga_mat_30",
+          "passed": true,
+          "error": null,
+          "checks": [
+            {
+              "name": "required_tools",
+              "ok": true,
+              "detail": "missing=[] called=['search_products']"
+            },
+            {
+              "name": "must_retrieve_title_regex",
+              "ok": true,
+              "detail": "hit=['ONEGenug Yoga Mat Bag, Long Strap Yoga M', 'Yoga Mat, Premium 1/4 inch Imprint Non S']"
+            },
+            {
+              "name": "budget",
+              "ok": true,
+              "detail": "budget=30.0 over=[]"
+            },
+            {
+              "name": "grounded_prices",
+              "ok": true,
+              "detail": "ungrounded=[]"
+            }
+          ],
+          "steps": 1,
+          "llm_calls": 4,
+          "latency_s": 8.18
+        },
+        {
+          "id": "budget_tent_100",
+          "passed": true,
+          "error": null,
+          "checks": [
+            {
+              "name": "required_tools",
+              "ok": true,
+              "detail": "missing=[] called=['search_products']"
+            },
+            {
+              "name": "must_retrieve_title_regex",
+              "ok": true,
+              "detail": "hit=['Camping Tent 4 Person, Waterproof Windpr', 'Cflity Camping Tent, 3 Person Instant Po']"
+            },
+            {
+              "name": "budget",
+              "ok": true,
+              "detail": "budget=100.0 over=[]"
+            },
+            {
+              "name": "grounded_prices",
+              "ok": true,
+              "detail": "ungrounded=[]"
+            }
+          ],
+          "steps": 1,
+          "llm_calls": 4,
+          "latency_s": 9.74
+        },
+        {
+          "id": "budget_dumbbell_60",
+          "passed": true,
+          "error": null,
+          "checks": [
+            {
+              "name": "required_tools",
+              "ok": true,
+              "detail": "missing=[] called=['search_products']"
+            },
+            {
+              "name": "must_retrieve_title_regex",
+              "ok": true,
+              "detail": "hit=['Premium Round Rubber Dumbbells Single, H', 'Balelinko Rubber Grip Encased Dumbbell C']"
+            },
+            {
+              "name": "budget",
+              "ok": true,
+              "detail": "budget=60.0 over=[]"
+            },
+            {
+              "name": "grounded_prices",
+              "ok": true,
+              "detail": "ungrounded=[]"
+            }
+          ],
+          "steps": 1,
+          "llm_calls": 4,
+          "latency_s": 6.81
+        },
+        {
+          "id": "tool_compare_brand",
+          "passed": true,
+          "error": null,
+          "checks": [
+            {
+              "name": "required_tools",
+              "ok": true,
+              "detail": "missing=[] called=['search_products', 'search_products', 'compare_products']"
+            },
+            {
+              "name": "must_retrieve_any",
+              "ok": true,
+              "detail": "hit=['B0BXN8N6VB', 'B0C4MF7J6G']"
+            },
+            {
+              "name": "grounded_prices",
+              "ok": true,
+              "detail": "ungrounded=[]"
+            }
+          ],
+          "steps": 2,
+          "llm_calls": 5,
+          "latency_s": 14.95
+        },
+        {
+          "id": "tool_detail_asin",
+          "passed": true,
+          "error": null,
+          "checks": [
+            {
+              "name": "required_tools",
+              "ok": true,
+              "detail": "missing=[] called=['get_product_detail']"
+            },
+            {
+              "name": "must_retrieve_any",
+              "ok": true,
+              "detail": "hit=['B07FZB48BX']"
+            },
+            {
+              "name": "must_mention_any",
+              "ok": true,
+              "detail": "hit=['CamelBak']"
+            },
+            {
+              "name": "grounded_prices",
+              "ok": true,
+              "detail": "ungrounded=[]"
+            }
+          ],
+          "steps": 1,
+          "llm_calls": 4,
+          "latency_s": 6.95
+        },
+        {
+          "id": "tool_compare_two_asins",
+          "passed": true,
+          "error": null,
+          "checks": [
+            {
+              "name": "required_tools",
+              "ok": true,
+              "detail": "missing=[] called=['compare_products']"
+            },
+            {
+              "name": "must_retrieve_any",
+              "ok": true,
+              "detail": "hit=['B07RT7TCRD', 'B0BCG89J29']"
+            },
+            {
+              "name": "grounded_prices",
+              "ok": true,
+              "detail": "ungrounded=[]"
+            }
+          ],
+          "steps": 1,
+          "llm_calls": 4,
+          "latency_s": 7.19
+        },
+        {
+          "id": "refuse_cat_food",
+          "passed": true,
+          "error": null,
+          "checks": [
+            {
+              "name": "expect_no_match",
+              "ok": true,
+              "detail": "answer='目前没有找到明确卖猫粮的商品。以下是与“猫/狗喂食”沾边、但**不是猫粮**的商品，供你核对：\\n\\n1. **ALIENS'"
+            },
+            {
+              "name": "grounded_prices",
+              "ok": true,
+              "detail": "ungrounded=[]"
+            }
+          ],
+          "steps": 2,
+          "llm_calls": 5,
+          "latency_s": 11.28
+        },
+        {
+          "id": "refuse_baby_formula",
+          "passed": true,
+          "error": null,
+          "checks": [
+            {
+              "name": "expect_no_match",
+              "ok": true,
+              "detail": "answer='目前给出的商品资料里没有婴儿配方奶粉，无法推荐具体商品。\\n\\n**下一步建议：**\\n- 换关键词再搜：如「infant f'"
+            },
+            {
+              "name": "grounded_prices",
+              "ok": true,
+              "detail": "ungrounded=[]"
+            }
+          ],
+          "steps": 2,
+          "llm_calls": 5,
+          "latency_s": 9.67
+        },
+        {
+          "id": "refuse_cat_litter",
+          "passed": true,
+          "error": null,
+          "checks": [
+            {
+              "name": "expect_no_match",
+              "ok": true,
+              "detail": "answer='目前给出的商品资料里没有猫砂类商品，无法推荐具体产品。\\n\\n不过有几点可以帮你核对：\\n\\n1. **Lanforest 射击'"
+            },
+            {
+              "name": "grounded_prices",
+              "ok": true,
+              "detail": "ungrounded=[]"
+            }
+          ],
+          "steps": 2,
+          "llm_calls": 5,
+          "latency_s": 9.63
+        },
+        {
+          "id": "multi_turn_second_price",
+          "passed": true,
+          "error": null,
+          "checks": [
+            {
+              "name": "must_mention_any",
+              "ok": true,
+              "detail": "hit=['39.98', '39.9']"
+            }
+          ],
+          "steps": 0,
+          "llm_calls": 2,
+          "latency_s": 1.56
+        },
+        {
+          "id": "multi_turn_cheaper",
+          "passed": true,
+          "error": null,
+          "checks": [
+            {
+              "name": "required_tools",
+              "ok": true,
+              "detail": "missing=[] called=['search_products']"
+            },
+            {
+              "name": "budget",
+              "ok": true,
+              "detail": "budget=30.0 over=[]"
+            },
+            {
+              "name": "grounded_prices",
+              "ok": true,
+              "detail": "ungrounded=[]"
+            }
+          ],
+          "steps": 1,
+          "llm_calls": 4,
+          "latency_s": 7.62
+        }
+      ]
+    },
+    "guard=off": {
+      "env": {
+        "SHOPAGENT_ROUTER": "llm",
+        "SHOPAGENT_GENERATE_GUARD": "0"
+      },
+      "summary": {
+        "task_pass_rate": 0.9047619047619048,
+        "by_check": {
+          "intent": 1.0,
+          "forbidden_tools": 1.0,
+          "grounded_prices": 0.9,
+          "max_answer_chars": 1.0,
+          "required_tools": 1.0,
+          "must_retrieve_title_regex": 1.0,
+          "budget": 0.75,
+          "must_retrieve_any": 1.0,
+          "must_mention_any": 1.0,
+          "expect_no_match": 1.0
+        },
+        "avg_steps": 1.0476190476190477,
+        "avg_llm_calls": 4.904761904761905,
+        "latency_p50_s": 9.93,
+        "latency_p95_s": 12.33
+      },
+      "tasks": [
+        {
+          "id": "chitchat_hello",
+          "passed": true,
+          "error": null,
+          "checks": [
+            {
+              "name": "intent",
+              "ok": true,
+              "detail": "got=chitchat want=chitchat"
+            },
+            {
+              "name": "forbidden_tools",
+              "ok": true,
+              "detail": "called=[]"
+            },
+            {
+              "name": "grounded_prices",
+              "ok": true,
+              "detail": "ungrounded=[]"
+            },
+            {
+              "name": "max_answer_chars",
+              "ok": true,
+              "detail": "len=32"
+            }
+          ],
+          "steps": 0,
+          "llm_calls": 3,
+          "latency_s": 1.84
+        },
+        {
+          "id": "chitchat_who",
+          "passed": true,
+          "error": null,
+          "checks": [
+            {
+              "name": "intent",
+              "ok": true,
+              "detail": "got=chitchat want=chitchat"
+            },
+            {
+              "name": "forbidden_tools",
+              "ok": true,
+              "detail": "called=[]"
+            },
+            {
+              "name": "grounded_prices",
+              "ok": true,
+              "detail": "ungrounded=[]"
+            },
+            {
+              "name": "max_answer_chars",
+              "ok": true,
+              "detail": "len=43"
+            }
+          ],
+          "steps": 0,
+          "llm_calls": 3,
+          "latency_s": 2.26
+        },
+        {
+          "id": "search_yoga_mat",
+          "passed": true,
+          "error": null,
+          "checks": [
+            {
+              "name": "required_tools",
+              "ok": true,
+              "detail": "missing=[] called=['search_products']"
+            },
+            {
+              "name": "must_retrieve_title_regex",
+              "ok": true,
+              "detail": "hit=['Gaiam Premium Print Yoga Mat, Extra Thic', 'ONEGenug Yoga Mat Bag, Long Strap Yoga M']"
+            },
+            {
+              "name": "grounded_prices",
+              "ok": true,
+              "detail": "ungrounded=[]"
+            }
+          ],
+          "steps": 1,
+          "llm_calls": 5,
+          "latency_s": 11.35
+        },
+        {
+          "id": "search_tent",
+          "passed": true,
+          "error": null,
+          "checks": [
+            {
+              "name": "required_tools",
+              "ok": true,
+              "detail": "missing=[] called=['search_products']"
+            },
+            {
+              "name": "must_retrieve_title_regex",
+              "ok": true,
+              "detail": "hit=['MOUNTAINTOP Waterproof 2 Person Camping ', 'LevelOne Two Person Camping Tent with Ra']"
+            },
+            {
+              "name": "grounded_prices",
+              "ok": true,
+              "detail": "ungrounded=[]"
+            }
+          ],
+          "steps": 1,
+          "llm_calls": 5,
+          "latency_s": 9.48
+        },
+        {
+          "id": "search_dumbbell",
+          "passed": false,
+          "error": null,
+          "checks": [
+            {
+              "name": "required_tools",
+              "ok": true,
+              "detail": "missing=[] called=['search_products']"
+            },
+            {
+              "name": "must_retrieve_title_regex",
+              "ok": true,
+              "detail": "hit=['Dumbbell Set Adjustable Weights 20LB Pai', 'VORCOOL 2PCS Dumbbell Bars, Durable Dumb']"
+            },
+            {
+              "name": "grounded_prices",
+              "ok": false,
+              "detail": "ungrounded=[80.0]"
+            }
+          ],
+          "steps": 1,
+          "llm_calls": 5,
+          "latency_s": 11.06
+        },
+        {
+          "id": "search_water_bottle",
+          "passed": true,
+          "error": null,
+          "checks": [
+            {
+              "name": "required_tools",
+              "ok": true,
+              "detail": "missing=[] called=['search_products']"
+            },
+            {
+              "name": "must_retrieve_title_regex",
+              "ok": true,
+              "detail": "hit=['Water Bottle with Handle 2.5L Large Spor', 'Half Gallon Water Bottle 2.2L Gym Water ']"
+            },
+            {
+              "name": "grounded_prices",
+              "ok": true,
+              "detail": "ungrounded=[]"
+            }
+          ],
+          "steps": 1,
+          "llm_calls": 5,
+          "latency_s": 8.98
+        },
+        {
+          "id": "search_fishing_rod",
+          "passed": true,
+          "error": null,
+          "checks": [
+            {
+              "name": "required_tools",
+              "ok": true,
+              "detail": "missing=[] called=['search_products']"
+            },
+            {
+              "name": "must_retrieve_title_regex",
+              "ok": true,
+              "detail": "hit=['Sougayilang Casting Fishing Rods – Desig', 'Lanaak Kids Fishing Pole and Tackle Box ']"
+            },
+            {
+              "name": "grounded_prices",
+              "ok": true,
+              "detail": "ungrounded=[]"
+            }
+          ],
+          "steps": 1,
+          "llm_calls": 5,
+          "latency_s": 12.33
+        },
+        {
+          "id": "search_bike_helmet",
+          "passed": true,
+          "error": null,
+          "checks": [
+            {
+              "name": "required_tools",
+              "ok": true,
+              "detail": "missing=[] called=['search_products']"
+            },
+            {
+              "name": "must_retrieve_title_regex",
+              "ok": true,
+              "detail": "hit=['VICTGOAL Bike Helmet for Adults Men Wome', 'VICTGOAL Bike Helmet for Adults Men Wome']"
+            },
+            {
+              "name": "grounded_prices",
+              "ok": true,
+              "detail": "ungrounded=[]"
+            }
+          ],
+          "steps": 1,
+          "llm_calls": 5,
+          "latency_s": 9.98
+        },
+        {
+          "id": "search_golf_ball",
+          "passed": true,
+          "error": null,
+          "checks": [
+            {
+              "name": "required_tools",
+              "ok": true,
+              "detail": "missing=[] called=['search_products']"
+            },
+            {
+              "name": "must_retrieve_title_regex",
+              "ok": true,
+              "detail": "hit=['Funny Golf Balls, 6-Pack Colored Golf Ba', 'Clean Green Golf Balls 48 Used Golf Ball']"
+            },
+            {
+              "name": "grounded_prices",
+              "ok": true,
+              "detail": "ungrounded=[]"
+            }
+          ],
+          "steps": 1,
+          "llm_calls": 5,
+          "latency_s": 10.27
+        },
+        {
+          "id": "search_resistance_band",
+          "passed": true,
+          "error": null,
+          "checks": [
+            {
+              "name": "required_tools",
+              "ok": true,
+              "detail": "missing=[] called=['search_products']"
+            },
+            {
+              "name": "must_retrieve_title_regex",
+              "ok": true,
+              "detail": "hit=['Resistance Loop Exercise Bands, Fitness ', 'joypur Resistance Bands Set, Fitness Ban']"
+            },
+            {
+              "name": "grounded_prices",
+              "ok": true,
+              "detail": "ungrounded=[]"
+            }
+          ],
+          "steps": 1,
+          "llm_calls": 5,
+          "latency_s": 10.38
+        },
+        {
+          "id": "budget_yoga_mat_30",
+          "passed": true,
+          "error": null,
+          "checks": [
+            {
+              "name": "required_tools",
+              "ok": true,
+              "detail": "missing=[] called=['search_products']"
+            },
+            {
+              "name": "must_retrieve_title_regex",
+              "ok": true,
+              "detail": "hit=['ONEGenug Yoga Mat Bag, Long Strap Yoga M', 'Yoga Mat, Premium 1/4 inch Imprint Non S']"
+            },
+            {
+              "name": "budget",
+              "ok": true,
+              "detail": "budget=30.0 over=[]"
+            },
+            {
+              "name": "grounded_prices",
+              "ok": true,
+              "detail": "ungrounded=[]"
+            }
+          ],
+          "steps": 1,
+          "llm_calls": 5,
+          "latency_s": 9.93
+        },
+        {
+          "id": "budget_tent_100",
+          "passed": true,
+          "error": null,
+          "checks": [
+            {
+              "name": "required_tools",
+              "ok": true,
+              "detail": "missing=[] called=['search_products']"
+            },
+            {
+              "name": "must_retrieve_title_regex",
+              "ok": true,
+              "detail": "hit=['Camping Tent 4 Person, Waterproof Windpr', 'Cflity Camping Tent, 3 Person Instant Po']"
+            },
+            {
+              "name": "budget",
+              "ok": true,
+              "detail": "budget=100.0 over=[]"
+            },
+            {
+              "name": "grounded_prices",
+              "ok": true,
+              "detail": "ungrounded=[]"
+            }
+          ],
+          "steps": 1,
+          "llm_calls": 5,
+          "latency_s": 11.91
+        },
+        {
+          "id": "budget_dumbbell_60",
+          "passed": false,
+          "error": null,
+          "checks": [
+            {
+              "name": "required_tools",
+              "ok": true,
+              "detail": "missing=[] called=['search_products']"
+            },
+            {
+              "name": "must_retrieve_title_regex",
+              "ok": true,
+              "detail": "hit=['Premium Round Rubber Dumbbells Single, H', 'Balelinko Rubber Grip Encased Dumbbell C']"
+            },
+            {
+              "name": "budget",
+              "ok": false,
+              "detail": "budget=60.0 over=[87.76]"
+            },
+            {
+              "name": "grounded_prices",
+              "ok": false,
+              "detail": "ungrounded=[87.76]"
+            }
+          ],
+          "steps": 1,
+          "llm_calls": 5,
+          "latency_s": 9.06
+        },
+        {
+          "id": "tool_compare_brand",
+          "passed": true,
+          "error": null,
+          "checks": [
+            {
+              "name": "required_tools",
+              "ok": true,
+              "detail": "missing=[] called=['search_products', 'search_products', 'compare_products']"
+            },
+            {
+              "name": "must_retrieve_any",
+              "ok": true,
+              "detail": "hit=['B0BXN8N6VB', 'B0C4MF7J6G']"
+            },
+            {
+              "name": "grounded_prices",
+              "ok": true,
+              "detail": "ungrounded=[]"
+            }
+          ],
+          "steps": 2,
+          "llm_calls": 6,
+          "latency_s": 16.53
+        },
+        {
+          "id": "tool_detail_asin",
+          "passed": true,
+          "error": null,
+          "checks": [
+            {
+              "name": "required_tools",
+              "ok": true,
+              "detail": "missing=[] called=['get_product_detail']"
+            },
+            {
+              "name": "must_retrieve_any",
+              "ok": true,
+              "detail": "hit=['B07FZB48BX']"
+            },
+            {
+              "name": "must_mention_any",
+              "ok": true,
+              "detail": "hit=['CamelBak']"
+            },
+            {
+              "name": "grounded_prices",
+              "ok": true,
+              "detail": "ungrounded=[]"
+            }
+          ],
+          "steps": 1,
+          "llm_calls": 5,
+          "latency_s": 7.11
+        },
+        {
+          "id": "tool_compare_two_asins",
+          "passed": true,
+          "error": null,
+          "checks": [
+            {
+              "name": "required_tools",
+              "ok": true,
+              "detail": "missing=[] called=['compare_products']"
+            },
+            {
+              "name": "must_retrieve_any",
+              "ok": true,
+              "detail": "hit=['B07RT7TCRD', 'B0BCG89J29']"
+            },
+            {
+              "name": "grounded_prices",
+              "ok": true,
+              "detail": "ungrounded=[]"
+            }
+          ],
+          "steps": 1,
+          "llm_calls": 5,
+          "latency_s": 7.51
+        },
+        {
+          "id": "refuse_cat_food",
+          "passed": true,
+          "error": null,
+          "checks": [
+            {
+              "name": "expect_no_match",
+              "ok": true,
+              "detail": "answer='根据给出的商品资料，**没有专门卖猫粮的商品**。以下是资料中与“猫/宠物喂食”沾边、但并非猫粮本身的商品，供你核对：\\n'"
+            },
+            {
+              "name": "grounded_prices",
+              "ok": true,
+              "detail": "ungrounded=[]"
+            }
+          ],
+          "steps": 2,
+          "llm_calls": 6,
+          "latency_s": 11.74
+        },
+        {
+          "id": "refuse_baby_formula",
+          "passed": true,
+          "error": null,
+          "checks": [
+            {
+              "name": "expect_no_match",
+              "ok": true,
+              "detail": "answer='根据你提供的商品资料，我没有找到“婴儿配方奶粉”这个商品。资料里与“奶/婴儿”相关的只有以下几项，但都不是配方奶粉，供你'"
+            },
+            {
+              "name": "grounded_prices",
+              "ok": true,
+              "detail": "ungrounded=[]"
+            }
+          ],
+          "steps": 2,
+          "llm_calls": 6,
+          "latency_s": 10.32
+        },
+        {
+          "id": "refuse_cat_litter",
+          "passed": true,
+          "error": null,
+          "checks": [
+            {
+              "name": "expect_no_match",
+              "ok": true,
+              "detail": "answer='根据你提供的商品资料，我无法推荐一款猫砂，原因如下：\\n\\n1. **资料中没有猫砂类商品**：现有 8 个商品分别是射击沙'"
+            },
+            {
+              "name": "grounded_prices",
+              "ok": true,
+              "detail": "ungrounded=[]"
+            }
+          ],
+          "steps": 2,
+          "llm_calls": 6,
+          "latency_s": 9.27
+        },
+        {
+          "id": "multi_turn_second_price",
+          "passed": true,
+          "error": null,
+          "checks": [
+            {
+              "name": "must_mention_any",
+              "ok": true,
+              "detail": "hit=['39.98', '39.9']"
+            }
+          ],
+          "steps": 0,
+          "llm_calls": 3,
+          "latency_s": 2.1
+        },
+        {
+          "id": "multi_turn_cheaper",
+          "passed": true,
+          "error": null,
+          "checks": [
+            {
+              "name": "required_tools",
+              "ok": true,
+              "detail": "missing=[] called=['search_products']"
+            },
+            {
+              "name": "budget",
+              "ok": true,
+              "detail": "budget=30.0 over=[]"
+            },
+            {
+              "name": "grounded_prices",
+              "ok": true,
+              "detail": "ungrounded=[]"
+            }
+          ],
+          "steps": 1,
+          "llm_calls": 5,
+          "latency_s": 8.89
+        }
+      ]
+    }
+  }
+}

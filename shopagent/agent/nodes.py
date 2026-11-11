@@ -12,6 +12,8 @@
 from __future__ import annotations
 
 import json
+import os
+import re
 
 from .. import memory, rag
 from ..llm import (
@@ -84,23 +86,62 @@ CHITCHAT_PROMPT = """你是一名电商导购助手，名叫 ShopAgent。
 用中文简短回答，一两句话即可，并自然地把话题引回「你想找什么商品」。
 不要编造商品信息。"""
 
+# 消融用：只保留 1-3 条基础要求，去掉预算硬约束/未标价/历史隔离/价格引用等约束。
+# 通过 SHOPAGENT_GENERATE_GUARD=0 启用（见 README §4.7）。
+GENERATE_PROMPT_BASE = """你是一名电商导购助手。
+规则：
+1. 只依据给出的商品资料回答，不要编造商品、价格、成分。
+2. 资料不足就直说，并给出下一步建议（换关键词、放宽预算）。
+3. 用中文回答，分点，带上商品标题和价格，方便用户核对。"""
+
+
+def _generate_prompt() -> str:
+    guard = os.getenv("SHOPAGENT_GENERATE_GUARD", "1").strip().lower()
+    return GENERATE_PROMPT if guard not in {"0", "false", "off", "no"} else GENERATE_PROMPT_BASE
+
 
 # ---------------- router ----------------
+
+_CHITCHAT_RE = re.compile(
+    r"^(你好|您好|hi|hello|hey|你是谁|你叫什么|在吗|谢谢|再见|早上好|晚上好)", re.I
+)
+_COMPARE_RE = re.compile(r"对比|区别|哪个好|选哪个|比较|vs\.?", re.I)
+
+
+def _router_mode() -> str:
+    """SHOPAGENT_ROUTER=llm（默认）/ shop（全部走导购）/ keyword（规则路由）。"""
+    return os.getenv("SHOPAGENT_ROUTER", "llm").strip().lower()
+
+
+def _keyword_intent(query: str) -> str:
+    text = (query or "").strip()
+    if _COMPARE_RE.search(text):
+        return "compare"
+    if _CHITCHAT_RE.search(text):
+        return "chitchat"
+    return "shop"
 
 
 def router(state: dict) -> dict:
     query = state.get("query", "")
-    try:
-        obj = chat_json([{"role": "user", "content": ROUTER_PROMPT.format(query=query[:500])}])
-        intent = str(obj.get("intent", "shop")).strip().lower()
-    except GenerationCancelled:
-        raise
-    except Exception:
+    mode = _router_mode()
+
+    if mode == "shop":
         intent = "shop"
+    elif mode == "keyword":
+        intent = _keyword_intent(query)
+    else:
+        try:
+            obj = chat_json([{"role": "user", "content": ROUTER_PROMPT.format(query=query[:500])}])
+            intent = str(obj.get("intent", "shop")).strip().lower()
+        except GenerationCancelled:
+            raise
+        except Exception:
+            intent = "shop"
 
     if intent not in {"shop", "compare", "chitchat"}:
         intent = "shop"
-    return {"intent": intent, "trace": [f"router → {intent}"]}
+    return {"intent": intent, "trace": [f"router → {intent}（{mode}）"]}
 
 
 # ---------------- planner ----------------
@@ -276,7 +317,7 @@ def generate(state: dict) -> dict:
         query,
         docs,
         history,
-        system_prompt=GENERATE_PROMPT
+        system_prompt=_generate_prompt()
         + f"\n\n用户画像：{memory.profile_summary(state.get('profile') or {})}",
     )
     answer = _chat_or_stream(messages, max_tokens=800)
