@@ -1,0 +1,14 @@
+[Unit]
+Description=Qwen TCP proxy (docker bridge -> 127.0.0.1, fed by reverse SSH tunnel)
+After=network-online.target docker.service
+Wants=network-online.target
+
+[Service]
+Type=simple
+ExecStart=/usr/bin/python3 /opt/qwen-proxy.py
+Restart=always
+RestartSec=3
+User=root
+
+[Install]
+WantedBy=multi-user.target

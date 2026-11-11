@@ -1,0 +1,56 @@
+# 云服务器部署用。和本地 docker-compose.yml 的差别：
+#   1. api 直接用上传的镜像，不在服务器上构建（国内拉不到 Docker Hub 基础镜像）
+#   2. 模型走本地目录 /app/models（从 ModelScope 下载），容器里禁网兜底
+#   3. 数据只挂 products.jsonl，镜像里已有 scripts/ 和 sql/
+services:
+  db:
+    image: pgvector/pgvector:pg16
+    container_name: shopagent-db
+    restart: unless-stopped
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_DB: shopagent
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+      - ./sql/schema.sql:/docker-entrypoint-initdb.d/01-schema.sql:ro
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U postgres -d shopagent"]
+      interval: 5s
+      timeout: 3s
+      retries: 10
+
+  api:
+    image: agent-mvp-api:latest
+    container_name: shopagent-api
+    restart: unless-stopped
+    env_file:
+      - .env
+    environment:
+      PG_DSN: postgresql://postgres:postgres@db:5432/shopagent
+      SHOPAGENT_STORE: pg
+      SHOPAGENT_MODE: hybrid_rerank
+      # 精排候选数；改 .env 里的值后重启 api 即可，不用重建镜像
+      SHOPAGENT_RERANK_CANDIDATES: "${SHOPAGENT_RERANK_CANDIDATES:-20}"
+      # 用本地模型目录，避免服务器访问 HuggingFace
+      EMBED_MODEL: /app/models/bge-small-en-v1.5
+      RERANK_MODEL: /app/models/bge-reranker-base
+      # 本地 Qwen 经反向 SSH 隧道 + qwen-proxy 暴露到宿主机网桥
+      QWEN_BASE_URL: http://host.docker.internal:1234/v1
+      # 第一段健康检查：qwen-proxy 只回答隧道是否连通
+      QWEN_HEALTH_URL: http://host.docker.internal:1235/health
+      HF_HUB_OFFLINE: "1"
+      TRANSFORMERS_OFFLINE: "1"
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
+    ports:
+      - "8000:8000"
+    volumes:
+      - ./data:/app/data
+      - ./models:/app/models
+    depends_on:
+      db:
+        condition: service_healthy
+
+volumes:
+  pgdata:
