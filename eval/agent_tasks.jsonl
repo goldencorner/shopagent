@@ -1,0 +1,21 @@
+{"id": "chitchat_hello", "query": "你好", "checks": {"intent": "chitchat", "forbidden_tools": ["search_products", "get_product_detail", "compare_products", "find_similar"], "max_answer_chars": 150}}
+{"id": "chitchat_who", "query": "你是谁", "checks": {"intent": "chitchat", "forbidden_tools": ["search_products", "get_product_detail", "compare_products", "find_similar"], "max_answer_chars": 200}}
+{"id": "search_yoga_mat", "query": "推荐几款瑜伽垫", "checks": {"required_tools": ["search_products"], "must_retrieve_title_regex": "yoga mat"}}
+{"id": "search_tent", "query": "推荐一款适合两个人用的露营帐篷", "checks": {"required_tools": ["search_products"], "must_retrieve_title_regex": "\\btent\\b"}}
+{"id": "search_dumbbell", "query": "想买一对哑铃在家练力量", "checks": {"required_tools": ["search_products"], "must_retrieve_title_regex": "dumbbell"}}
+{"id": "search_water_bottle", "query": "有没有大容量的运动水杯", "checks": {"required_tools": ["search_products"], "must_retrieve_title_regex": "water bottle|flask|hydration"}}
+{"id": "search_fishing_rod", "query": "推荐一根适合新手的路亚鱼竿", "checks": {"required_tools": ["search_products"], "must_retrieve_title_regex": "fishing rod|fishing pole|spinning rod|fly rod"}}
+{"id": "search_bike_helmet", "query": "推荐一个骑自行车用的头盔", "checks": {"required_tools": ["search_products"], "must_retrieve_title_regex": "helmet"}}
+{"id": "search_golf_ball", "query": "推荐几款高尔夫球", "checks": {"required_tools": ["search_products"], "must_retrieve_title_regex": "golf ball"}}
+{"id": "search_resistance_band", "query": "健身用的弹力带有什么推荐", "checks": {"required_tools": ["search_products"], "must_retrieve_title_regex": "resistance band|resistance tube|exercise band"}}
+{"id": "budget_yoga_mat_30", "query": "推荐 $30 以内的瑜伽垫", "checks": {"required_tools": ["search_products"], "budget": 30, "must_retrieve_title_regex": "yoga mat"}}
+{"id": "budget_tent_100", "query": "露营帐篷，预算 $100 以内", "checks": {"required_tools": ["search_products"], "budget": 100, "must_retrieve_title_regex": "\\btent\\b"}}
+{"id": "budget_dumbbell_60", "query": "想买哑铃，预算 $60 以内", "checks": {"required_tools": ["search_products"], "budget": 60, "must_retrieve_title_regex": "dumbbell"}}
+{"id": "tool_compare_brand", "query": "对比一下 KingCamp 和 Kijaro 的露营椅，哪个更适合户外？", "checks": {"required_tools": ["compare_products"], "must_retrieve_any": ["B0BXN8N6VB", "B0C4MF7J6G"]}}
+{"id": "tool_detail_asin", "query": "B07FZB48BX 这款水壶有什么特点？", "checks": {"required_tools": ["get_product_detail"], "must_retrieve_any": ["B07FZB48BX"], "must_mention_any": ["CamelBak"]}}
+{"id": "tool_compare_two_asins", "query": "B07RT7TCRD 和 B0BCG89J29 这两款瑜伽垫有什么区别？", "checks": {"required_tools": ["compare_products"], "must_retrieve_any": ["B07RT7TCRD", "B0BCG89J29"]}}
+{"id": "refuse_cat_food", "query": "有没有卖猫粮的", "checks": {"expect_no_match": true}}
+{"id": "refuse_baby_formula", "query": "我想买婴儿配方奶粉", "checks": {"expect_no_match": true}}
+{"id": "refuse_cat_litter", "query": "推荐一款猫砂", "checks": {"expect_no_match": true}}
+{"id": "multi_turn_second_price", "query": "第二款多少钱？", "history": [{"role": "user", "content": "推荐几款瑜伽垫"}, {"role": "assistant", "content": "推荐这几款：1. Life Energy EkoSmart Non-Slip Exercise Yoga Mat — $19.99；2. Gaiam Yoga Mat - Premium 6mm Print Reversible — $39.98；3. LERYG Pilates Mat Round Oversize Yoga Mat — $59.99"}], "checks": {"must_mention_any": ["39.98", "39.9"], "grounded_prices": false}}
+{"id": "multi_turn_cheaper", "query": "有没有更便宜一点的？", "history": [{"role": "user", "content": "我想买瑜伽垫，预算 30 美元"}, {"role": "assistant", "content": "给你找到了 Life Energy、Gaiam 和 LERYG 三款瑜伽垫。"}], "checks": {"required_tools": ["search_products"], "budget": 30}}

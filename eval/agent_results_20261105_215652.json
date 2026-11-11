@@ -1,0 +1,596 @@
+{
+  "summary": {
+    "n_tasks": 21,
+    "task_pass_rate": 1.0,
+    "by_check": {
+      "intent": 1.0,
+      "forbidden_tools": 1.0,
+      "grounded_prices": 1.0,
+      "max_answer_chars": 1.0,
+      "required_tools": 1.0,
+      "must_retrieve_title_regex": 1.0,
+      "budget": 1.0,
+      "must_retrieve_any": 1.0,
+      "must_mention_any": 1.0,
+      "expect_no_match": 1.0
+    },
+    "avg_steps": 1.1428571428571428,
+    "avg_llm_calls": 5,
+    "latency_p50_s": 12.94,
+    "latency_p95_s": 23.07
+  },
+  "tasks": [
+    {
+      "id": "chitchat_hello",
+      "query": "你好",
+      "passed": true,
+      "error": null,
+      "checks": [
+        {
+          "name": "intent",
+          "ok": true,
+          "detail": "got=chitchat want=chitchat"
+        },
+        {
+          "name": "forbidden_tools",
+          "ok": true,
+          "detail": "called=[]"
+        },
+        {
+          "name": "grounded_prices",
+          "ok": true,
+          "detail": "ungrounded=[]"
+        },
+        {
+          "name": "max_answer_chars",
+          "ok": true,
+          "detail": "len=28"
+        }
+      ],
+      "steps": 0,
+      "llm_calls": 3,
+      "latency_s": 2.65,
+      "answer": "你好！我是你的电商导购助手，想找什么商品可以直接告诉我。"
+    },
+    {
+      "id": "chitchat_who",
+      "query": "你是谁",
+      "passed": true,
+      "error": null,
+      "checks": [
+        {
+          "name": "intent",
+          "ok": true,
+          "detail": "got=chitchat want=chitchat"
+        },
+        {
+          "name": "forbidden_tools",
+          "ok": true,
+          "detail": "called=[]"
+        },
+        {
+          "name": "grounded_prices",
+          "ok": true,
+          "detail": "ungrounded=[]"
+        },
+        {
+          "name": "max_answer_chars",
+          "ok": true,
+          "detail": "len=43"
+        }
+      ],
+      "steps": 0,
+      "llm_calls": 3,
+      "latency_s": 2.17,
+      "answer": "我是 ShopAgent，你的电商导购助手，可以帮你挑选和比较商品。你想找什么商品呢？"
+    },
+    {
+      "id": "search_yoga_mat",
+      "query": "推荐几款瑜伽垫",
+      "passed": true,
+      "error": null,
+      "checks": [
+        {
+          "name": "required_tools",
+          "ok": true,
+          "detail": "missing=[] called=['search_products']"
+        },
+        {
+          "name": "must_retrieve_title_regex",
+          "ok": true,
+          "detail": "hit=['Gaiam Yoga Mat - Premium 6mm Print Rever', 'Travel Yoga Mat - Foldable 1/16 Inch Thi']"
+        },
+        {
+          "name": "grounded_prices",
+          "ok": true,
+          "detail": "ungrounded=[]"
+        }
+      ],
+      "steps": 1,
+      "llm_calls": 5,
+      "latency_s": 37.59,
+      "answer": "你还没有提供预算和品牌偏好，所以下面按资料里全部有货的瑜伽垫来推荐，价格从低到高排列，方便你核对。\n\n**已知价格（在你未设预算的情况下全部列出）：**\n\n1. **GYMENIST Thick Exercise Yoga Floor Mat Nbr 24 X 71 Inches** — **$27.96**\n   - NBR 材质，厚款，适合瑜伽、普拉提、体操，也可用于露营或放松。\n\n2. **Travel Yoga Mat - Foldable 1/16 Inch Thin Hot Yoga Mat** — **$29.99**\n   - 可折叠的薄款（1/16 英寸），吸汗防滑，适合热瑜伽，附收纳袋，便携性好。\n\n3. **Gaiam Yoga Mat - Premium 6mm Print Reversible Extra Thick Non Slip** — **$39.98**\n   - 6mm 加厚、双面可用、防滑，尺寸 68\" x 24\"，适合各类瑜伽、普拉提和地面训练。\n\n**未标价（需自行确认）：**\n\n4. **ANDLLA Women's Yoga Mat TPE Eco-friendly Reversible 1/4-inch Thick** — **未标价，需自行确认**\n   - TPE 环保材质，1/4 英寸厚，24\" x 72\"，附背带。\n\n5. **Yoga Direct Deluxe Extra Thick Yoga Sticky Mat** — **未标价，需自行确认**\n   - 加厚防滑款，具体厚度和尺寸资料里没写全。\n\n**下一步建议：**\n- 如果你告诉我**预算上限**和**用途**（比如热瑜伽要薄款吸汗、居家要厚款护膝、出差要可折叠），我可以帮你缩小到 1–2 款。\n- 也可以换个关键词再搜，比如\"TPE 瑜伽垫\"\"加厚瑜伽垫\"\"便携瑜伽垫\"。"
+    },
+    {
+      "id": "search_tent",
+      "query": "推荐一款适合两个人用的露营帐篷",
+      "passed": true,
+      "error": null,
+      "checks": [
+        {
+          "name": "required_tools",
+          "ok": true,
+          "detail": "missing=[] called=['search_products']"
+        },
+        {
+          "name": "must_retrieve_title_regex",
+          "ok": true,
+          "detail": "hit=['Forceatt Tent for 2 and 3 Person is Wate', 'CAMEL CROWN 2/3/4 Person Camping Tent wi']"
+        },
+        {
+          "name": "grounded_prices",
+          "ok": true,
+          "detail": "ungrounded=[]"
+        }
+      ],
+      "steps": 1,
+      "llm_calls": 5,
+      "latency_s": 13.74,
+      "answer": "已按你的需求（两人用露营帐篷）筛选，你画像里没有给出预算上限，所以本轮未按价格剔除商品。以下按价格从低到高列出：\n\n**有标价、适合两人**\n1. **CAMEL CROWN 2/3/4 Person Camping Tent with Removable Rain Fly** — $31.99\n   - 可选 2/3/4 人规格，可拆卸雨罩，双层结构防风防雨，玻璃纤维杆，轻便易搭，适合家庭露营/徒步。\n2. **Forceatt Tent for 2 and 3 Person is Waterproof and Windproof** — $74.99\n   - 明确标注 2 人款（双 D 形门），防风防雨，四季可用，铝杆轻量，适合背包徒步、可快速搭建。\n\n**未标价、需自行确认**\n3. **Extremus Instant Pop-Up Camping Tent（2/4/6 人）** — 未标价，需自行确认\n   - 弹开式快搭，防泼水，190T 涤纶面料+玻璃纤维杆，含地钉。\n4. **FieldCandy Get a Room Tent** — 未标价，需自行确认\n   - 2–3 人 A 字脊帐，四季可用，100% 防水，约 5 分钟搭建。\n\n补充说明：**AMPEX Backpacking Tent（$199.99）** 为单人超轻款，不符合两人使用，已排除。\n\n下一步建议：\n- 如果想要更明确的价格区间，可以告诉我你的预算上限，我再帮你筛一遍；\n- 想更轻便/更易搭建，可以补充关键词如\"instant\"\"ultralight\"\"2 person\"，我按这些条件再找。"
+    },
+    {
+      "id": "search_dumbbell",
+      "query": "想买一对哑铃在家练力量",
+      "passed": true,
+      "error": null,
+      "checks": [
+        {
+          "name": "required_tools",
+          "ok": true,
+          "detail": "missing=[] called=['search_products']"
+        },
+        {
+          "name": "must_retrieve_title_regex",
+          "ok": true,
+          "detail": "hit=['RitFit Set of 2 Neoprene Coated Dumbbell', 'Barbell Set of 2 Coated Hex Rubber Dumbb']"
+        },
+        {
+          "name": "grounded_prices",
+          "ok": true,
+          "detail": "ungrounded=[]"
+        }
+      ],
+      "steps": 1,
+      "llm_calls": 5,
+      "latency_s": 14.32,
+      "answer": "目前还没有你的偏好信息（预算、品牌、重量需求），所以先按资料里全部哑铃类商品给你列出来，供你核对挑选：\n\n**有明确标价的：**\n1. **RitFit Set of 2 Neoprene Coated Dumbbells with Non-Slip Grip, 2 lb-20 lb Color Coded Hex Shaped Hand Weights Pair for Home Gym Strength Training Workout** — $49.99\n   - 一对装，铸铁+氯丁橡胶涂层，六角形防滚，2–20 lb 多重量可选，适合家庭力量训练。\n\n2. **Bpulse 27.5lb/33lb/50lb Adjustable Dumbbell Dial Adjustable Dumbbell with Handle and Weight Plate Fast Adjust Weight by Turning Handle, Great for Full Body Workout** — $145.99\n   - 可调节哑铃，转动手柄快速换重，省空间，适合全身训练。\n\n**未标价的（需自行确认价格）：**\n3. **Barbell Set of 2 Coated Hex Rubber Dumbbell with Metal Handles, Heavy Dumbbells Home Gym Fitness Arm Strength Training Equipment, Multi-Weight Optional - 5lbs,10lbs, 20lbs, 30lbs, 50lbs** — 未标价，需自行确认\n   - 一对装，六角橡胶包覆+金属手柄，5–50 lb 多重量可选。\n\n4. **Hex Rubber Dumbbell with Metal Handles, Heavy Dumbbells for Muscle Toning, Strength Building, Weight Loss, Suitable for Home, hotel and Training Studio (Available in 5, 10, 20, 30, 50 lbs) (10lbs)** — 未标价，需自行确认\n   - 六角橡胶哑铃，金属手柄，可选 5–50 lb。\n\n**下一步建议：**\n- 告诉我你的**预算上限**和想要的**重量范围**（比如 10 lb 一对、可调节式），我可以帮你缩小到 1–2 款。\n- 如果偏好可调节省空间，可重点看第 2 款；如果预算有限、重量需求固定，可先确认第 3、4 款的实际售价再比较。"
+    },
+    {
+      "id": "search_water_bottle",
+      "query": "有没有大容量的运动水杯",
+      "passed": true,
+      "error": null,
+      "checks": [
+        {
+          "name": "required_tools",
+          "ok": true,
+          "detail": "missing=[] called=['search_products']"
+        },
+        {
+          "name": "must_retrieve_title_regex",
+          "ok": true,
+          "detail": "hit=['Difcuy Portable?Stainless Steel Single W', '85 oz 2.4 L Sport Water Bottles For Spor']"
+        },
+        {
+          "name": "grounded_prices",
+          "ok": true,
+          "detail": "ungrounded=[]"
+        }
+      ],
+      "steps": 1,
+      "llm_calls": 5,
+      "latency_s": 14.26,
+      "answer": "已按你的偏好（大容量运动水杯）筛选，本轮没有提到预算，所以未按价格剔除。以下是大容量款：\n\n**有明确标价的：**\n1. **SLUXKE Gallon Big Water Bottle with Handle, 128oz** — $16.96（约3.8L，容量最大，带时间刻度、宽口、防漏）\n2. **Difcuy Portable Stainless Steel Single Wall Large Capacity Water Bottle - 1000ml** — $10.89（1000ml，不锈钢单层，便携耐用）\n3. **Sports Water Bottle, BPA Free Frosted Tritan Plastic, 36oz** — $13.99（36oz，约1L，翻盖防漏）\n\n**未标价，需自行确认：**\n4. **85 oz 2.4 L Sport Water Bottles（XANADU）** — 未标价，需自行确认（2.4L，折叠提手）\n5. **32oz Motivational Water Bottle with Time Marker & Removable Strainer** — 未标价，需自行确认（32oz，带滤网）\n\n说明：其余几款容量偏小（21oz、32oz 等），不算大容量，未列入。\n\n如果你想要最大的，可以看第 1 款 128oz；想控制价格又要有 1L 左右，第 2、3 款都可以。需要我按材质（不锈钢/塑料）或是否带刻度再帮你缩小范围吗？"
+    },
+    {
+      "id": "search_fishing_rod",
+      "query": "推荐一根适合新手的路亚鱼竿",
+      "passed": true,
+      "error": null,
+      "checks": [
+        {
+          "name": "required_tools",
+          "ok": true,
+          "detail": "missing=[] called=['search_products', 'search_products']"
+        },
+        {
+          "name": "must_retrieve_title_regex",
+          "ok": true,
+          "detail": "hit=['St. Croix Fishing Rod', 'Fishing Rod Repair Kit Complete,All-in-o']"
+        },
+        {
+          "name": "grounded_prices",
+          "ok": true,
+          "detail": "ungrounded=[]"
+        }
+      ],
+      "steps": 2,
+      "llm_calls": 6,
+      "latency_s": 21.41,
+      "answer": "目前没有你的预算和品牌偏好信息，所以未做价格或品牌筛选。以下是资料中与\"路亚/纺车竿\"相关、且描述里提到适合新手的选项：\n\n**已知价格（在售标价）**\n1. **Omen Black 2 MH Spinning Rod, 7'1\"** — $103.08\n   - 13 FISHING 品牌，日本东丽30吨碳布、Alps 导环、软木手柄，属偏进阶配置；资料未特别标注\"适合新手\"。\n\n**未标价（需自行确认价格）**\n2. **Shakespeare Micro Spinning Rod** — 未标价，需自行确认\n   - 石墨复合竿身，描述强调\"轻、超轻\"，Micro 系列通常定位入门，但资料未明确写\"适合新手\"。\n3. **SHIMANO 0068-2720 Sms70Mb Scimitar Spinning** — 未标价，需自行确认\n   - 7英尺 Medium 纺车竿，Shimano 品牌，资料未提新手适用性。\n4. **St. Croix Fishing Rod** — 未标价，需自行确认\n   - SCII 石墨结构，定位\"高性能但不高价\"，资料未提新手适用性。\n5. **Yumoshi Spinning Fishing Reel 500 Series** — 未标价，需自行确认\n   - 注意：这是**渔轮**，不是鱼竿，仅作搭配参考。\n\n**说明与建议**\n- 资料里没有明确标注\"新手专用\"的路亚竿，以上是按\"纺车竿/轻量\"特征筛出的候选。\n- 若想缩小范围，建议告诉我：**预算上限**、**目标鱼种/水域（淡水或海水）**、**竿长偏好**，我可以据此再筛。\n- 如果愿意适当提高预算，Omen Black 2 是资料中唯一有明确标价且配置较完整的纺车竿；预算较低的话，可先确认 Shakespeare Micro 和 Shimano Scimitar 的实际售价再比较。"
+    },
+    {
+      "id": "search_bike_helmet",
+      "query": "推荐一个骑自行车用的头盔",
+      "passed": true,
+      "error": null,
+      "checks": [
+        {
+          "name": "required_tools",
+          "ok": true,
+          "detail": "missing=[] called=['search_products']"
+        },
+        {
+          "name": "must_retrieve_title_regex",
+          "ok": true,
+          "detail": "hit=['Bike Helmet, Basecamp Bicycle Helmet wit', 'Kali Protectives Maya 3.0 Cycling Helmet']"
+        },
+        {
+          "name": "grounded_prices",
+          "ok": true,
+          "detail": "ungrounded=[]"
+        }
+      ],
+      "steps": 1,
+      "llm_calls": 5,
+      "latency_s": 12.94,
+      "answer": "目前还没有你的偏好信息（预算、品牌等），所以先按资料里全部自行车头盔给你列出，供你核对挑选：\n\n**有明确标价的：**\n1. **Bike Helmet, Basecamp Bicycle Helmet with Rear Light & Detachable Magnetic Goggles & Portable Backpack Lightweight Cycling Helmet Adjustable for Adult Men Women Mountain & Road (BC-069)** — $36.97\n   - 带后灯、可拆卸磁吸护目镜，轻量可调节，适合山地/公路，男女通用。\n2. **GoRide Bike Helmet - Rechargeable Front,Back LED Helmet Light - CPSC Certified Bicycle Helmet - Bike Helmets for Adults with Adjustable Strap** — $51.99\n   - 前后可充电 LED 灯，CPSC 认证，可调节束带，夜间骑行更醒目。\n3. **Kali Protectives Maya 3.0 Cycling Helmet for Adults; in-Mould Mountain Bike Helmets for Men and Women Equipped with LDL, Flexible Visor, Bug Liner, and Frequency Fit System** — $129.99\n   - 一体成型山地头盔，13 个通风孔，带柔性帽檐、防虫内衬和调节系统。\n\n**未标价的（需自行确认价格）：**\n4. **KINGBIKE Bike Helmet Bicycle Helmets Cycling for Adults Men Women Youth Detachable Magnetic Visor Shield Goggles UV4000 Protection LED Rear Light MTB Road Commute Street Specialized** — 未标价，需自行确认\n   - 磁吸可拆卸 UV400 护目镜、后 LED 灯，适合通勤/山地/公路。\n5. **Pro-Tec Junior Classic Certified Skate Helmet** — 未标价，需自行确认\n   - 青少年小号（头围 54–56cm），滑板/自行车两用认证头盔。\n\n**下一步建议：**\n- 告诉我你的**预算上限**和**主要用途**（通勤 / 山地 / 公路 / 夜骑），我可以帮你缩小范围；\n- 如果在意夜间安全，可优先看带前后灯的第 1、2 款；\n- 若想要更专业的山地防护，可看第 3 款；\n- 未标价的两款建议先到商品页确认价格和尺码再决定。"
+    },
+    {
+      "id": "search_golf_ball",
+      "query": "推荐几款高尔夫球",
+      "passed": true,
+      "error": null,
+      "checks": [
+        {
+          "name": "required_tools",
+          "ok": true,
+          "detail": "missing=[] called=['search_products']"
+        },
+        {
+          "name": "must_retrieve_title_regex",
+          "ok": true,
+          "detail": "hit=['Nike Mojo Double Dozen White Golf Balls', 'Callaway ERC Personalized Golf Balls - L']"
+        },
+        {
+          "name": "grounded_prices",
+          "ok": true,
+          "detail": "ungrounded=[]"
+        }
+      ],
+      "steps": 1,
+      "llm_calls": 5,
+      "latency_s": 14.72,
+      "answer": "目前还没有你的偏好信息（预算、品牌等），所以先按资料里所有高尔夫球类商品给你列出，供你核对挑选：\n\n**有明确标价的：**\n1. **BULLET .444 Distance Matte Colored Golf Balls [12-Ball]** — $12.00（12 颗装，哑光彩色，主打距离、手感、控制与耐用）\n2. **Callaway ERC Personalized Golf Balls - Logo Golf Balls - Custom Golf Balls** — $49.99（12 颗装，可定制/印 logo，主打更远距离和柔软手感）\n3. **Taylor Made TP5 Golf Balls** — $59.95（多色图案更易看清，带旋转反馈，适合关注果岭表现的球友）\n\n**未标价，需自行确认：**\n4. **Nike Mojo Double Dozen White Golf Balls** — 未标价，需自行确认（两打装，两层多层结构，适合各水平球友，带瞄准线）\n5. **TaylorMade TP5 Pix Golf Balls (One Dozen)** — 未标价，需自行确认（一打装，多色图案易看清、带旋转反馈）\n6. **Bridgestone e6 2015 Balls (Pack of 15)** — 未标价，需自行确认（15 颗装，无缝凹坑设计、柔软手感，附赠试用装）\n\n另外资料里还有高尔夫打击垫、高尔夫伞等配件，不属于球类，这里没有列入。\n\n下一步建议：\n- 如果你有**预算上限**或**品牌偏好**（如 TaylorMade、Callaway、Bridgestone），告诉我，我可以帮你缩小范围；\n- 想更便宜可以看 BULLET 这款，想可定制/印字可以看 Callaway ERC；\n- 未标价的几款建议点进商品页确认实际售价后再决定。"
+    },
+    {
+      "id": "search_resistance_band",
+      "query": "健身用的弹力带有什么推荐",
+      "passed": true,
+      "error": null,
+      "checks": [
+        {
+          "name": "required_tools",
+          "ok": true,
+          "detail": "missing=[] called=['search_products']"
+        },
+        {
+          "name": "must_retrieve_title_regex",
+          "ok": true,
+          "detail": "hit=['Fitness Resistance Bands - Heavy Duty Re', 'Bodylastics Stackable Resistance Bands -']"
+        },
+        {
+          "name": "grounded_prices",
+          "ok": true,
+          "detail": "ungrounded=[]"
+        }
+      ],
+      "steps": 1,
+      "llm_calls": 5,
+      "latency_s": 11.32,
+      "answer": "目前还没有你的偏好信息（预算、品牌等），所以这次没有做筛选，把资料里的弹力带都列给你参考：\n\n**有标价的商品**\n- **Bodylastics Stackable Resistance Bands - 2-Band Resistance Band Pack**（bodylastics）：**$20.95**。可叠加式设计，含专利防断裂技术，马来西亚乳胶材质、镀镍铁扣，标注 106lb 阻力，适合力量训练。\n\n**未标价的商品（需自行确认价格）**\n- **Fitness Resistance Bands - Heavy Duty Resistance Band Handles Resistance Bands Workout Set**（Vrcoco）：含门锚、脚踝绑带和收纳包，适合家用/健身房/办公室。未标价，需自行确认。\n- **Yes4all Pull Up Assistance Band – Red**（Yes4all）：主要用于引体向上辅助、力量训练、拉伸、普拉提等。未标价，需自行确认。\n- **5Pack Resistance Loops Bands**：5 条不同阻力等级的环形带，附收纳包，适合瑜伽、力量训练等，新手到进阶都能用。未标价，需自行确认。\n- **Yoofit Resistance Loop Bands Set of 4**（Yoofit）：4 条环形带，12\"x2\"，阻力从轻到超重，适合手臂腿部训练、物理治疗和 CrossFit。未标价，需自行确认。\n\n**下一步建议**\n- 如果你有预算上限或想要的类型（比如带把手的管状带、环形带、引体辅助带），告诉我，我可以帮你缩小范围。\n- 未标价的几款建议点进商品页确认实际售价后再决定。\n\n需要我按用途（力量训练 / 康复拉伸 / 引体辅助）再帮你分一下吗？"
+    },
+    {
+      "id": "budget_yoga_mat_30",
+      "query": "推荐 $30 以内的瑜伽垫",
+      "passed": true,
+      "error": null,
+      "checks": [
+        {
+          "name": "required_tools",
+          "ok": true,
+          "detail": "missing=[] called=['search_products']"
+        },
+        {
+          "name": "must_retrieve_title_regex",
+          "ok": true,
+          "detail": "hit=['Travel Yoga Mat - Foldable 1/16 Inch Thi', 'GOGO Yoga Mat Strap, Adjustable Carrying']"
+        },
+        {
+          "name": "budget",
+          "ok": true,
+          "detail": "budget=30.0 over=[]"
+        },
+        {
+          "name": "grounded_prices",
+          "ok": true,
+          "detail": "ungrounded=[]"
+        }
+      ],
+      "steps": 1,
+      "llm_calls": 5,
+      "latency_s": 11.1,
+      "answer": "已按您 $30 以内的预算筛选，以下都是预算内的瑜伽垫（不含垫包、背带等配件）：\n\n**瑜伽垫本体**\n1. **Travel Yoga Mat - Foldable 1/16 Inch Thin Hot Yoga Mat Non Slip Sweat Absorbent Fitness & Exercise Mat for Yoga, Pilates, Floor Exercises, Coming with Carrying Bag** — $29.99\n   - 可折叠超薄款（1/16 英寸），防滑吸汗，附收纳袋，适合旅行/热瑜伽。\n\n2. **GYMENIST Thick Exercise Yoga Floor Mat Nbr 24 X 71 Inches, Great for Camping Cardio Workout Pilates Gymnastics** — $27.96\n   - 加厚 NBR 材质，24 x 71 英寸，适合瑜伽、普拉提、体操及露营放松。\n\n3. **Life Energy EkoSmart Non-Slip Exercise Yoga Mat with Carrying Strap, 4 mm Thick** — $19.99\n   - 4mm 厚 TPE 材质，防滑，附背带，适合初学者到进阶。\n\n**相关配件（非瑜伽垫，供参考）**\n4. **GOGO Yoga Mat Strap, Adjustable Carrying Sling, Mat Carrier Harness (Just Strap, Not Mat)** — $4.99（仅背带，不含垫）\n5. **FIT SPIRIT 7 Chakra Exercise Yoga Mat Bag w/Cargo Pocket - Choose Your Color (MAT is NOT Included)** — $9.99（仅垫包，不含垫）\n\n小提示：如果您想要更厚、更软的支撑，可优先看第 2 款；想要便携可折叠，选第 1 款；追求性价比选第 3 款。需要我按厚度或材质再帮您缩小范围吗？"
+    },
+    {
+      "id": "budget_tent_100",
+      "query": "露营帐篷，预算 $100 以内",
+      "passed": true,
+      "error": null,
+      "checks": [
+        {
+          "name": "required_tools",
+          "ok": true,
+          "detail": "missing=[] called=['search_products']"
+        },
+        {
+          "name": "must_retrieve_title_regex",
+          "ok": true,
+          "detail": "hit=['CAMEL CROWN 2/3/4 Person Camping Tent wi', 'Forceatt Tent for 2 and 3 Person is Wate']"
+        },
+        {
+          "name": "budget",
+          "ok": true,
+          "detail": "budget=100.0 over=[]"
+        },
+        {
+          "name": "grounded_prices",
+          "ok": true,
+          "detail": "ungrounded=[]"
+        }
+      ],
+      "steps": 1,
+      "llm_calls": 5,
+      "latency_s": 11.8,
+      "answer": "已按预算上限 $100 筛选，以下商品均在预算内（按价格从低到高）：\n\n1. **CAMEL CROWN 2/3/4 Person Camping Tent with Removable Rain Fly** — $31.99\n   - 双层结构，防风防雨，可拆卸雨罩，适合家庭露营、背包徒步。\n\n2. **TRIWONDER Hammock Rain Fly Waterproof Tarp Camping Tent Footprint Ground Cloth** — $28.99\n   - 注意：这是帐篷地布/防雨天幕，不是独立帐篷，可作为帐篷底部的防潮层或遮阳棚使用。\n\n3. **Miztli Camping Hammock with Net and Rain Fly** — $62.99\n   - 带蚊帐和雨罩的露营吊床，含 20 英尺绑带，适合徒步、庭院休闲；属于吊床类，不是落地帐篷。\n\n4. **Amazon Basics Outdoor Camping Tent** — $64.20\n   - 4 人圆顶帐篷，三季适用，防水涂层聚酯面料，可站立式，适合露营、徒步、背包。\n\n5. **Forceatt Tent for 2 and 3 Person** — $74.99\n   - 2-3 人，防水防风，三到四季适用，铝杆轻量，搭建快速，适合徒步。\n\n补充说明：\n- 如果你要的是**传统落地帐篷**，优先看第 1、4、5 款；第 2 款是地布/天幕，第 3 款是吊床。\n- 需要我按人数（2 人 / 4 人）或重量再缩小范围吗？也可以告诉我用途（家庭自驾 / 背包徒步），我帮你进一步筛选。"
+    },
+    {
+      "id": "budget_dumbbell_60",
+      "query": "想买哑铃，预算 $60 以内",
+      "passed": true,
+      "error": null,
+      "checks": [
+        {
+          "name": "required_tools",
+          "ok": true,
+          "detail": "missing=[] called=['search_products']"
+        },
+        {
+          "name": "must_retrieve_title_regex",
+          "ok": true,
+          "detail": "hit=['BalanceFrom Rubber Encased Hex Dumbbell ', 'RitFit Set of 2 Neoprene Coated Dumbbell']"
+        },
+        {
+          "name": "budget",
+          "ok": true,
+          "detail": "budget=60.0 over=[]"
+        },
+        {
+          "name": "grounded_prices",
+          "ok": true,
+          "detail": "ungrounded=[]"
+        }
+      ],
+      "steps": 1,
+      "llm_calls": 5,
+      "latency_s": 10.76,
+      "answer": "已按你的预算上限 $60 筛选，以下哑铃类商品都在预算内：\n\n1. **BalanceFrom Rubber Encased Hex Dumbbell in Pairs, Singles or Set with Rack** — $52.71\n   - 六角包胶哑铃，可用于全身训练或针对特定肌群。\n\n2. **RitFit Set of 2 Neoprene Coated Dumbbells with Non-Slip Grip, 2 lb-20 lb Color Coded Hex Shaped Hand Weights Pair for Home Gym Strength Training Workout** — $49.99\n   - 一对装，氯丁橡胶涂层、防滑握把，颜色区分重量，适合居家力量训练。\n\n3. **JFIT Threaded Dumbbell Handles, Set of 2, with Star Collars, Fits 1” Standard Plates** — $19.74\n   - 这是可调节哑铃**手柄**（含星形锁扣），适配 1 英寸标准杠铃片，需自备配重片，不是成品哑铃。\n\n另外还有一款相关但非哑铃的商品，供参考：\n- **Bean Products Soft Weighted Ball Sets for Exercise Rehabilitation Yoga Pilates...** — $27.99（软重球，适合康复、瑜伽、普拉提，不是哑铃）\n\n补充说明：**Jayefo Sports Weight Lifting Belt**（$9.99）是举重腰带，不属于哑铃，未列入。\n\n如果你想要成品一对哑铃，建议优先看第 1、2 款；如果想自己搭配重量、后续可加片，可以看第 3 款手柄。需要我按重量规格或使用场景再帮你缩小范围吗？"
+    },
+    {
+      "id": "tool_compare_brand",
+      "query": "对比一下 CAMEL CROWN 和 Forceatt 的露营帐篷，哪个更划算",
+      "passed": true,
+      "error": null,
+      "checks": [
+        {
+          "name": "required_tools",
+          "ok": true,
+          "detail": "missing=[] called=['search_products', 'search_products', 'compare_products']"
+        },
+        {
+          "name": "must_retrieve_any",
+          "ok": true,
+          "detail": "hit=['B096S6P67Q', 'B09QLZ844S']"
+        },
+        {
+          "name": "grounded_prices",
+          "ok": true,
+          "detail": "ungrounded=[]"
+        }
+      ],
+      "steps": 2,
+      "llm_calls": 6,
+      "latency_s": 19.24,
+      "answer": "本轮没有收到你的预算或品牌偏好，以下按商品资料直接对比这两款帐篷。\n\n**1. CAMEL CROWN 2/3/4 Person Camping Tent with Removable Rain Fly**\n- 价格：$31.99\n- 容量：2/3/4 人\n- 材质：190T 涤纶外帐 + 150D 牛津布底，防水 2000+\n- 支架：8.5mm 玻璃纤维杆，附 8 根铁地钉\n- 定位：家庭露营、徒步、旅行，主打轻便易搭\n\n**2. Forceatt Tent for 2 and 3 Person（防水防风，3-4 季，轻量铝杆背包帐篷）**\n- 价格：$74.99\n- 容量：2-3 人（内帐 225×135cm，高 110cm，重 2.5kg）\n- 防水：防水指数达 5000mm，焊接底设计\n- 结构：双 D 形门 + 双门厅\n- 定位：背包徒步，铝杆更轻更专业\n\n**划算程度怎么看**\n- 只看价格：CAMEL CROWN 明显更低，价格约为 Forceatt 的四成多，预算有限时更划算。\n- 看防水与专业性：Forceatt 防水指数 5000mm，高于 CAMEL CROWN 的 2000+，且是铝杆、双门双厅，适合认真徒步和恶劣天气；多花的钱主要买的是防水和结构。\n- 看使用场景：家庭/休闲露营选 CAMEL CROWN 够用且省钱；背包徒步、多雨环境选 Forceatt 更值。\n\n**下一步建议**\n如果你告诉我预算上限和主要用途（家庭休闲还是背包徒步），我可以帮你进一步缩小范围；也可以换个关键词（如\"轻量双人帐\"\"高防水帐篷\"）再搜。"
+    },
+    {
+      "id": "tool_detail_asin",
+      "query": "B09QLZ844S 这款帐篷有什么特点？",
+      "passed": true,
+      "error": null,
+      "checks": [
+        {
+          "name": "required_tools",
+          "ok": true,
+          "detail": "missing=[] called=['get_product_detail']"
+        },
+        {
+          "name": "must_retrieve_any",
+          "ok": true,
+          "detail": "hit=['B09QLZ844S']"
+        },
+        {
+          "name": "must_mention_any",
+          "ok": true,
+          "detail": "hit=['CAMEL CROWN']"
+        },
+        {
+          "name": "grounded_prices",
+          "ok": true,
+          "detail": "ungrounded=[]"
+        }
+      ],
+      "steps": 1,
+      "llm_calls": 5,
+      "latency_s": 7.19,
+      "answer": "已按你指定的 ASIN 查询，未涉及预算或品牌筛选（你还没有提供偏好信息）。\n\n**CAMEL CROWN 2/3/4 Person Camping Tent with Removable Rain Fly, Easy Setup Outdoor Tents Water Resistant Lightweight Portable for Family Backpacking Camping Hiking Traveling — $31.99（ASIN: B09QLZ844S）**\n\n特点如下：\n\n1. **材质与防水**：190T 涤纶外帐可防晒、抗风沙；底部为 150D 牛津布，快干、防风，防水等级 2000+，可防止水渗入保持内部干燥。\n2. **支撑结构**：采用 8.5MM 玻璃纤维杆，轻便且稳固；配 8 根铁地钉增强稳定性、防止支架移位。\n3. **通风设计**：顶部双层两用设计，外层为防蚊透气网纱，可开窗通风，缓解闷热，促进帐内空气流通。\n4. **双层结构**：内外帐叠加形成防风防雨帐篷，玻璃纤维杆提供良好抗风性。\n5. **搭建便捷**：几分钟即可完成搭建，配轻量便携收纳袋，方便携带、占地小，适合轻装出行。\n6. **适用场景**：旅行、徒步、户外音乐节、周末家庭/朋友露营，也可在家中小院使用。\n\n补充说明：标题写的是 2/3/4 人款，但卖点描述中只明确提到\"可容纳 2 人\"，具体人数规格建议下单前向商家确认。"
+    },
+    {
+      "id": "tool_compare_two_asins",
+      "query": "B01FT6PUOU 和 B0136BTXE8 这两款瑜伽垫有什么区别？",
+      "passed": true,
+      "error": null,
+      "checks": [
+        {
+          "name": "required_tools",
+          "ok": true,
+          "detail": "missing=[] called=['compare_products']"
+        },
+        {
+          "name": "must_retrieve_any",
+          "ok": true,
+          "detail": "hit=['B0136BTXE8', 'B01FT6PUOU']"
+        },
+        {
+          "name": "grounded_prices",
+          "ok": true,
+          "detail": "ungrounded=[]"
+        }
+      ],
+      "steps": 1,
+      "llm_calls": 5,
+      "latency_s": 8.71,
+      "answer": "这两款瑜伽垫的主要区别如下（你未提供预算，以下按资料原样列出价格供核对）：\n\n**1. Life Energy EkoSmart 瑜伽垫（ASIN B01FT6PUOU）— $19.99**\n- 厚度 4mm，偏薄，缓冲适中\n- 材质：TPE，环保可回收，6P FREE（不含乳胶、PVC、有毒物质、异味）\n- 表面轻微纹理，防滑，适合高温瑜伽；闭孔表面\n- 附携带背带\n- 定位：初学者到专业练习者均可\n\n**2. Gaiam 印花双面瑜伽垫（ASIN B0136BTXE8）— $39.98**\n- 厚度 6mm，更厚，关节缓冲更好\n- 尺寸 68\" x 24\"，双面可用，双面均有防滑纹理\n- 同样 6P FREE（不含最有害的六种邻苯二甲酸盐）\n- 适合瑜伽、普拉提及地面训练，家用或工作室\n- 注意：包装有 5mm/6mm 标注变更说明，实物尺寸款式不变\n\n**核心差异对比：**\n- **厚度/缓冲**：Gaiam 6mm 更厚，护关节更好；Life Energy 4mm 更薄更贴近地面\n- **价格**：Gaiam 价格约是 Life Energy 的两倍（$39.98 vs $19.99）\n- **设计**：Gaiam 为双面印花可翻转；Life Energy 为纯色带背带\n- **材质**：两者都是 6P FREE 环保材质，Life Energy 明确为 TPE\n\n**选购建议：**\n- 想要轻便、预算友好、练高温瑜伽 → 选 Life Energy（$19.99）\n- 想要更厚缓冲、护关节、双面花色 → 选 Gaiam（$39.98）\n\n如果你有预算上限或用途偏好（如膝踝敏感、常出差携带），告诉我，我可以帮你进一步缩小选择。"
+    },
+    {
+      "id": "refuse_cat_food",
+      "query": "有没有卖猫粮的",
+      "passed": true,
+      "error": null,
+      "checks": [
+        {
+          "name": "expect_no_match",
+          "ok": true,
+          "detail": "answer='没有找到猫粮类商品。本轮结果里没有宠物食品，只有宠物服饰/携带类（如 [5] 女士宠物携带毛衣 $29.99、[7] 宠'"
+        },
+        {
+          "name": "grounded_prices",
+          "ok": true,
+          "detail": "ungrounded=[]"
+        }
+      ],
+      "steps": 3,
+      "llm_calls": 7,
+      "latency_s": 23.07,
+      "answer": "没有找到猫粮类商品。本轮结果里没有宠物食品，只有宠物服饰/携带类（如 [5] 女士宠物携带毛衣 $29.99、[7] 宠物狗猫球衣 未标价，需自行确认），都不是猫粮。\n\n另外说明：你还没有提供预算和品牌偏好，所以本次未按预算或品牌筛选。\n\n下一步建议：\n- 换关键词再搜，比如「cat food」「猫粮 干粮/湿粮」「kitten food」。\n- 如果有预算上限或想要的品牌（如皇家、渴望等），告诉我，我可以帮你缩小范围。"
+    },
+    {
+      "id": "refuse_baby_formula",
+      "query": "我想买婴儿配方奶粉",
+      "passed": true,
+      "error": null,
+      "checks": [
+        {
+          "name": "expect_no_match",
+          "ok": true,
+          "detail": "answer='我没有找到婴儿配方奶粉。给出的商品资料里都是帽子、球棒、轮滑鞋、连体衣、鱼饵、水壶、棒球T恤这类商品，没有奶粉相关商品，'"
+        },
+        {
+          "name": "grounded_prices",
+          "ok": true,
+          "detail": "ungrounded=[]"
+        }
+      ],
+      "steps": 2,
+      "llm_calls": 6,
+      "latency_s": 19.03,
+      "answer": "我没有找到婴儿配方奶粉。给出的商品资料里都是帽子、球棒、轮滑鞋、连体衣、鱼饵、水壶、棒球T恤这类商品，没有奶粉相关商品，所以无法推荐。\n\n下一步建议：\n- 换关键词再搜，比如「婴儿配方奶粉」「infant formula」「baby formula」。\n- 如果你其实想买的是上面某类商品（比如婴儿帽子、水壶），可以告诉我具体需求，我再帮你从现有资料里挑。\n\n另外，你还没有提供预算和品牌偏好，如果有的话可以一并告诉我，方便后续筛选。"
+    },
+    {
+      "id": "refuse_cat_litter",
+      "query": "推荐一款猫砂",
+      "passed": true,
+      "error": null,
+      "checks": [
+        {
+          "name": "expect_no_match",
+          "ok": true,
+          "detail": "answer='没有找到猫砂相关的商品。\\n\\n当前给出的商品资料里没有猫砂或宠物如厕用品（只有宠物衣服、宠物背带衫、气步枪、帽子、墨镜、镜'"
+        },
+        {
+          "name": "grounded_prices",
+          "ok": true,
+          "detail": "ungrounded=[]"
+        }
+      ],
+      "steps": 2,
+      "llm_calls": 6,
+      "latency_s": 17.13,
+      "answer": "没有找到猫砂相关的商品。\n\n当前给出的商品资料里没有猫砂或宠物如厕用品（只有宠物衣服、宠物背带衫、气步枪、帽子、墨镜、镜子、野餐垫、船用清洗剂等），所以无法推荐。\n\n下一步建议：\n- 换关键词再搜：如「猫砂」「豆腐猫砂」「膨润土猫砂」「除臭猫砂」。\n- 若你其实想找宠物出行/穿戴类用品，可以告诉我，我再从现有资料里帮你挑（例如 [4] Womens Pet Carrier Shirts Kitten Puppy Holder Animal Pouch Hood Sweatshirt，$31.99）。"
+    },
+    {
+      "id": "multi_turn_second_price",
+      "query": "第二款多少钱？",
+      "passed": true,
+      "error": null,
+      "checks": [
+        {
+          "name": "must_mention_any",
+          "ok": true,
+          "detail": "hit=['39.98', '39.9']"
+        }
+      ],
+      "steps": 0,
+      "llm_calls": 3,
+      "latency_s": 2.4,
+      "answer": "第二款 Gaiam Yoga Mat - Premium 6mm Print Reversible 是 **$39.98**。"
+    },
+    {
+      "id": "multi_turn_cheaper",
+      "query": "有没有更便宜一点的？",
+      "passed": true,
+      "error": null,
+      "checks": [
+        {
+          "name": "required_tools",
+          "ok": true,
+          "detail": "missing=[] called=['search_products']"
+        },
+        {
+          "name": "budget",
+          "ok": true,
+          "detail": "budget=30.0 over=[]"
+        },
+        {
+          "name": "grounded_prices",
+          "ok": true,
+          "detail": "ungrounded=[]"
+        }
+      ],
+      "steps": 1,
+      "llm_calls": 5,
+      "latency_s": 10.64,
+      "answer": "已按你的预算 $30 筛选，下面这些都比上一轮提到的 Life Energy（$19.99）更便宜。注意：其中几款是配件，不是瑜伽垫本身。\n\n**瑜伽垫（本体）**\n- Life Energy EkoSmart Non-Slip Exercise Yoga Mat with Carrying Strap, 4 mm Thick — $19.99（就是上一轮那款，目前资料里唯一标价的瑜伽垫）\n\n**配件（不是垫子，购买前请留意）**\n- GOGO Yoga Mat Strap, Adjustable Carrying Sling, Mat Carrier Harness (Just Strap, Not Mat) — $4.99（仅背带，不含垫子）\n- FIT SPIRIT 7 Chakra Exercise Yoga Mat Bag w/Cargo Pocket (MAT is NOT Included) — $9.99（仅包，不含垫子）\n- YogaAccessories Cotton Zippered Yoga Mat Bag — $14.99（仅包，不含垫子）\n\n**未标价**\n- ANDLLA Women's Yoga Mat TPE Eco-friendly Reversible None slip 1/4-inch Thick 24 Inches Wide 72 Inches Long For Pilates Exercise With Carry Strap — 未标价，需自行确认\n\n说明：本次资料里标价的瑜伽垫只有 Life Energy 一款，没有比它更便宜的垫子可选；更便宜的都是背带和收纳包。如果你想要更便宜的垫子，建议换个关键词（比如\"TPE 瑜伽垫 6mm\"\"入门瑜伽垫\"）再搜一次，或者告诉我能接受的价格范围，我再帮你找。"
+    }
+  ]
+}

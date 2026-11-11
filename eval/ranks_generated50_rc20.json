@@ -1,0 +1,602 @@
+[
+  {
+    "id": "g_01",
+    "query": "left handed batting glove liner with grip for fielding in cold or wet weather",
+    "relevant_asins": [
+      "B004EYG692"
+    ],
+    "ranks": {
+      "hybrid_rerank": {
+        "B004EYG692": 1
+      }
+    }
+  },
+  {
+    "id": "g_02",
+    "query": "Green Bay Packers pet hat for dogs to wear on game day",
+    "relevant_asins": [
+      "B09LC3SYJP"
+    ],
+    "ranks": {
+      "hybrid_rerank": {
+        "B09LC3SYJP": 5
+      }
+    }
+  },
+  {
+    "id": "g_03",
+    "query": "hitch mounted cooler and fishing rod holder for my truck's 2 inch receiver",
+    "relevant_asins": [
+      "B005VU7SG8"
+    ],
+    "ranks": {
+      "hybrid_rerank": {
+        "B005VU7SG8": 3
+      }
+    }
+  },
+  {
+    "id": "g_04",
+    "query": "fixed blade camping knife with non-slip handle and sheath for outdoor use",
+    "relevant_asins": [
+      "B0038KYFA0"
+    ],
+    "ranks": {
+      "hybrid_rerank": {
+        "B0038KYFA0": null
+      }
+    }
+  },
+  {
+    "id": "g_05",
+    "query": "lightweight synthetic mummy sleeping bag for summer backpacking, 35 degree rating",
+    "relevant_asins": [
+      "B004HTS1WO"
+    ],
+    "ranks": {
+      "hybrid_rerank": {
+        "B004HTS1WO": 1
+      }
+    }
+  },
+  {
+    "id": "g_06",
+    "query": "portable manual knife sharpener for field use that gives a razor sharp edge",
+    "relevant_asins": [
+      "B017WJKFO2"
+    ],
+    "ranks": {
+      "hybrid_rerank": {
+        "B017WJKFO2": 1
+      }
+    }
+  },
+  {
+    "id": "g_07",
+    "query": "reusable ice packs for lunch bag that stay cold all day camping",
+    "relevant_asins": [
+      "B0BY12Q3TG"
+    ],
+    "ranks": {
+      "hybrid_rerank": {
+        "B0BY12Q3TG": 4
+      }
+    }
+  },
+  {
+    "id": "g_08",
+    "query": "replacement bungee straps for swimming goggles with cord locks, multi color pack",
+    "relevant_asins": [
+      "B08BYMX7P8"
+    ],
+    "ranks": {
+      "hybrid_rerank": {
+        "B08BYMX7P8": 1
+      }
+    }
+  },
+  {
+    "id": "g_09",
+    "query": "waxed canvas belt pouch for collecting mushrooms and shells while hiking",
+    "relevant_asins": [
+      "B09LHLSL37"
+    ],
+    "ranks": {
+      "hybrid_rerank": {
+        "B09LHLSL37": 4
+      }
+    }
+  },
+  {
+    "id": "g_10",
+    "query": "right hand rotation aluminum boat propeller 13.25 inch diameter 17 pitch",
+    "relevant_asins": [
+      "B003C7SHWG"
+    ],
+    "ranks": {
+      "hybrid_rerank": {
+        "B003C7SHWG": 1
+      }
+    }
+  },
+  {
+    "id": "g_11",
+    "query": "small UV glow tungsten ice fishing jigs for panfish in 5mm size",
+    "relevant_asins": [
+      "B081QSK96T"
+    ],
+    "ranks": {
+      "hybrid_rerank": {
+        "B081QSK96T": 2
+      }
+    }
+  },
+  {
+    "id": "g_12",
+    "query": "fun novelty bumper plates for Olympic barbell that are quiet and low bounce",
+    "relevant_asins": [
+      "B0BKR1BGCT"
+    ],
+    "ranks": {
+      "hybrid_rerank": {
+        "B0BKR1BGCT": 1
+      }
+    }
+  },
+  {
+    "id": "g_13",
+    "query": "affordable stone mold for making 4 inch soft plastic swimbait lures at home",
+    "relevant_asins": [
+      "B07TWMW3H9"
+    ],
+    "ranks": {
+      "hybrid_rerank": {
+        "B07TWMW3H9": 2
+      }
+    }
+  },
+  {
+    "id": "g_14",
+    "query": "waterproof floating gun case for hunting trips on the water",
+    "relevant_asins": [
+      "B07CH3DMYX"
+    ],
+    "ranks": {
+      "hybrid_rerank": {
+        "B07CH3DMYX": null
+      }
+    }
+  },
+  {
+    "id": "g_15",
+    "query": "red Costa Rica national team soccer jersey for the Gold Cup",
+    "relevant_asins": [
+      "B010KC2G1S"
+    ],
+    "ranks": {
+      "hybrid_rerank": {
+        "B010KC2G1S": 1
+      }
+    }
+  },
+  {
+    "id": "g_16",
+    "query": "long sleeve cotton Broncos shirt for game day",
+    "relevant_asins": [
+      "B007R93N3S"
+    ],
+    "ranks": {
+      "hybrid_rerank": {
+        "B007R93N3S": 3
+      }
+    }
+  },
+  {
+    "id": "g_17",
+    "query": "beginner curl bar weight set for home gym with small plates",
+    "relevant_asins": [
+      "B01N9BM48O"
+    ],
+    "ranks": {
+      "hybrid_rerank": {
+        "B01N9BM48O": 1
+      }
+    }
+  },
+  {
+    "id": "g_18",
+    "query": "lightweight understable disc golf driver for beginners that glows in the dark",
+    "relevant_asins": [
+      "B00TREYFD8"
+    ],
+    "ranks": {
+      "hybrid_rerank": {
+        "B00TREYFD8": null
+      }
+    }
+  },
+  {
+    "id": "g_19",
+    "query": "waxed canvas range bag with leather trim and lockable side pockets",
+    "relevant_asins": [
+      "B07HBCBN7W"
+    ],
+    "ranks": {
+      "hybrid_rerank": {
+        "B07HBCBN7W": 1
+      }
+    }
+  },
+  {
+    "id": "g_20",
+    "query": "arm blaster for bicep curls with neck padding to avoid discomfort",
+    "relevant_asins": [
+      "B0722RX2J3"
+    ],
+    "ranks": {
+      "hybrid_rerank": {
+        "B0722RX2J3": 1
+      }
+    }
+  },
+  {
+    "id": "g_21",
+    "query": "hard snap-on case for Samsung Freeform 3 with colorful zebra stripes",
+    "relevant_asins": [
+      "B005EV8NSG"
+    ],
+    "ranks": {
+      "hybrid_rerank": {
+        "B005EV8NSG": 1
+      }
+    }
+  },
+  {
+    "id": "g_22",
+    "query": "wall mounted rack to store several fishing rods in my garage without scratching them",
+    "relevant_asins": [
+      "B09YRRM665"
+    ],
+    "ranks": {
+      "hybrid_rerank": {
+        "B09YRRM665": 3
+      }
+    }
+  },
+  {
+    "id": "g_23",
+    "query": "3 blade expandable broadheads with adjustable 85 or 100 grain weight",
+    "relevant_asins": [
+      "B001SGZINY"
+    ],
+    "ranks": {
+      "hybrid_rerank": {
+        "B001SGZINY": 1
+      }
+    }
+  },
+  {
+    "id": "g_24",
+    "query": "Inter Milan home jersey with blue and black stripes for a fan",
+    "relevant_asins": [
+      "B00YJFXSL0"
+    ],
+    "ranks": {
+      "hybrid_rerank": {
+        "B00YJFXSL0": 1
+      }
+    }
+  },
+  {
+    "id": "g_25",
+    "query": "spare spool for fly reel to quickly switch lines while fishing",
+    "relevant_asins": [
+      "B01EON7VYG"
+    ],
+    "ranks": {
+      "hybrid_rerank": {
+        "B01EON7VYG": 1
+      }
+    }
+  },
+  {
+    "id": "g_26",
+    "query": "110mm metal core scooter wheels with bearings for skate park riding",
+    "relevant_asins": [
+      "B00AW5UZIU"
+    ],
+    "ranks": {
+      "hybrid_rerank": {
+        "B00AW5UZIU": 1
+      }
+    }
+  },
+  {
+    "id": "g_27",
+    "query": "reflex sight with red green blue dot options for AR-15",
+    "relevant_asins": [
+      "B00S22BFTS"
+    ],
+    "ranks": {
+      "hybrid_rerank": {
+        "B00S22BFTS": 1
+      }
+    }
+  },
+  {
+    "id": "g_28",
+    "query": "clear adhesive patches to protect bike frame from cable rub and chain slap",
+    "relevant_asins": [
+      "B083GB78V5"
+    ],
+    "ranks": {
+      "hybrid_rerank": {
+        "B083GB78V5": 1
+      }
+    }
+  },
+  {
+    "id": "g_29",
+    "query": "Zumba workout music CDs with salsa and reggaeton beats for exercise classes",
+    "relevant_asins": [
+      "B008RVRMBE"
+    ],
+    "ranks": {
+      "hybrid_rerank": {
+        "B008RVRMBE": 1
+      }
+    }
+  },
+  {
+    "id": "g_30",
+    "query": "small country flag boxing gloves to hang on car mirror",
+    "relevant_asins": [
+      "B00UXMH66G"
+    ],
+    "ranks": {
+      "hybrid_rerank": {
+        "B00UXMH66G": 2
+      }
+    }
+  },
+  {
+    "id": "g_31",
+    "query": "camo gun case with magazine pockets and shoulder strap for range trips",
+    "relevant_asins": [
+      "B00V7LKDL2"
+    ],
+    "ranks": {
+      "hybrid_rerank": {
+        "B00V7LKDL2": 2
+      }
+    }
+  },
+  {
+    "id": "g_32",
+    "query": "treadmill with a large touchscreen for virtual scenic runs and incline training",
+    "relevant_asins": [
+      "B01LRCBUV2"
+    ],
+    "ranks": {
+      "hybrid_rerank": {
+        "B01LRCBUV2": null
+      }
+    }
+  },
+  {
+    "id": "g_33",
+    "query": "soft leather slip pouch case for iPhone 4S with magnetic closure",
+    "relevant_asins": [
+      "B007WHYVTU"
+    ],
+    "ranks": {
+      "hybrid_rerank": {
+        "B007WHYVTU": 1
+      }
+    }
+  },
+  {
+    "id": "g_34",
+    "query": "electric air pump with nozzles for inflating a tumbling air track mat",
+    "relevant_asins": [
+      "B07BMLSPP2"
+    ],
+    "ranks": {
+      "hybrid_rerank": {
+        "B07BMLSPP2": 1
+      }
+    }
+  },
+  {
+    "id": "g_35",
+    "query": "red padded sword stand display for katana and wakizashi, four layers",
+    "relevant_asins": [
+      "B01IW86HJ4"
+    ],
+    "ranks": {
+      "hybrid_rerank": {
+        "B01IW86HJ4": 1
+      }
+    }
+  },
+  {
+    "id": "g_36",
+    "query": "Utah Utes car decals UV resistant vinyl stickers for vehicle windows",
+    "relevant_asins": [
+      "B01DP0KRFE"
+    ],
+    "ranks": {
+      "hybrid_rerank": {
+        "B01DP0KRFE": 1
+      }
+    }
+  },
+  {
+    "id": "g_37",
+    "query": "compact red dot sight with 2 MOA dot for rifles and shotguns",
+    "relevant_asins": [
+      "B079BY7QMC"
+    ],
+    "ranks": {
+      "hybrid_rerank": {
+        "B079BY7QMC": 4
+      }
+    }
+  },
+  {
+    "id": "g_38",
+    "query": "white carry bag for folding table to match white party theme",
+    "relevant_asins": [
+      "B07Q37HWTB"
+    ],
+    "ranks": {
+      "hybrid_rerank": {
+        "B07Q37HWTB": 1
+      }
+    }
+  },
+  {
+    "id": "g_39",
+    "query": "lightweight elbow pads for mountain biking that stay in place and don't feel bulky",
+    "relevant_asins": [
+      "B07PBQ42J8"
+    ],
+    "ranks": {
+      "hybrid_rerank": {
+        "B07PBQ42J8": 1
+      }
+    }
+  },
+  {
+    "id": "g_40",
+    "query": "waterproof laminated fish identification chart for freshwater panfish",
+    "relevant_asins": [
+      "B0036LKEGK"
+    ],
+    "ranks": {
+      "hybrid_rerank": {
+        "B0036LKEGK": 1
+      }
+    }
+  },
+  {
+    "id": "g_41",
+    "query": "large sand proof beach blanket for family that stays put on windy days",
+    "relevant_asins": [
+      "B071KWDV9C"
+    ],
+    "ranks": {
+      "hybrid_rerank": {
+        "B071KWDV9C": 3
+      }
+    }
+  },
+  {
+    "id": "g_42",
+    "query": "Patriots knit hat for a kid with a mohawk top",
+    "relevant_asins": [
+      "B00G0TTG9G"
+    ],
+    "ranks": {
+      "hybrid_rerank": {
+        "B00G0TTG9G": 1
+      }
+    }
+  },
+  {
+    "id": "g_43",
+    "query": "ambidextrous nylon holster for Taurus PT-709 Slim with extra mag pouch",
+    "relevant_asins": [
+      "B00XPXI10U"
+    ],
+    "ranks": {
+      "hybrid_rerank": {
+        "B00XPXI10U": 1
+      }
+    }
+  },
+  {
+    "id": "g_44",
+    "query": "sticky table tennis rubber for controlled looping and strong spin, 2.2mm",
+    "relevant_asins": [
+      "B07ZY6WP85"
+    ],
+    "ranks": {
+      "hybrid_rerank": {
+        "B07ZY6WP85": 1
+      }
+    }
+  },
+  {
+    "id": "g_45",
+    "query": "washable dividers to keep daycare nap mats separated and sanitary",
+    "relevant_asins": [
+      "B07DPMJ48T"
+    ],
+    "ranks": {
+      "hybrid_rerank": {
+        "B07DPMJ48T": 1
+      }
+    }
+  },
+  {
+    "id": "g_46",
+    "query": "lightweight ventilated shin guards with detachable ankle protection for junior footballers",
+    "relevant_asins": [
+      "B0058TJPPO"
+    ],
+    "ranks": {
+      "hybrid_rerank": {
+        "B0058TJPPO": 1
+      }
+    }
+  },
+  {
+    "id": "g_47",
+    "query": "high density foam roller for deep tissue muscle recovery after workouts",
+    "relevant_asins": [
+      "B019ERGD9Q"
+    ],
+    "ranks": {
+      "hybrid_rerank": {
+        "B019ERGD9Q": null
+      }
+    }
+  },
+  {
+    "id": "g_48",
+    "query": "comfortable silicone ring for active women that won't break easily",
+    "relevant_asins": [
+      "B072FBRTKB"
+    ],
+    "ranks": {
+      "hybrid_rerank": {
+        "B072FBRTKB": null
+      }
+    }
+  },
+  {
+    "id": "g_49",
+    "query": "elliptical with adjustable stride length and built-in workout programs for home use",
+    "relevant_asins": [
+      "B00BBNUHLM"
+    ],
+    "ranks": {
+      "hybrid_rerank": {
+        "B00BBNUHLM": 5
+      }
+    }
+  },
+  {
+    "id": "g_50",
+    "query": "12 inch replacement tire for a child stroller, street use",
+    "relevant_asins": [
+      "B001G7UVDC"
+    ],
+    "ranks": {
+      "hybrid_rerank": {
+        "B001G7UVDC": 1
+      }
+    }
+  }
+]

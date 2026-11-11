@@ -1,0 +1,12 @@
+{
+  "k": 5,
+  "n_queries": 40,
+  "results": {
+    "hybrid_rerank": {
+      "n_queries": 40,
+      "recall": 0.9,
+      "mrr": 0.7666666666666667,
+      "ndcg": 0.7996141434859122
+    }
+  }
+}

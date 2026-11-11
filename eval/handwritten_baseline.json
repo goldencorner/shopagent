@@ -1,0 +1,162 @@
+[
+ {
+  "id": "hw_01",
+  "asin": "B09TDBMRZ6",
+  "bm25": 9,
+  "vector": null,
+  "fused": 19,
+  "rerank": 2
+ },
+ {
+  "id": "hw_02",
+  "asin": "B012PT1642",
+  "bm25": 14,
+  "vector": null,
+  "fused": 26,
+  "rerank": null
+ },
+ {
+  "id": "hw_03",
+  "asin": "B00TUELDQC",
+  "bm25": null,
+  "vector": null,
+  "fused": null,
+  "rerank": null
+ },
+ {
+  "id": "hw_04",
+  "asin": "B01BY4HXDM",
+  "bm25": null,
+  "vector": 21,
+  "fused": 28,
+  "rerank": null
+ },
+ {
+  "id": "hw_05",
+  "asin": "B0134RRE4U",
+  "bm25": 1,
+  "vector": null,
+  "fused": 17,
+  "rerank": 1
+ },
+ {
+  "id": "hw_06",
+  "asin": "B0044YSWBW",
+  "bm25": 1,
+  "vector": 7,
+  "fused": 1,
+  "rerank": 1
+ },
+ {
+  "id": "hw_07",
+  "asin": "B00MN50JOC",
+  "bm25": null,
+  "vector": null,
+  "fused": null,
+  "rerank": null
+ },
+ {
+  "id": "hw_08",
+  "asin": "B09K3PRR59",
+  "bm25": null,
+  "vector": 29,
+  "fused": 44,
+  "rerank": null
+ },
+ {
+  "id": "hw_09",
+  "asin": "B08D5DGFJ6",
+  "bm25": 1,
+  "vector": 4,
+  "fused": 1,
+  "rerank": 1
+ },
+ {
+  "id": "hw_10",
+  "asin": "B0BPSVXY1F",
+  "bm25": 1,
+  "vector": 2,
+  "fused": 1,
+  "rerank": 1
+ },
+ {
+  "id": "hw_11",
+  "asin": "B0C9XK58SZ",
+  "bm25": null,
+  "vector": 7,
+  "fused": 25,
+  "rerank": null
+ },
+ {
+  "id": "hw_12",
+  "asin": "B07C11MG11",
+  "bm25": 1,
+  "vector": 3,
+  "fused": 1,
+  "rerank": 1
+ },
+ {
+  "id": "hw_13",
+  "asin": "B003YHKA06",
+  "bm25": 28,
+  "vector": null,
+  "fused": 40,
+  "rerank": null
+ },
+ {
+  "id": "hw_14",
+  "asin": "B0C1P9SB93",
+  "bm25": 2,
+  "vector": null,
+  "fused": 10,
+  "rerank": 2
+ },
+ {
+  "id": "hw_15",
+  "asin": "B01B6KNJ64",
+  "bm25": 33,
+  "vector": null,
+  "fused": 43,
+  "rerank": null
+ },
+ {
+  "id": "hw_16",
+  "asin": "B00DE703MG",
+  "bm25": 24,
+  "vector": 40,
+  "fused": 10,
+  "rerank": 1
+ },
+ {
+  "id": "hw_17",
+  "asin": "B002UD4TQ6",
+  "bm25": null,
+  "vector": null,
+  "fused": null,
+  "rerank": null
+ },
+ {
+  "id": "hw_18",
+  "asin": "B09SBS8ZP5",
+  "bm25": 4,
+  "vector": 8,
+  "fused": 11,
+  "rerank": 7
+ },
+ {
+  "id": "hw_19",
+  "asin": "B00870DEVM",
+  "bm25": 2,
+  "vector": null,
+  "fused": 18,
+  "rerank": 14
+ },
+ {
+  "id": "hw_20",
+  "asin": "B003RYS7QK",
+  "bm25": 7,
+  "vector": 7,
+  "fused": 4,
+  "rerank": 5
+ }
+]

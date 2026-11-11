@@ -1,0 +1,602 @@
+[
+  {
+    "id": "hw_01",
+    "query": "a sleeping bag warm enough for frosty nights but ventable in summer, roomy around the feet, under $250",
+    "relevant_asins": [
+      "B09TDBMRZ6"
+    ],
+    "ranks": {
+      "hybrid_rerank": {
+        "B09TDBMRZ6": 2
+      }
+    }
+  },
+  {
+    "id": "hw_02",
+    "query": "hands-free light for night hiking that throws a beam over 100 meters and runs on AA batteries, around $60",
+    "relevant_asins": [
+      "B012PT1642"
+    ],
+    "ranks": {
+      "hybrid_rerank": {
+        "B012PT1642": null
+      }
+    }
+  },
+  {
+    "id": "hw_03",
+    "query": "small insulated bag that keeps a six-pack cold on day trips and fits inside a backpack, under $15",
+    "relevant_asins": [
+      "B00TUELDQC"
+    ],
+    "ranks": {
+      "hybrid_rerank": {
+        "B00TUELDQC": null
+      }
+    }
+  },
+  {
+    "id": "hw_04",
+    "query": "clamp-on holder to keep a fishing rod secure on a boat rail, adjustable angle, under $60",
+    "relevant_asins": [
+      "B01BY4HXDM"
+    ],
+    "ranks": {
+      "hybrid_rerank": {
+        "B01BY4HXDM": null
+      }
+    }
+  },
+  {
+    "id": "hw_05",
+    "query": "carry bag for a yoga mat with a zip pocket for keys and phone, machine washable",
+    "relevant_asins": [
+      "B0134RRE4U"
+    ],
+    "ranks": {
+      "hybrid_rerank": {
+        "B0134RRE4U": 1
+      }
+    }
+  },
+  {
+    "id": "hw_06",
+    "query": "resistance band that attaches at the ankles for sprint and agility drills, comes with drill instructions, under $30",
+    "relevant_asins": [
+      "B0044YSWBW"
+    ],
+    "ranks": {
+      "hybrid_rerank": {
+        "B0044YSWBW": 1
+      }
+    }
+  },
+  {
+    "id": "hw_07",
+    "query": "space-saving adjustable weights for a home gym that go up to about 50 pounds per hand, under $200",
+    "relevant_asins": [
+      "B00MN50JOC"
+    ],
+    "ranks": {
+      "hybrid_rerank": {
+        "B00MN50JOC": null
+      }
+    }
+  },
+  {
+    "id": "hw_08",
+    "query": "waterproof covers that keep snow and mud out of my boots when hiking, adjustable, under $30",
+    "relevant_asins": [
+      "B09K3PRR59"
+    ],
+    "ranks": {
+      "hybrid_rerank": {
+        "B09K3PRR59": null
+      }
+    }
+  },
+  {
+    "id": "hw_09",
+    "query": "backpack that carries two rackets plus a separate compartment for dirty shoes, under $60",
+    "relevant_asins": [
+      "B08D5DGFJ6"
+    ],
+    "ranks": {
+      "hybrid_rerank": {
+        "B08D5DGFJ6": 1
+      }
+    }
+  },
+  {
+    "id": "hw_10",
+    "query": "bulk pressureless tennis balls for a ball machine that won't go flat, 60 pack, under $50",
+    "relevant_asins": [
+      "B0BPSVXY1F"
+    ],
+    "ranks": {
+      "hybrid_rerank": {
+        "B0BPSVXY1F": 1
+      }
+    }
+  },
+  {
+    "id": "hw_11",
+    "query": "US Coast Guard approved life jacket for a woman that allows freedom of movement for paddling, under $80",
+    "relevant_asins": [
+      "B0C9XK58SZ"
+    ],
+    "ranks": {
+      "hybrid_rerank": {
+        "B0C9XK58SZ": null
+      }
+    }
+  },
+  {
+    "id": "hw_12",
+    "query": "travel bag for ski boots with vented side pockets that also holds a helmet and jacket, under $100",
+    "relevant_asins": [
+      "B07C11MG11"
+    ],
+    "ranks": {
+      "hybrid_rerank": {
+        "B07C11MG11": 1
+      }
+    }
+  },
+  {
+    "id": "hw_13",
+    "query": "thin padded gloves for women lifting weights that don't feel bulky, under $25",
+    "relevant_asins": [
+      "B003YHKA06"
+    ],
+    "ranks": {
+      "hybrid_rerank": {
+        "B003YHKA06": null
+      }
+    }
+  },
+  {
+    "id": "hw_14",
+    "query": "adjustable speed rope for cardio workouts with comfortable foam handles, under $20",
+    "relevant_asins": [
+      "B0C1P9SB93"
+    ],
+    "ranks": {
+      "hybrid_rerank": {
+        "B0C1P9SB93": 2
+      }
+    }
+  },
+  {
+    "id": "hw_15",
+    "query": "36-inch foam roller for massaging tight muscles after workouts, medium firmness, under $90",
+    "relevant_asins": [
+      "B01B6KNJ64"
+    ],
+    "ranks": {
+      "hybrid_rerank": {
+        "B01B6KNJ64": null
+      }
+    }
+  },
+  {
+    "id": "hw_16",
+    "query": "ultralight canister stove for solo backpacking that boils water in about four minutes and packs into a small case, under $35",
+    "relevant_asins": [
+      "B00DE703MG"
+    ],
+    "ranks": {
+      "hybrid_rerank": {
+        "B00DE703MG": 1
+      }
+    }
+  },
+  {
+    "id": "hw_17",
+    "query": "tiny bike light that clips onto handlebars or seatpost and lasts all week on flashing mode, under $25",
+    "relevant_asins": [
+      "B002UD4TQ6"
+    ],
+    "ranks": {
+      "hybrid_rerank": {
+        "B002UD4TQ6": null
+      }
+    }
+  },
+  {
+    "id": "hw_18",
+    "query": "size 5 soccer ball with a soft touch for high school practice that keeps its air, under $40",
+    "relevant_asins": [
+      "B09SBS8ZP5"
+    ],
+    "ranks": {
+      "hybrid_rerank": {
+        "B09SBS8ZP5": null
+      }
+    }
+  },
+  {
+    "id": "hw_19",
+    "query": "2-liter hydration backpack for trail running that can spray water and attach an inline filter, under $45",
+    "relevant_asins": [
+      "B00870DEVM"
+    ],
+    "ranks": {
+      "hybrid_rerank": {
+        "B00870DEVM": null
+      }
+    }
+  },
+  {
+    "id": "hw_20",
+    "query": "four-season backpacking tent for two that holds up in strong wind and snow, has two doors and a vestibule, under $120",
+    "relevant_asins": [
+      "B003RYS7QK"
+    ],
+    "ranks": {
+      "hybrid_rerank": {
+        "B003RYS7QK": 5
+      }
+    }
+  },
+  {
+    "id": "hw_21",
+    "query": "compact hunting launcher for small game that cocks by hand and ships with three broad heads plus three practice arrows, under $60",
+    "relevant_asins": [
+      "B07S1RDC21"
+    ],
+    "ranks": {
+      "hybrid_rerank": {
+        "B07S1RDC21": 1
+      }
+    }
+  },
+  {
+    "id": "hw_22",
+    "query": "tight fabric sleeve for my throwing arm that keeps it warm between innings and dries fast",
+    "relevant_asins": [
+      "B017KHNC00"
+    ],
+    "ranks": {
+      "hybrid_rerank": {
+        "B017KHNC00": null
+      }
+    }
+  },
+  {
+    "id": "hw_23",
+    "query": "strap-on weights for the lower leg that let me add resistance gradually during leg raises, under $20",
+    "relevant_asins": [
+      "B07Q5Z92DT"
+    ],
+    "ranks": {
+      "hybrid_rerank": {
+        "B07Q5Z92DT": null
+      }
+    }
+  },
+  {
+    "id": "hw_24",
+    "query": "smooth replacement tire for commuting on pavement and light gravel, 35mm wide",
+    "relevant_asins": [
+      "B00KXXH2SM"
+    ],
+    "ranks": {
+      "hybrid_rerank": {
+        "B00KXXH2SM": null
+      }
+    }
+  },
+  {
+    "id": "hw_25",
+    "query": "cubes that get a campfire going in wind and rain and don't need lighter fluid, six pack",
+    "relevant_asins": [
+      "B0083R8UWC"
+    ],
+    "ranks": {
+      "hybrid_rerank": {
+        "B0083R8UWC": null
+      }
+    }
+  },
+  {
+    "id": "hw_26",
+    "query": "daypack for a woman with a padded slot for a laptop and a breathable back panel for commuting",
+    "relevant_asins": [
+      "B07CV7791P"
+    ],
+    "ranks": {
+      "hybrid_rerank": {
+        "B07CV7791P": 1
+      }
+    }
+  },
+  {
+    "id": "hw_27",
+    "query": "reversible nylon belt with a plastic buckle that won't trip metal detectors, under $20",
+    "relevant_asins": [
+      "B01AIRLLX4"
+    ],
+    "ranks": {
+      "hybrid_rerank": {
+        "B01AIRLLX4": 1
+      }
+    }
+  },
+  {
+    "id": "hw_28",
+    "query": "jointed hard lure that swims side to side and stays stable when trolled fast for bass",
+    "relevant_asins": [
+      "B07663KW19"
+    ],
+    "ranks": {
+      "hybrid_rerank": {
+        "B07663KW19": 1
+      }
+    }
+  },
+  {
+    "id": "hw_29",
+    "query": "narrow cargo tray for roof bars with plenty of anchor points to strap down gear and ski holders",
+    "relevant_asins": [
+      "B008277XE4"
+    ],
+    "ranks": {
+      "hybrid_rerank": {
+        "B008277XE4": 1
+      }
+    }
+  },
+  {
+    "id": "hw_30",
+    "query": "padded wall hook that holds a longboard or a guitar, screws included, under $15",
+    "relevant_asins": [
+      "B07FDV6T6H"
+    ],
+    "ranks": {
+      "hybrid_rerank": {
+        "B07FDV6T6H": 1
+      }
+    }
+  },
+  {
+    "id": "hw_31",
+    "query": "stretchy bottoms for stretching class that are snug at the knee and looser at the ankle, under $35",
+    "relevant_asins": [
+      "B07JCLPTTR"
+    ],
+    "ranks": {
+      "hybrid_rerank": {
+        "B07JCLPTTR": null
+      }
+    }
+  },
+  {
+    "id": "hw_32",
+    "query": "bit for an advanced rider that works off nose pressure with soft rubber and copper in the mouth",
+    "relevant_asins": [
+      "B008OLSIT2"
+    ],
+    "ranks": {
+      "hybrid_rerank": {
+        "B008OLSIT2": 1
+      }
+    }
+  },
+  {
+    "id": "hw_33",
+    "query": "ear protection that amplifies quiet sounds but cuts gunshots to a safe level and folds up small",
+    "relevant_asins": [
+      "B000RZ4XH4"
+    ],
+    "ranks": {
+      "hybrid_rerank": {
+        "B000RZ4XH4": null
+      }
+    }
+  },
+  {
+    "id": "hw_34",
+    "query": "leak-proof insulated cup for a toddler with a straw they can open one-handed, 16 ounces",
+    "relevant_asins": [
+      "B077NNNYC5"
+    ],
+    "ranks": {
+      "hybrid_rerank": {
+        "B077NNNYC5": 1
+      }
+    }
+  },
+  {
+    "id": "hw_35",
+    "query": "replacement cloth for an eight-foot billiard table in charcoal, heavy enough for commercial use, under $150",
+    "relevant_asins": [
+      "B0046ZZL18"
+    ],
+    "ranks": {
+      "hybrid_rerank": {
+        "B0046ZZL18": 3
+      }
+    }
+  },
+  {
+    "id": "hw_36",
+    "query": "starter kit for walking on deep snow that includes poles and leg covers for one price",
+    "relevant_asins": [
+      "B07Z24JXJ3"
+    ],
+    "ranks": {
+      "hybrid_rerank": {
+        "B07Z24JXJ3": null
+      }
+    }
+  },
+  {
+    "id": "hw_37",
+    "query": "seven-and-a-half foot rod for casting light lures in freshwater with line up to 12-pound test",
+    "relevant_asins": [
+      "B01KYHUEHW"
+    ],
+    "ranks": {
+      "hybrid_rerank": {
+        "B01KYHUEHW": null
+      }
+    }
+  },
+  {
+    "id": "hw_38",
+    "query": "loud squeeze horn for a child's trike or scooter that mounts with one screw, under $15",
+    "relevant_asins": [
+      "B07H3NMGGJ"
+    ],
+    "ranks": {
+      "hybrid_rerank": {
+        "B07H3NMGGJ": 1
+      }
+    }
+  },
+  {
+    "id": "hw_39",
+    "query": "hand-tuned wooden call for duck hunting with a metal band around it, under $20",
+    "relevant_asins": [
+      "B008HYLW8K"
+    ],
+    "ranks": {
+      "hybrid_rerank": {
+        "B008HYLW8K": 1
+      }
+    }
+  },
+  {
+    "id": "hw_40",
+    "query": "short athletic socks that squeeze the foot and cushion the heel and toe for running",
+    "relevant_asins": [
+      "B01MD2K50V"
+    ],
+    "ranks": {
+      "hybrid_rerank": {
+        "B01MD2K50V": 2
+      }
+    }
+  },
+  {
+    "id": "hw_41",
+    "query": "clips that hold a flashlight or trekking pole onto one-inch webbing and release with one hand",
+    "relevant_asins": [
+      "B07FBP4PDS"
+    ],
+    "ranks": {
+      "hybrid_rerank": {
+        "B07FBP4PDS": 2
+      }
+    }
+  },
+  {
+    "id": "hw_42",
+    "query": "thin braided line with high strength for casting distance that stays invisible in green water",
+    "relevant_asins": [
+      "B00EBB6VDE"
+    ],
+    "ranks": {
+      "hybrid_rerank": {
+        "B00EBB6VDE": null
+      }
+    }
+  },
+  {
+    "id": "hw_43",
+    "query": "soft foam ball and bat set that lets a kid practice curveballs without getting hurt",
+    "relevant_asins": [
+      "B00EUUFPII"
+    ],
+    "ranks": {
+      "hybrid_rerank": {
+        "B00EUUFPII": 1
+      }
+    }
+  },
+  {
+    "id": "hw_44",
+    "query": "firm-ground soccer shoes with fixed studs that keep feet dry, men's size 12",
+    "relevant_asins": [
+      "B000ND9956"
+    ],
+    "ranks": {
+      "hybrid_rerank": {
+        "B000ND9956": 1
+      }
+    }
+  },
+  {
+    "id": "hw_45",
+    "query": "machine that launches clay targets in pairs for practice and folds out a seat for the operator",
+    "relevant_asins": [
+      "B001AMTI7I"
+    ],
+    "ranks": {
+      "hybrid_rerank": {
+        "B001AMTI7I": 5
+      }
+    }
+  },
+  {
+    "id": "hw_46",
+    "query": "freestanding frame for pull-ups and dips at home that adjusts in height and holds heavy use",
+    "relevant_asins": [
+      "B075VN7ZRX"
+    ],
+    "ranks": {
+      "hybrid_rerank": {
+        "B075VN7ZRX": null
+      }
+    }
+  },
+  {
+    "id": "hw_47",
+    "query": "short-sleeve swim shirt with sun protection for snorkeling and aqua aerobics",
+    "relevant_asins": [
+      "B00SRCS3WA"
+    ],
+    "ranks": {
+      "hybrid_rerank": {
+        "B00SRCS3WA": 1
+      }
+    }
+  },
+  {
+    "id": "hw_48",
+    "query": "surfboard wax for cold water sold as two bars, one base coat and one top coat",
+    "relevant_asins": [
+      "B00LU2H8DY"
+    ],
+    "ranks": {
+      "hybrid_rerank": {
+        "B00LU2H8DY": 2
+      }
+    }
+  },
+  {
+    "id": "hw_49",
+    "query": "forged alloy replacement crank arms for a mountain bike that fit a 100mm bottom bracket",
+    "relevant_asins": [
+      "B00DINO4R6"
+    ],
+    "ranks": {
+      "hybrid_rerank": {
+        "B00DINO4R6": 1
+      }
+    }
+  },
+  {
+    "id": "hw_50",
+    "query": "fishing bag with five compartments and rubber mesh pouches that sits stable on a boat deck",
+    "relevant_asins": [
+      "B085HPR69P"
+    ],
+    "ranks": {
+      "hybrid_rerank": {
+        "B085HPR69P": 1
+      }
+    }
+  }
+]

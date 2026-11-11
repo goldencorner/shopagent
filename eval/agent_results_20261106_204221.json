@@ -1,0 +1,596 @@
+{
+  "summary": {
+    "n_tasks": 21,
+    "task_pass_rate": 1.0,
+    "by_check": {
+      "intent": 1.0,
+      "forbidden_tools": 1.0,
+      "grounded_prices": 1.0,
+      "max_answer_chars": 1.0,
+      "required_tools": 1.0,
+      "must_retrieve_title_regex": 1.0,
+      "budget": 1.0,
+      "must_retrieve_any": 1.0,
+      "must_mention_any": 1.0,
+      "expect_no_match": 1.0
+    },
+    "avg_steps": 1.0952380952380953,
+    "avg_llm_calls": 4.9523809523809526,
+    "latency_p50_s": 13.75,
+    "latency_p95_s": 24.13
+  },
+  "tasks": [
+    {
+      "id": "chitchat_hello",
+      "query": "你好",
+      "passed": true,
+      "error": null,
+      "checks": [
+        {
+          "name": "intent",
+          "ok": true,
+          "detail": "got=chitchat want=chitchat"
+        },
+        {
+          "name": "forbidden_tools",
+          "ok": true,
+          "detail": "called=[]"
+        },
+        {
+          "name": "grounded_prices",
+          "ok": true,
+          "detail": "ungrounded=[]"
+        },
+        {
+          "name": "max_answer_chars",
+          "ok": true,
+          "detail": "len=26"
+        }
+      ],
+      "steps": 0,
+      "llm_calls": 3,
+      "latency_s": 2.29,
+      "answer": "你好！我是你的电商导购助手，想找什么商品尽管告诉我～"
+    },
+    {
+      "id": "chitchat_who",
+      "query": "你是谁",
+      "passed": true,
+      "error": null,
+      "checks": [
+        {
+          "name": "intent",
+          "ok": true,
+          "detail": "got=chitchat want=chitchat"
+        },
+        {
+          "name": "forbidden_tools",
+          "ok": true,
+          "detail": "called=[]"
+        },
+        {
+          "name": "grounded_prices",
+          "ok": true,
+          "detail": "ungrounded=[]"
+        },
+        {
+          "name": "max_answer_chars",
+          "ok": true,
+          "detail": "len=44"
+        }
+      ],
+      "steps": 0,
+      "llm_calls": 3,
+      "latency_s": 2.6,
+      "answer": "我是ShopAgent，你的电商导购助手，可以帮你快速找到合适的商品。你想找什么商品呢？"
+    },
+    {
+      "id": "search_yoga_mat",
+      "query": "推荐几款瑜伽垫",
+      "passed": true,
+      "error": null,
+      "checks": [
+        {
+          "name": "required_tools",
+          "ok": true,
+          "detail": "missing=[] called=['search_products']"
+        },
+        {
+          "name": "must_retrieve_title_regex",
+          "ok": true,
+          "detail": "hit=['Gaiam Premium Print Yoga Mat, Extra Thic', 'ONEGenug Yoga Mat Bag, Long Strap Yoga M']"
+        },
+        {
+          "name": "grounded_prices",
+          "ok": true,
+          "detail": "ungrounded=[]"
+        }
+      ],
+      "steps": 1,
+      "llm_calls": 5,
+      "latency_s": 43.15,
+      "answer": "目前还没有你的偏好信息，下面按资料里能确认的内容列出瑜伽垫（瑜伽包已排除）：\n\n**有明确价格的：**\n1. **Gaiam Yoga Mat - Premium 6mm Print Reversible Extra Thick Non Slip Exercise & Fitness Mat** — $39.98\n   - 68\" x 24\" x 6mm，双面可用，防滑加厚，附赠可下载的瑜伽课程。\n\n2. **Tatago Extra Large Yoga Mat for Men & Women {84\"x30} Natural Rubber Blend** — $58.99\n   - 84\" x 30\" 加长加宽，天然橡胶混合材质，底部蜂窝纹路增强抓地力，适合居家健身或热瑜伽。\n\n**未标价的（需自行确认价格）：**\n3. **Gaiam Premium Print Yoga Mat, Extra Thick Non Slip Exercise & Fitness Mat（Bamboo Moon，5/6mm）** — 未标价，需自行确认\n   - 68\" x 24\" x 5/6mm，加厚防滑印花款，附赠瑜伽课程。\n\n4. **Arama Cotton Yoga Mat** — 未标价，需自行确认\n   - 100% 纯棉，不含乳胶和 PVC，双面防滑，可水洗，24\" x 71\"，1/4\" 厚。\n\n如果你有预算上限或偏好（比如厚度、材质、尺寸），告诉我，我可以帮你进一步缩小范围；也可以换个关键词再搜。"
+    },
+    {
+      "id": "search_tent",
+      "query": "推荐一款适合两个人用的露营帐篷",
+      "passed": true,
+      "error": null,
+      "checks": [
+        {
+          "name": "required_tools",
+          "ok": true,
+          "detail": "missing=[] called=['search_products']"
+        },
+        {
+          "name": "must_retrieve_title_regex",
+          "ok": true,
+          "detail": "hit=['MOUNTAINTOP Waterproof 2 Person Camping ', 'LevelOne Two Person Camping Tent with Ra']"
+        },
+        {
+          "name": "grounded_prices",
+          "ok": true,
+          "detail": "ungrounded=[]"
+        }
+      ],
+      "steps": 1,
+      "llm_calls": 5,
+      "latency_s": 13.84,
+      "answer": "已按你的需求筛选两人用露营帐篷。你的预算上限未提供，因此以下按价格从低到高排列，未标价的商品放在最后。\n\n**有明确标价的商品：**\n1. **2-Person Camping Tent - Includes Rain Fly and Carrying Bag - Lightweight Compact Outdoor Tent for Backpacking, Hiking, or Beaches by Wakeman (Orange)** — **$23.65**\n   - 品牌：Wakeman；100% Polyester；双人圆顶款，含防雨罩和收纳袋，轻便，适合背包、徒步或海滩使用。\n\n2. **2-Person Camping Tent – Includes Rain Fly and Carrying Bag – Lightweight Outdoor Tent for Backpacking, Hiking, or Beach by Wakeman Outdoors** — **$45.94**\n   - 品牌：Wakeman；100% Polyester；双人款，D 型门，含防雨罩和收纳袋，轻便。\n\n**未标价的商品（需自行确认价格）：**\n3. **MOUNTAINTOP Waterproof 2 Person Camping Tent Backpacking Tents for Camping Hiking Traveling** — 未标价，需自行确认\n   - 品牌：MOUNTAINTOP；面料为防水 190T 68D Polyester（PU1500），底布 150D Polyester（PU2000）。\n\n4. **LevelOne Two Person Camping Tent with Rainfly (Red)** — 未标价，需自行确认\n   - 品牌：LevelOne；圆顶款，可舒适睡两人，可拆卸防雨罩，尺寸约宽 72\" × 长 72\" × 高 58\"，含地钉和收纳袋。\n\n5. **KingCamp Pop up 2 Person Camping Mesh Beach Tent Sun Shelter Screen Room Tents (Blue-Single Layer)** — 未标价，需自行确认\n   - 品牌：KingCamp；Polyester + Mesh；免搭弹出式，30 秒可展开，偏沙滩/遮阳网纱用途。\n\n**下一步建议：**\n- 若你告诉我预算上限，我可以帮你把范围进一步缩小。\n- 若你更看重防水性能，可优先确认 MOUNTAINTOP 那款的价格；若更看重快速搭建，可确认 KingCamp 那款的价格。\n- 也可以补充使用场景（如徒步背负、家庭露营、沙滩遮阳），我再帮你对比。"
+    },
+    {
+      "id": "search_dumbbell",
+      "query": "想买一对哑铃在家练力量",
+      "passed": true,
+      "error": null,
+      "checks": [
+        {
+          "name": "required_tools",
+          "ok": true,
+          "detail": "missing=[] called=['search_products']"
+        },
+        {
+          "name": "must_retrieve_title_regex",
+          "ok": true,
+          "detail": "hit=['Premium Round Rubber Dumbbells Single, H', 'Sunny Health and Fitness Neoprene Dumbbe']"
+        },
+        {
+          "name": "grounded_prices",
+          "ok": true,
+          "detail": "ungrounded=[]"
+        }
+      ],
+      "steps": 1,
+      "llm_calls": 5,
+      "latency_s": 15.79,
+      "answer": "已按你的需求（在家练力量、哑铃类）筛选，以下商品都在你给的预算范围内（本轮你没有另说预算，我按画像里的预算上限来筛）。注意：多数商品是**单只**售卖，买一对需要买两件。\n\n**预算内、有明确标价的哑铃**\n1. **Balelinko Rubber Grip Encased Dumbbell Cast Iron Weight with Anti-Slip Handle - 3-100LBS** — $21.99（单只，橡胶包胶铸铁，防滑手柄）\n2. **Body-Solid Cast Iron Solid Hexagon Dumbbells Singles** — $25.00（单只，六角铸铁，放地上不易滚动）\n3. **Adjustable Dumbbell, 12.5lb Single Dumbbell with Anti-Slip Handle** — $35.99（单只可调，2.5lb–12.5lb，适合居家省空间）\n4. **CAP Barbell Neoprene Dumbbell Set Series** — $39.69（套装系列，具体只数/重量需看详情）\n5. **Premium Round Rubber Dumbbells Single** — $43.88（单只，圆头橡胶）\n\n**未标价，需自行确认**\n- **Sunny Health and Fitness Neoprene Dumbbell - Single** — 未标价，需自行确认（有 2/5/8/10Lb 多种规格）\n- **Dumbbells 15 lb, 20 lb, 25 lb, set of 2（DNC）** — 未标价，需自行确认（成对套装，重量偏大，适合力量进阶）\n\n**说明**\n- 上面第 5 项 $44.97 的是**哑铃架**（Rack Only），不是哑铃，已不作为哑铃推荐；如果你需要收纳可以单独说。\n- 想练力量又怕占地方，可优先看第 3 项可调式；想要成对且重量大一些，可先确认第 7 项的实际价格。\n\n**下一步建议**\n- 告诉我你能接受的单只重量（比如 10lb、20lb）和是否要成对，我再帮你缩小范围。\n- 如果上面没有合适的重量，可以换个关键词（如\"可调哑铃一对\"\"hex dumbbell pair\"）再搜，或适当提高预算看更重的规格。"
+    },
+    {
+      "id": "search_water_bottle",
+      "query": "有没有大容量的运动水杯",
+      "passed": true,
+      "error": null,
+      "checks": [
+        {
+          "name": "required_tools",
+          "ok": true,
+          "detail": "missing=[] called=['search_products']"
+        },
+        {
+          "name": "must_retrieve_title_regex",
+          "ok": true,
+          "detail": "hit=['Water Bottle with Handle 2.5L Large Spor', 'Half Gallon Water Bottle 2.2L Gym Water ']"
+        },
+        {
+          "name": "grounded_prices",
+          "ok": true,
+          "detail": "ungrounded=[]"
+        }
+      ],
+      "steps": 1,
+      "llm_calls": 5,
+      "latency_s": 12.21,
+      "answer": "已按你偏好大容量运动水杯来筛选，结果如下：\n\n**有明确标价、可直接考虑：**\n1. **Water Bottle with Handle 2.5L Large Sports Water Bottle Half Gallon BPA Free Plastic Water Bottles Wide Mouth Water Bottle 83oz Reusable Gym Water Jug for Home Drinking Outdoor Sports Hiking Fitness**（VENNERLI）— **$23.99**\n   - 2.5L / 83oz 大容量，带提手，宽口，BPA Free，适合健身、户外、徒步。\n\n**未标价，需自行确认：**\n2. **Half Gallon Water Bottle 2.2L Gym Water Jug Leakproof BPA Free Large Water Bottle for Kids Adult Summer Outdoor Camping Hiking Travel (Purple)**（Wetry）— 未标价，需自行确认\n   - 2.2L / 74oz，防漏，BPA Free。\n3. **Half Gallon Water Bottle 2.2L Gym Water Jug Leakproof BPA Free Large Water Bottle for Kids Adult Summer Outdoor Camping Hiking Travel (White)**（Wetry）— 未标价，需自行确认\n   - 同上，白色款。\n4. **LEZFIT Water Jug 2.2L Big Water Bottle Large Capacity BPA Free Leakproof Half Gallon Sport Water Bottle for Gym Fitness Athletic Bicycle Camping.** — 未标价，需自行确认\n   - 2.2L，防漏，BPA Free。\n5. **SOXCOXO Half Gallon Water Bottle BPA Free 2.2 Litre Big Water Bottles Leak Proof Reusable Large Water Jugs with Spout Gym Water Bottle for Sports Hydrate Water Bottle (Pink Plus)** — 未标价，需自行确认\n   - 2.2L，防漏，带出水口。\n6. **MJuan 2L Large Capacity Outdoor Sport Running Training Drink Water Bottle Cup Kettle** — 未标价，需自行确认\n   - 不锈钢材质，标注 2L 大容量（描述里另提到 1000ml，容量信息有出入，建议下单前确认）。\n\n如果你希望只看有明确价格的，目前最匹配的是第 1 款 2.5L 大容量款。也可以告诉我你的预算范围，我再帮你缩小选择。"
+    },
+    {
+      "id": "search_fishing_rod",
+      "query": "推荐一根适合新手的路亚鱼竿",
+      "passed": true,
+      "error": null,
+      "checks": [
+        {
+          "name": "required_tools",
+          "ok": true,
+          "detail": "missing=[] called=['search_products', 'search_products']"
+        },
+        {
+          "name": "must_retrieve_title_regex",
+          "ok": true,
+          "detail": "hit=['Sougayilang Casting Fishing Rods – Desig', 'Lanaak Kids Fishing Pole and Tackle Box ']"
+        },
+        {
+          "name": "grounded_prices",
+          "ok": true,
+          "detail": "ungrounded=[]"
+        }
+      ],
+      "steps": 2,
+      "llm_calls": 6,
+      "latency_s": 24.05,
+      "answer": "目前没有收到你的预算和品牌偏好，以下按“新手路亚”这个需求从资料里筛选，供你核对：\n\n**有明确标价、适合新手的选项：**\n\n1. **Lanaak Kids Fishing Pole and Tackle Box - with Net, Travel Bag, Reel and Beginner's Guide - Rod and Reel Kit for Boys, Girls, or Youth** — **$24.49**\n   - 整套新手装备：65 英寸伸缩竿、纺车轮、抄网、收纳包、新手指南，开箱即用，适合零基础入门。\n\n2. **Kids Fishing Pole and Tackle Box Fishing kit 17\" Telescoping Fishing Rod 32 pcs - Green** — **$19.95**\n   - 17 英寸伸缩竿 + 32 件配件（浮漂、钩、铅坠、软饵、硬饵等），预装线、免组装，价格最低的入门套装。\n\n3. **Abu Garcia Ike Dude Junior Starter Spinning Rod and Reel Combo Set - Children's Fishing Setup** — **$62.99**\n   - 品牌纺车套装，竿身调性有颜色标识、EVA 握把，做工比上面两款更正规，适合想一步到位的新手。\n\n**未标价、需自行确认的选项：**\n\n4. **Sougayilang Casting Rods – Designed Specifically Bass Fishing - 1pc Fishing Poles (6'6\")** — 未标价，需自行确认\n   - 单支枪柄竿，碳素竿身，主打鲈鱼作钓。\n\n5. **Daiwa Procyon Baitcasting Rod 7ft Heavy 1 Piece (PCYN701HFB)** — 未标价，需自行确认\n   - 7 英尺硬调枪柄竿，石墨竿身，品牌口碑较好，但硬调对新手抛投不太友好。\n\n6. **ECOOLBUY Mini Spinning Reel & Rod Combos Telescopic Portable Hand Carbon Fiber Set** — 未标价，需自行确认\n   - 明确标注面向儿童/初学者的便携套装，含拟饵和鱼线。\n\n**说明：** 上面第 1、2 款严格说是儿童/青少年入门套装，如果你想要成人向的正规路亚竿，第 3 款更合适；第 4、5 款是单竿（不含轮），需要另配渔轮。\n\n**下一步建议：**\n- 告诉我你的预算上限，我可以帮你把范围收窄；\n- 如果只想要“竿+轮”整套，可以排除第 4、5 款；\n- 也可以换个关键词（如“纺车轮套装”“枪柄竿 新手”）再搜一轮。"
+    },
+    {
+      "id": "search_bike_helmet",
+      "query": "推荐一个骑自行车用的头盔",
+      "passed": true,
+      "error": null,
+      "checks": [
+        {
+          "name": "required_tools",
+          "ok": true,
+          "detail": "missing=[] called=['search_products']"
+        },
+        {
+          "name": "must_retrieve_title_regex",
+          "ok": true,
+          "detail": "hit=['SUNRIMOON Adult Cycling Bike Helmet Ligh', 'VICTGOAL Bike Helmet for Adults Men Wome']"
+        },
+        {
+          "name": "grounded_prices",
+          "ok": true,
+          "detail": "ungrounded=[]"
+        }
+      ],
+      "steps": 1,
+      "llm_calls": 5,
+      "latency_s": 13.75,
+      "answer": "目前这几款自行车头盔**都没有标价**，无法按预算筛选，下面按资料完整度列出，价格需你自行确认：\n\n1. **SUNRIMOON Adult Cycling Bike Helmet Lightweight Microshell Design Road Bike Helmet … (Black Red)** — 未标价，需自行确认\n   - 微壳设计、轻量，可调节尺寸，带可拆卸帽檐和 LED 安全灯，男女通用。\n\n2. **VICTGOAL Bike Helmet for Adults Men Women Bicycle Helmets with Visor and LED Light …**（ASIN: B07BP7BBRL）— 未标价，需自行确认\n   - EPS 泡沫 + PC 外壳，带帽檐和 LED 灯，公路/山地两用。\n\n3. **VICTGOAL Bike Helmet for Adults Men Women Bicycle Helmets with Visor and LED Light …**（ASIN: B07F34HX26）— 未标价，需自行确认\n   - 与上一款标题、卖点相同，可能是不同颜色/尺码，需在页面确认区别。\n\n4. **SUNRIMOON Adult Cycling Bike Helmet … 21.26-24.41 (Orange)** — 未标价，需自行确认\n   - 与第 1 款同系列，橙色，标注了头围范围 21.26–24.41 英寸。\n\n5. **Bike Helmet for Adult Men Women, Bicycle Helmet with Detachable Visor, Lightweight Road Cycling Helmet Adjustable Size (L) 22-24 inches** — 未标价，需自行确认\n   - SUNRIMOON 品牌，L 码，适合头围 22–24 英寸，带可拆卸帽檐。\n\n下一步建议：\n- 这几款都带 LED 灯和帽檐，如果你更看重**头围匹配**，可以先量一下头围，再对照第 4、5 款的尺寸范围；\n- 由于全部未标价，建议你把预算告诉我，或直接在商品页确认价格后再来对比；\n- 也可以换个关键词（如\"带 MIPS 的自行车头盔\"\"儿童自行车头盔\"）缩小范围。"
+    },
+    {
+      "id": "search_golf_ball",
+      "query": "推荐几款高尔夫球",
+      "passed": true,
+      "error": null,
+      "checks": [
+        {
+          "name": "required_tools",
+          "ok": true,
+          "detail": "missing=[] called=['search_products']"
+        },
+        {
+          "name": "must_retrieve_title_regex",
+          "ok": true,
+          "detail": "hit=['Funny Golf Balls, 6-Pack Colored Golf Ba', 'Clean Green Golf Balls 48 Used Golf Ball']"
+        },
+        {
+          "name": "grounded_prices",
+          "ok": true,
+          "detail": "ungrounded=[]"
+        }
+      ],
+      "steps": 1,
+      "llm_calls": 5,
+      "latency_s": 13.02,
+      "answer": "目前还没有你的偏好信息，下面按资料里能确认的价格和规格整理，供你挑选：\n\n**有明确标价的：**\n1. **JOINBO 16 Pack Golf Practice Balls for Kids for Beginners Swing Practice, Golf Driving Range, Home Use** — $7.99\n   儿童/初学者练习球，塑料轻量中空设计，主打安全，适合在家或练习场用。\n2. **Funny Golf Balls, 6-Pack Colored Golf Balls - Fun Golf Gifts for All Golfers, Novelty Golf Balls for Kids & Dads, Cool Golf Accessories for Men Gift** — $13.99\n   6 颗装彩色趣味球，偏礼品/新奇路线。\n3. **120 Pcs Plastic Golf Balls Practice Golf Balls Bulk Hollow Training Golf Balls with 2 Pcs Mesh Drawstring Storage Bags for Indoor Outdoor Training and Practice** — $26.99\n   120 颗塑料练习球，附 2 个收纳袋，适合大量训练或活动使用。\n4. **Clean Green Golf Balls 48 Used Golf Balls Recycled & Used Golf Balls - Good Condition Used Golf Ball Bulk - Includes 48 Used Golf Balls for Men and Women. Great as Practice Golf Balls or Course Play** — $42.99\n   48 颗二手/回收球，可用于练习或下场。\n\n**未标价，需自行确认：**\n5. **Vick Golf AGIS-1 High-Visibility Premium Urethane Orange Golf Balls | Dimple Pattern Golf Ball | Super Soft Orange Golf Balls (One Dozen)** — 未标价，需自行确认\n   一打装橙色高可视 urethane 球。\n6. **Assorted Designed Golf Balls (Tennis, Baseball, Volleyball) - 3 balls in a box** — 未标价，需自行确认\n   3 颗装网球/棒球/排球图案趣味球，偏收藏和送礼。\n7. **48 Pinnacle Gold White 5A Golf Balls** — 未标价，需自行确认\n   48 颗 Pinnacle Gold 白色 5A 品质球。\n8. **Bridgestone B330-RXS Refurbished Golf Balls (Pack of 36 Balls)** — 未标价，需自行确认\n   36 颗翻新 Bridgestone 球，偏下场性能向。\n\n如果你告诉我用途（自己下场、给孩子玩、送礼）和预算上限，我可以帮你缩小到更合适的几款；也可以换个关键词再搜，比如\"二手球\"\"练习球\"\"彩色球\"。"
+    },
+    {
+      "id": "search_resistance_band",
+      "query": "健身用的弹力带有什么推荐",
+      "passed": true,
+      "error": null,
+      "checks": [
+        {
+          "name": "required_tools",
+          "ok": true,
+          "detail": "missing=[] called=['search_products']"
+        },
+        {
+          "name": "must_retrieve_title_regex",
+          "ok": true,
+          "detail": "hit=['Resistance Loop Exercise Bands, Fitness ', 'ZIMU 11Pcs Workout Resistance Bands Set ']"
+        },
+        {
+          "name": "grounded_prices",
+          "ok": true,
+          "detail": "ungrounded=[]"
+        }
+      ],
+      "steps": 1,
+      "llm_calls": 5,
+      "latency_s": 15.55,
+      "answer": "目前还没有你的偏好信息，所以这一轮没有按预算或品牌筛选，下面把有明确标价的商品先列出来，未标价的放在后面供你参考。\n\n**有明确标价的商品（可直接核对价格）：**\n1. **Resistance Loop Exercise Bands, Fitness Bands for Women Men... Set of 5 Exercise Loops** — $6.99：5 条套装，100% 天然乳胶，适合训练、瑜伽、普拉提、拉伸、康复理疗、腿部臀部训练。\n2. **Vquand Resistance Exercise Bands Set for Women Butt and Legs...** — $5.99：主打臀腿训练，也适用于力量训练、普拉提、瑜伽和理疗恢复。\n\n**未标价的商品（需自行确认价格）：**\n3. **BELL Fitness Resistance Toning Bands (Green Light Tension)** — 未标价，需自行确认：专业级乳胶带，配泡棉手柄、门扣和训练手册。\n4. **ZIMU 11Pcs Workout Resistance Bands Set Pull Rope with Handles and Door Anchor...** — 未标价，需自行确认：11 件套，带手柄和门锚，多管可调。\n5. **Resistance Bands Fitness Bands, 4 Resistance Bands Set... with Carrying Bag** — 未标价，需自行确认：4 条不同规格套装，附收纳袋，适合引体向上辅助和力量训练。\n6. **joypur Resistance Bands Set... 11pcs with Resistance Bands, Door Anchor, Handles, Legs Ankle Straps** — 未标价，需自行确认：11 件套，含门锚、手柄、脚踝带。\n7. **Unique Fitness Resistance Bands|Pull-up Assist Bands|Powerlifting Bands... Single Band Set** — 未标价，需自行确认：单条装，偏引体辅助和力量举。\n8. **Fitness Insanity Resistance Bands for Legs and Butt, Fabric Workout Loop Bands, Set of 3** — 未标价，需自行确认：3 条布面环带，防卷边，主打臀腿。\n\n**下一步建议：**\n- 如果你有预算上限或想要的类型（比如环带、带手柄的管带、臀腿专用），告诉我，我可以帮你缩小范围。\n- 想先看便宜好入手的，可以从上面两款有标价的套装里挑；想要手柄、门锚这类配件更全的，可以重点确认 ZIMU 和 joypur 这两款的价格。"
+    },
+    {
+      "id": "budget_yoga_mat_30",
+      "query": "推荐 $30 以内的瑜伽垫",
+      "passed": true,
+      "error": null,
+      "checks": [
+        {
+          "name": "required_tools",
+          "ok": true,
+          "detail": "missing=[] called=['search_products']"
+        },
+        {
+          "name": "must_retrieve_title_regex",
+          "ok": true,
+          "detail": "hit=['ONEGenug Yoga Mat Bag, Long Strap Yoga M', 'Yoga Mat, Premium 1/4 inch Imprint Non S']"
+        },
+        {
+          "name": "budget",
+          "ok": true,
+          "detail": "budget=30.0 over=[]"
+        },
+        {
+          "name": "grounded_prices",
+          "ok": true,
+          "detail": "ungrounded=[]"
+        }
+      ],
+      "steps": 1,
+      "llm_calls": 5,
+      "latency_s": 13.53,
+      "answer": "已按预算上限 $30 筛选，只列已知价格在预算内的瑜伽垫（瑜伽垫包不在推荐范围内）：\n\n1. **Yoga Mat, Premium 1/4 inch Imprint Non Slip Extra Thick Fitness & Exercise Mat with Carrying Strap, Workout Mat for All Types of Yoga, Pilates and Floor Exercises** — $17.99\n   - 1/4 英寸加厚，防滑，附带背带，适合瑜伽、普拉提和地面训练。\n\n2. **Natural Fitness Eco-Smart Yoga Mat** — $27.85\n   - 4mm 厚，主打环保材质，提供基础缓冲，偏薄一些，适合想要更好感知地面的练习者。\n\n另外有一款未标价、无法确认是否在预算内：\n\n3. **Gaiam Premium Print Yoga Mat, Extra Thick Non Slip Exercise & Fitness Mat... Bamboo Moon, 5/6mm** — 未标价，需自行确认\n   - 5/6mm 加厚防滑印花垫，尺寸 68\" x 24\"，附赠可下载的瑜伽课程。\n\n补充说明：**Arama Cotton Yoga Mat** 同样未标价，需自行确认；它是 100% 棉、1/4 英寸厚、双面防滑可水洗，如果你偏好棉质可以一并核实价格。\n\n如果这两款未标价的都超出预算，建议换个关键词（如\"加厚瑜伽垫 带背带\"）或适当提高预算再筛选。"
+    },
+    {
+      "id": "budget_tent_100",
+      "query": "露营帐篷，预算 $100 以内",
+      "passed": true,
+      "error": null,
+      "checks": [
+        {
+          "name": "required_tools",
+          "ok": true,
+          "detail": "missing=[] called=['search_products']"
+        },
+        {
+          "name": "must_retrieve_title_regex",
+          "ok": true,
+          "detail": "hit=['Camping Tent 4 Person, Waterproof Windpr', 'Cflity Camping Tent, 3 Person Instant Po']"
+        },
+        {
+          "name": "budget",
+          "ok": true,
+          "detail": "budget=100.0 over=[]"
+        },
+        {
+          "name": "grounded_prices",
+          "ok": true,
+          "detail": "ungrounded=[]"
+        }
+      ],
+      "steps": 1,
+      "llm_calls": 5,
+      "latency_s": 15.39,
+      "answer": "已按预算 $100 以内筛选，以下帐篷都在预算内：\n\n1. **Camping Tent 4 Person, Waterproof Windproof Tent with Rainfly Easy Set up-Portable Dome Tents for Camping** — $59.99\n   - 4 人款，防水防风，带雨罩，圆顶结构，搭建方便；尺寸 9'L x 7' x 50\"H，可放 1 张标准充气床垫。\n\n2. **Outrav Easy Automatic Pop-Up Camping Tents for 3-4 People – Lightweight Quick Setup Instant Pop Open Cabin with Two Way Zipper, Lamp Hook, Net Curtain, Stakes, Rope, Carrying Bag** — $59.99\n   - 3-4 人自动弹开式，快速搭建；含双向拉链、灯钩、网帘、地钉、绳索和收纳袋；地面尺寸 83\" x 94.5\"。\n\n3. **Cflity Camping Tent, 3 Person Instant Pop Up Tent Waterproof Three Layer Automatic Dome Tent, Large Lightweight 4 Seasons Tent, Backpacking Tent with Removable Rain-Fly 2 Extensible Porch for Camping** — $79.99\n   - 3 人免搭自动弹开，三层防水，四季可用，可拆卸雨罩，带 2 个可扩展门廊。\n\n4. **1-Person Backpacking Tent for 4-Season - Winter Waterproof Tent for One Person, Lightweight Camping Tent for Backpacking, Easy Set Up Cold Weather Tent by Underwood Aggregator** — $74.99\n   - 单人四季款，适合背包和寒冷天气，双层角部抗风，带灯钩和网袋。\n\n5. **Ochine Privacy Camping Tent Portable Shower Tent Pop Up Toilet Dressing Changing Room Outdoor Privacy Shelter Tents for Camping, Fishing Tent, Outdoor Shower Enclosure Tent, Beach Tent(Ship from USA)** — $24.99\n   - 隐私帐篷/淋浴更衣帐，弹开式，适合露营、钓鱼、海滩；注意这不是睡眠用帐篷。\n\n补充说明：以上价格均来自商品资料。若你更看重人数，4 人可看第 1 款；想快速搭建可看第 2、3 款；单人轻装可看第 4 款。需要我按人数或搭建方式再缩小范围吗？"
+    },
+    {
+      "id": "budget_dumbbell_60",
+      "query": "想买哑铃，预算 $60 以内",
+      "passed": true,
+      "error": null,
+      "checks": [
+        {
+          "name": "required_tools",
+          "ok": true,
+          "detail": "missing=[] called=['search_products']"
+        },
+        {
+          "name": "must_retrieve_title_regex",
+          "ok": true,
+          "detail": "hit=['Premium Round Rubber Dumbbells Single, H', 'Exceart Aquatic Exercise Dumbbells Water']"
+        },
+        {
+          "name": "budget",
+          "ok": true,
+          "detail": "budget=60.0 over=[]"
+        },
+        {
+          "name": "grounded_prices",
+          "ok": true,
+          "detail": "ungrounded=[]"
+        }
+      ],
+      "steps": 1,
+      "llm_calls": 5,
+      "latency_s": 13.35,
+      "answer": "已按预算 $60 以内筛选，以下为符合条件的哑铃（价格均为已知标价）：\n\n1. **Iron Crush Hex Dumbbells - PVC Coated Weights, Chrome-Plated Knurled Handles, Fixed Hexagon Dumbbell - Workout, Exercise, Body Building Home Gym Training Gear - 3 Lb to 50Lb - Sold in Singles** — $29.99\n2. **Premium Round Rubber Dumbbells Single, Hand Weights For Men and Women Sold Separately, Weights Dumbbell for Strength Training, Body Building Home Gym Training Gear** — $43.88\n3. **Exceart Aquatic Exercise Dumbbells Water Weights Aquatic Dumbbells for Water Aerobics Pool Fitness Therapy Workouts 100g Pink** — $11.59（水上健身用，100g，偏轻）\n\n另有两款未标价，需自行确认价格后再判断是否在预算内：\n- **CAP Barbell Neoprene Coated Dumbbells, Pair** — 未标价，需自行确认\n- **Yes4All Adjustable Cast Iron Dumbbell Sets 40-200LBS with Connector Option Weights Set For Home Gym, Strength Training, Full Body Workout, and Muscle Building Men Women** — 未标价，需自行确认\n\n补充建议：\n- 若用于常规力量训练，前两款更合适；第三款为水上康复用途，重量很轻。\n- 若想要可调节重量或成对购买，可先确认后两款的价格；如价格偏高，可考虑适当提高预算或换关键词（如\"adjustable dumbbell pair\"）再搜。"
+    },
+    {
+      "id": "tool_compare_brand",
+      "query": "对比一下 KingCamp 和 Kijaro 的露营椅，哪个更适合户外？",
+      "passed": true,
+      "error": null,
+      "checks": [
+        {
+          "name": "required_tools",
+          "ok": true,
+          "detail": "missing=[] called=['search_products', 'search_products', 'compare_products']"
+        },
+        {
+          "name": "must_retrieve_any",
+          "ok": true,
+          "detail": "hit=['B0BXN8N6VB', 'B0C4MF7J6G']"
+        },
+        {
+          "name": "grounded_prices",
+          "ok": true,
+          "detail": "ungrounded=[]"
+        }
+      ],
+      "steps": 2,
+      "llm_calls": 6,
+      "latency_s": 24.13,
+      "answer": "这轮没有可用的预算或品牌偏好信息，所以下面把 KingCamp 和 Kijaro 的露营椅都列出来对比，价格以资料为准。\n\n**KingCamp（有标价）**\n1. KingCamp Padded Camping Chair with Cup Holder Side Pocket Solid Armrest… Black — **$61.99**：加厚坐垫、实心扶手、旋转杯架、侧袋，承重 330 lbs，偏舒适型。\n2. KingCamp Ultralight High Back Folding Camping Chairs… 2 Pack — **$59.99**：全铝合金支架、高背带扶手、超轻，2 件装，带收纳袋，适合徒步/轻量出行。\n3. KingCamp KC3841 Camping Chair, Blue_Low BACK — **$58.99**：低座设计、大脚帽更稳，泡棉扶手、带杯架，适合沙滩。\n4. KingCamp Camping Directors Chair with Side Table — **$94.99**：导演椅式、带边桌，承重 300 lbs，适合露营/野餐久坐。\n\n**KingCamp（未标价）**\n5. KingCamp Folding Camping Chair Low Seat… 2 Pack — **未标价，需自行确认**：低座、带杯架和前袋，钢架+600D 牛津布，承重 265 lbs，2 件装。\n\n**Kijaro（有标价）**\n6. Kijaro Outdoor Camping Chair — **$65.00**：双锁定结构（锁开更稳、锁闭好搬运），无下垂座面、菱形防撕涤纶、背部透气网布。\n\n**Kijaro（未标价）**\n7. Kijaro Folding Sling Chair — **未标价，需自行确认**：头枕可拆枕、2 个杯架+拉链/网袋收纳、透气网布，承重 250 lbs。\n8. Kijaro Folding Sling Chair（另一 ASIN）— **未标价，需自行确认**：配置与上款相同，承重 250 lbs。\n\n**哪个更适合户外？**\n- 追求**轻量便携、徒步/背包出行**：KingCamp Ultralight High Back（$59.99，铝合金、2 件装）更合适。\n- 追求**久坐舒适、承重高**：KingCamp Padded（$61.99，330 lbs）或 Directors Chair（$94.99，带边桌）更合适。\n- 追求**稳定不晃、好收纳搬运**：Kijaro Outdoor Camping Chair（$65.00）的双锁定设计是它的特点。\n- 想要**躺靠+头枕+多收纳**：可看 Kijaro Folding Sling Chair，但两款都未标价，需自行确认价格和承重（250 lbs，低于上面几款 KingCamp）。\n\n**下一步建议**\n- 如果告诉我预算上限和主要用途（徒步轻量 / 家庭露营久坐 / 沙滩），我可以帮你缩小到 1–2 款。\n- 未标价的 3 款建议先到商品页确认价格，再和已标价款对比。"
+    },
+    {
+      "id": "tool_detail_asin",
+      "query": "B07FZB48BX 这款水壶有什么特点？",
+      "passed": true,
+      "error": null,
+      "checks": [
+        {
+          "name": "required_tools",
+          "ok": true,
+          "detail": "missing=[] called=['get_product_detail']"
+        },
+        {
+          "name": "must_retrieve_any",
+          "ok": true,
+          "detail": "hit=['B07FZB48BX']"
+        },
+        {
+          "name": "must_mention_any",
+          "ok": true,
+          "detail": "hit=['CamelBak']"
+        },
+        {
+          "name": "grounded_prices",
+          "ok": true,
+          "detail": "ungrounded=[]"
+        }
+      ],
+      "steps": 1,
+      "llm_calls": 5,
+      "latency_s": 7.93,
+      "answer": "B07FZB48BX 对应的是这款水壶：\n\n**CamelBak eddy Water Bottle, 20oz — $19.99**\n\n它的主要特点：\n\n1. **防漏设计**：防洒漏，杯盖和咬嘴阀经过重新设计，出水更快、更耐用。\n2. **免倾倒饮用**：采用 Flip、Bite、Sip 方式，直接咬阀吸水即可，不用仰头倒水（也可拆掉吸管倒着喝）。\n3. **容量与重量**：容量 20 oz / 0.6 L，自重 4.8 oz，轻便好携带。\n4. **便携**：一体式提环，可挂登山扣，或用手指勾着拿；外形贴合手掌，也能放进多数杯架。\n5. **易清洗**：宽口设计，方便加冰、加水，也方便清洗；所有部件均可放洗碗机上层清洗。\n6. **材质安全**：100% 不含 BPA；瓶身为 Eastman Tritan 共聚酯，杯盖为聚丙烯，咬嘴阀为医用级硅胶。\n7. **售后保障**：提供 Got Your Bak 终身质保。\n8. **产地**：中国。\n\n如果你想和别的款式对比，或想按容量、材质再筛选，告诉我你的偏好即可。"
+    },
+    {
+      "id": "tool_compare_two_asins",
+      "query": "B07RT7TCRD 和 B0BCG89J29 这两款瑜伽垫有什么区别？",
+      "passed": true,
+      "error": null,
+      "checks": [
+        {
+          "name": "required_tools",
+          "ok": true,
+          "detail": "missing=[] called=['compare_products']"
+        },
+        {
+          "name": "must_retrieve_any",
+          "ok": true,
+          "detail": "hit=['B07RT7TCRD', 'B0BCG89J29']"
+        },
+        {
+          "name": "grounded_prices",
+          "ok": true,
+          "detail": "ungrounded=[]"
+        }
+      ],
+      "steps": 1,
+      "llm_calls": 5,
+      "latency_s": 8.93,
+      "answer": "这两款瑜伽垫的主要区别如下（价格均来自商品资料，方便你核对）：\n\n**1. Mandelbrot X Yoga Mat（Mosaic Series）— $23.99｜ASIN: B07RT7TCRD**\n- 尺寸：72'' x 24''，厚度 5 mm\n- 材质：100% 环保无毒 PVC\n- 特点：双面可用（reversible），防滑、耐用，主打热瑜伽、Bikram、Pilates 等多种练习\n- 定位：偏薄一些（5 mm），价格更低\n\n**2. Mount Adams Pro Fit XL Yoga Mat — $49.99｜ASIN: B0BCG89J29**\n- 尺寸：26'' x 74''，厚度 6 mm（更大更宽）\n- 材质：闭孔乙烯基泡沫（closed cell vinyl foam），高密度\n- 特点：带背带（carry strap），表面纹理防滑，适合室内外多种地面，主打瑜伽、Pilates、Cross Fit、力量训练\n- 定位：更厚（6 mm）、面积更大，附带背带，价格约为前者的 2 倍多\n\n**简单对比：**\n- **尺寸/厚度**：Mount Adams 更宽更长（26''x74'' vs 24''x72''）、更厚（6 mm vs 5 mm）\n- **材质**：Mandelbrot 为 PVC；Mount Adams 为闭孔乙烯基泡沫\n- **配件**：Mount Adams 带背带，Mandelbrot 资料未提及背带\n- **价格**：$23.99 vs $49.99，Mandelbrot 更便宜\n\n如果你更看重**轻薄便携、预算低**，可以看 Mandelbrot；如果更看重**加厚缓冲、大尺寸、带背带、兼顾力量训练**，可以看 Mount Adams。\n\n需要我按你的预算或使用场景（比如热瑜伽、力量训练）再帮你缩小选择吗？"
+    },
+    {
+      "id": "refuse_cat_food",
+      "query": "有没有卖猫粮的",
+      "passed": true,
+      "error": null,
+      "checks": [
+        {
+          "name": "expect_no_match",
+          "ok": true,
+          "detail": "answer='目前没有找到明确的猫粮商品。以下是搜索结果里与猫/宠物喂食相关、但**不是猫粮**的商品，供你核对：\\n\\n1. **ALI'"
+        },
+        {
+          "name": "grounded_prices",
+          "ok": true,
+          "detail": "ungrounded=[]"
+        }
+      ],
+      "steps": 2,
+      "llm_calls": 6,
+      "latency_s": 20.61,
+      "answer": "目前没有找到明确的猫粮商品。以下是搜索结果里与猫/宠物喂食相关、但**不是猫粮**的商品，供你核对：\n\n1. **ALIENSX Protective Bottom Boot for 12-40 oz Hydro Sports Water Bottle Flask, Anti-Slip Silicone Sleeve Cover, Travel Pet Bowl for Dog Cat Food Feeding** — 未标价，需自行确认。这是宠物旅行喂食碗/水瓶底座套，不是猫粮。\n2. **BOREDogs Lick Mat for Dogs 5.9inch and Groom Brush 10.4inch (3 PCS SET)** — $11.97。这是狗狗舔食垫和梳刷套装，不是猫粮。\n3. **Milk 6OZ Healthy Aging** — 未标价，需自行确认。这是犬用保健零食（约30粒咀嚼片），不是猫粮。\n\n下一步建议：\n- 换关键词试试「cat food」「猫粮」「dry cat food」「wet cat food」再搜一次；\n- 如果你其实想找的是喂食器具（碗、垫子），可以告诉我，我按这个方向再筛。"
+    },
+    {
+      "id": "refuse_baby_formula",
+      "query": "我想买婴儿配方奶粉",
+      "passed": true,
+      "error": null,
+      "checks": [
+        {
+          "name": "expect_no_match",
+          "ok": true,
+          "detail": "answer='目前给出的商品资料里没有婴儿配方奶粉，无法为你推荐具体商品。\\n\\n以下是资料中与\"婴儿喂养\"沾边、但**都不是配方奶粉**'"
+        },
+        {
+          "name": "grounded_prices",
+          "ok": true,
+          "detail": "ungrounded=[]"
+        }
+      ],
+      "steps": 2,
+      "llm_calls": 6,
+      "latency_s": 19.59,
+      "answer": "目前给出的商品资料里没有婴儿配方奶粉，无法为你推荐具体商品。\n\n以下是资料中与\"婴儿喂养\"沾边、但**都不是配方奶粉**的商品，供你核对：\n\n1. **elfinbaby Baby Bottle Warmer & Bottle Sterilizer, 4 in 1 Function with Temperature LCD Monitor**（ASIN: B004GFK1YU）——温奶+消毒器，未标价，需自行确认\n2. **Hoopla Gorilla Bag - Baby Pink Deluxe Insulated 6 Pack Bottle Carrier**（ASIN: B00VO1HOU8）——奶瓶保温携带包，未标价，需自行确认\n3. **Fit & Fresh Jaxx Shaker Bottle, Leak-Proof Lid - Pink And Green (2-Pack)**（ASIN: B00VS0P7FO）——摇摇杯，可用于冲调饮品，未标价，需自行确认\n\n下一步建议：\n- 换关键词再搜，比如\"infant formula\"\"baby formula powder\"\"stage 1 formula\"；\n- 如果你其实想买的是冲奶/存奶的配套用品（温奶器、奶瓶包、摇摇杯），可以告诉我，我按这些品类帮你挑；\n- 有预算的话也可以告诉我，我按预算帮你筛。"
+    },
+    {
+      "id": "refuse_cat_litter",
+      "query": "推荐一款猫砂",
+      "passed": true,
+      "error": null,
+      "checks": [
+        {
+          "name": "expect_no_match",
+          "ok": true,
+          "detail": "answer='目前给出的商品资料里没有猫砂类商品，无法推荐具体产品。\\n\\n以下是资料中与\"猫\"相关、可作参考的商品（均非猫砂）：\\n\\n1.'"
+        },
+        {
+          "name": "grounded_prices",
+          "ok": true,
+          "detail": "ungrounded=[]"
+        }
+      ],
+      "steps": 2,
+      "llm_calls": 6,
+      "latency_s": 17.49,
+      "answer": "目前给出的商品资料里没有猫砂类商品，无法推荐具体产品。\n\n以下是资料中与\"猫\"相关、可作参考的商品（均非猫砂）：\n\n1. **Unicorn Cat Sticker Wearing Pool Float Car Vehicle Window Bumper Cup Laptop Vinyl Decal Graphic Cute Kitten Beach** — $2.95（猫图案贴纸）\n2. **Cat Outer Space T Shirt Meowverse Universe Kitten Head Tee** — $17.99（猫图案T恤）\n3. **PUMA Leaping Cat Logo Polo Leather Strapback Washed Slouch Dad Golf Cap Hat (Khaki Tan Camel Sand Beige)** — 未标价，需自行确认（猫logo帽子）\n4. **PUMA Golf Kids Boy's Cat Patch 2.0 Adjustable Cap (Big Kids) White/Black Hat One Size** — 未标价，需自行确认（猫patch童帽）\n\n下一步建议：\n- 换关键词搜索，如\"cat litter\"\"猫砂\"\"clumping litter\"\"豆腐砂\"等；\n- 如果你有预算上限，可以告诉我，我再按预算帮你筛。"
+    },
+    {
+      "id": "multi_turn_second_price",
+      "query": "第二款多少钱？",
+      "passed": true,
+      "error": null,
+      "checks": [
+        {
+          "name": "must_mention_any",
+          "ok": true,
+          "detail": "hit=['39.98', '39.9']"
+        }
+      ],
+      "steps": 0,
+      "llm_calls": 3,
+      "latency_s": 2.36,
+      "answer": "第二款 Gaiam Yoga Mat - Premium 6mm Print Reversible 是 **$39.98**。"
+    },
+    {
+      "id": "multi_turn_cheaper",
+      "query": "有没有更便宜一点的？",
+      "passed": true,
+      "error": null,
+      "checks": [
+        {
+          "name": "required_tools",
+          "ok": true,
+          "detail": "missing=[] called=['search_products']"
+        },
+        {
+          "name": "budget",
+          "ok": true,
+          "detail": "budget=30.0 over=[]"
+        },
+        {
+          "name": "grounded_prices",
+          "ok": true,
+          "detail": "ungrounded=[]"
+        }
+      ],
+      "steps": 1,
+      "llm_calls": 5,
+      "latency_s": 13.11,
+      "answer": "已按你的预算 $30 筛选，下面这些都在预算内，按价格从低到高排列：\n\n1. **Yoga Mat, Premium 1/4 inch Imprint Non Slip Extra Thick Fitness & Exercise Mat with Carrying Strap** — $17.99\n   - 1/4 英寸加厚，防滑，带背带，适合瑜伽、普拉提和垫上训练。\n\n2. **Gaiam Premium Print Yoga Mat, Extra Thick Non Slip Exercise & Fitness Mat（Bamboo Moon, 5/6mm）** — 未标价，需自行确认\n   - 68 英寸 × 24 英寸 × 5/6mm，加厚防滑印花垫。\n\n3. **Arama Cotton Yoga Mat** — 未标价，需自行确认\n   - 100% 棉，不含乳胶和 PVC，双面防滑，可水洗，24\" × 71\"，1/4 英寸厚。\n\n4. **Nirvana Pro Yoga MAT, Large Yoga Mat, Thick Yoga Mat, Non Slip Yoga Mat, Natural Rubber Yoga Mat** — 未标价，需自行确认\n   - 天然橡胶，环保无毒，含瑜伽巾和瑜伽包。\n\n另外提醒一下：**ONEGenug Yoga Mat Bag（$12.99）** 只是瑜伽垫收纳袋，不含垫子，如果你要的是垫子本身，这款不合适。\n\n在已知价格的垫子里，$17.99 这款是最便宜的。如果还想再省，可以试试换关键词，比如“薄款瑜伽垫”“基础瑜伽垫”，或者告诉我你能接受更薄的厚度，我再帮你找找。"
+    }
+  ]
+}

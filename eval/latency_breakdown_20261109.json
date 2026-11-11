@@ -1,0 +1,158 @@
+[
+ {
+  "q": "推荐一款 50 美元以内的露营头灯",
+  "steps": [
+   {
+    "t": 0.98,
+    "line": "router → shop"
+   },
+   {
+    "t": 1.61,
+    "line": "memory → 画像已更新"
+   },
+   {
+    "t": 2.5,
+    "line": "planner → search_products"
+   },
+   {
+    "t": 7.89,
+    "line": "tool  search_products({\"query\": \"camping headlamp\", \"max_price\": 50}) → ok"
+   },
+   {
+    "t": 7.89,
+    "line": "reflect → 继续查（已用 1/4 步）"
+   },
+   {
+    "t": 9.23,
+    "line": "planner → search_products"
+   },
+   {
+    "t": 15.15,
+    "line": "tool  search_products({\"query\": \"LED headlamp flashlight rechargeable\", \"max_pr...) → ok"
+   },
+   {
+    "t": 15.15,
+    "line": "reflect → 继续查（已用 2/4 步）"
+   },
+   {
+    "t": 18.03,
+    "line": "planner → 信息够了"
+   },
+   {
+    "t": 20.65,
+    "line": "generate → 基于 8 条商品资料"
+   }
+  ],
+  "total": 20.65,
+  "server_ms": 20476,
+  "steps_count": 2
+ },
+ {
+  "q": "那款头灯续航怎么样",
+  "steps": [
+   {
+    "t": 0.79,
+    "line": "router → shop"
+   },
+   {
+    "t": 1.94,
+    "line": "memory → 画像无变化"
+   },
+   {
+    "t": 3.2,
+    "line": "planner → get_product_detail"
+   },
+   {
+    "t": 3.2,
+    "line": "tool  get_product_detail({\"asin\": \"B0D9QY1X8M\"}) → ok"
+   },
+   {
+    "t": 3.2,
+    "line": "reflect → 继续查（已用 1/4 步）"
+   },
+   {
+    "t": 4.35,
+    "line": "planner → 信息够了"
+   },
+   {
+    "t": 4.36,
+    "line": "generate → 沿用 planner 话术"
+   }
+  ],
+  "total": 4.36,
+  "server_ms": 4311,
+  "steps_count": 1
+ },
+ {
+  "q": "推荐一个 30 美元以内的营灯",
+  "steps": [
+   {
+    "t": 0.68,
+    "line": "router → shop"
+   },
+   {
+    "t": 1.39,
+    "line": "memory → 画像已更新"
+   },
+   {
+    "t": 2.56,
+    "line": "planner → search_products"
+   },
+   {
+    "t": 7.66,
+    "line": "tool  search_products({\"query\": \"camping lantern\", \"max_price\": 30, \"top_k\": 8}) → ok"
+   },
+   {
+    "t": 7.66,
+    "line": "reflect → 继续查（已用 1/4 步）"
+   },
+   {
+    "t": 10.27,
+    "line": "planner → 信息够了"
+   },
+   {
+    "t": 13.15,
+    "line": "generate → 基于 8 条商品资料"
+   }
+  ],
+  "total": 13.15,
+  "server_ms": 13125,
+  "steps_count": 1
+ },
+ {
+  "q": "有没有适合新手的登山杖，预算 60 美元",
+  "steps": [
+   {
+    "t": 0.85,
+    "line": "router → shop"
+   },
+   {
+    "t": 1.48,
+    "line": "memory → 画像已更新"
+   },
+   {
+    "t": 2.3,
+    "line": "planner → search_products"
+   },
+   {
+    "t": 8.13,
+    "line": "tool  search_products({\"query\": \"trekking poles for beginners\", \"max_price\": 60}) → ok"
+   },
+   {
+    "t": 8.13,
+    "line": "reflect → 继续查（已用 1/4 步）"
+   },
+   {
+    "t": 10.08,
+    "line": "planner → 信息够了"
+   },
+   {
+    "t": 13.28,
+    "line": "generate → 基于 5 条商品资料"
+   }
+  ],
+  "total": 13.28,
+  "server_ms": 13241,
+  "steps_count": 1
+ }
+]

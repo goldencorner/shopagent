@@ -1,0 +1,35 @@
+{
+  "k": 5,
+  "hit_k": 3,
+  "n_queries": 50,
+  "results": {
+    "bm25": {
+      "n_queries": 50,
+      "hit_k": 3,
+      "recall": 0.72,
+      "mrr": 0.61,
+      "ndcg": 0.6383301655000041
+    },
+    "vector": {
+      "n_queries": 50,
+      "hit_k": 3,
+      "recall": 0.52,
+      "mrr": 0.47,
+      "ndcg": 0.4826185950714292
+    },
+    "hybrid": {
+      "n_queries": 50,
+      "hit_k": 3,
+      "recall": 0.62,
+      "mrr": 0.55,
+      "ndcg": 0.5678557852142875
+    },
+    "hybrid_rerank": {
+      "n_queries": 50,
+      "hit_k": 3,
+      "recall": 0.78,
+      "mrr": 0.6866666666666668,
+      "ndcg": 0.7104743802857166
+    }
+  }
+}

@@ -1,0 +1,21 @@
+{"id": "chitchat_hello", "query": "你好", "checks": {"intent": "chitchat", "forbidden_tools": ["search_products", "get_product_detail", "compare_products", "find_similar"], "max_answer_chars": 150}}
+{"id": "chitchat_who", "query": "你是谁", "checks": {"intent": "chitchat", "forbidden_tools": ["search_products", "get_product_detail", "compare_products", "find_similar"], "max_answer_chars": 200}}
+{"id": "search_lipstick", "query": "推荐几款口红", "checks": {"required_tools": ["search_products"], "must_retrieve_title_regex": "lip\\s?stick"}}
+{"id": "search_moisturizer", "query": "我想买敏感肌能用的保湿霜", "checks": {"required_tools": ["search_products"], "must_retrieve_title_regex": "moistur|moisture cream"}}
+{"id": "search_sunscreen", "query": "推荐一款面部防晒霜", "checks": {"required_tools": ["search_products"], "must_retrieve_title_regex": "sunscreen|sun screen|spf"}}
+{"id": "search_shampoo", "query": "有没有适合干性发质的洗发水", "checks": {"required_tools": ["search_products"], "must_retrieve_title_regex": "shampoo"}}
+{"id": "search_perfume", "query": "推荐几款女士香水", "checks": {"required_tools": ["search_products"], "must_retrieve_title_regex": "perfume|parfum|eau de"}}
+{"id": "search_vitamin_c", "query": "找一款维生素 C 精华", "checks": {"required_tools": ["search_products"], "must_retrieve_title_regex": "vitamin\\s?c"}}
+{"id": "search_body_lotion", "query": "推荐一款身体乳，我皮肤很干", "checks": {"required_tools": ["search_products"], "must_retrieve_title_regex": "lotion"}}
+{"id": "search_hair_mask", "query": "有没有适合受损发质的发膜", "checks": {"required_tools": ["search_products"], "must_retrieve_title_regex": "hair mask|masque|hair treatment"}}
+{"id": "budget_lipstick_10", "query": "推荐 $10 以内的口红", "checks": {"required_tools": ["search_products"], "budget": 10, "must_retrieve_title_regex": "lip\\s?stick"}}
+{"id": "budget_moisturizer_20", "query": "敏感肌能用的保湿霜，预算 $20 以内", "profile": {"budget_max": 20, "skin_type": "sensitive"}, "checks": {"required_tools": ["search_products"], "budget": 20, "must_retrieve_title_regex": "moistur|moisture cream", "must_mention_any": ["未标价", "价格未知", "自行确认"]}}
+{"id": "budget_sunscreen_15", "query": "推荐 $15 以内的防晒", "checks": {"required_tools": ["search_products"], "budget": 15, "must_retrieve_title_regex": "sunscreen|sun screen|spf"}}
+{"id": "tool_compare_brand", "query": "对比一下 Aveeno 和 Cetaphil 的保湿产品，哪个更适合敏感肌", "checks": {"required_tools": ["compare_products"], "must_retrieve_any": ["B072BKHJ7Z"]}}
+{"id": "tool_detail_asin", "query": "B07G631936 这款保湿霜含什么成分？", "checks": {"required_tools": ["get_product_detail"], "must_retrieve_any": ["B07G631936"], "must_mention_any": ["BEAUTIQLO"]}}
+{"id": "tool_compare_two_asins", "query": "B014T3QBLK 和 B07G631936 这两款哪个更适合敏感肌？", "checks": {"required_tools": ["compare_products"], "must_retrieve_any": ["B014T3QBLK", "B07G631936"]}}
+{"id": "refuse_laptop", "query": "推荐一台笔记本电脑", "checks": {"expect_no_match": true}}
+{"id": "refuse_pet_food", "query": "有没有卖宠物狗粮的", "checks": {"expect_no_match": true}}
+{"id": "refuse_shoes", "query": "我想买一双跑鞋", "checks": {"expect_no_match": true}}
+{"id": "multi_turn_second_price", "query": "第二款多少钱？", "history": [{"role": "user", "content": "推荐几款口红"}, {"role": "assistant", "content": "推荐这几款：1. NICKA K LIPSTICK WITH VITAMIN E Burgundy Tint #927 — $5.48；2. Pin-Up Pout Lipstick Violet Femme — $7.99；3. Lurella Liquid Lipstick Brit — $9.75"}], "checks": {"must_mention_any": ["7.99", "7.9"], "grounded_prices": false}}
+{"id": "multi_turn_cheaper", "query": "有没有更便宜一点的？", "history": [{"role": "user", "content": "我想买敏感肌用的保湿霜，预算 30 美元"}, {"role": "assistant", "content": "给你找到了 Aveeno、Living Nature 和 BEAUTIQLO 三款敏感肌保湿霜。"}], "checks": {"required_tools": ["search_products"], "budget": 30}}
