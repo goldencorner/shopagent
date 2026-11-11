@@ -1,0 +1,260 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="ShopAgent：能检索、会调用工具、记得住偏好的电商导购 Agent">
+  <title>ShopAgent · 电商导购 Agent</title>
+  <link rel="icon" href="/static/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="/static/styles.css">
+</head>
+<body>
+  <div class="app">
+    <aside class="sidebar">
+      <div class="brand">
+        <div class="brand-mark" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"
+               stroke-linecap="round" stroke-linejoin="round">
+            <path d="M4 7h16l-1.4 12.1a2 2 0 0 1-2 1.9H7.4a2 2 0 0 1-2-1.9L4 7Z"/>
+            <path d="M9 7V6a3 3 0 0 1 6 0v1"/>
+            <circle cx="16.6" cy="12.4" r="2.4"/>
+            <path d="m18.6 14.4 1.9 1.9"/>
+          </svg>
+        </div>
+        <div class="brand-text">
+          <strong>ShopAgent</strong>
+          <span>电商导购 Agent</span>
+        </div>
+      </div>
+
+      <div class="status" id="status" title="服务状态">
+        <span class="status-dot"></span>
+        <span id="status-text">连接中…</span>
+      </div>
+
+      <section class="side-panel side-config" id="config-panel" aria-label="检索配置">
+        <div class="panel-head">
+          <h2>检索配置</h2>
+          <span class="config-tag" id="config-mode">—</span>
+        </div>
+        <div class="funnel" id="config-funnel">
+          <div class="funnel-row" title="BM25 与向量各召回 50 条，RRF 融合后按 ASIN 去重">
+            <span class="funnel-label">召回池</span>
+            <div class="funnel-track"><span class="funnel-fill" id="funnel-recall"></span></div>
+            <span class="funnel-value">50</span>
+          </div>
+          <div class="funnel-row is-config"
+               title="送进 cross-encoder 的候选数，越多越准也越慢">
+            <span class="funnel-label">精排</span>
+            <div class="funnel-track"><span class="funnel-fill" id="funnel-rerank"></span></div>
+            <span class="funnel-value" id="funnel-rerank-value">—</span>
+          </div>
+          <div class="funnel-row" title="精排后交给模型挑选的商品条数">
+            <span class="funnel-label">输出</span>
+            <div class="funnel-track"><span class="funnel-fill" id="funnel-output"></span></div>
+            <span class="funnel-value">5</span>
+          </div>
+          <div class="funnel-row is-editor" title="拖动即时修改精排候选数，不用重启">
+            <span class="funnel-label">调节</span>
+            <input class="funnel-range" id="config-range" type="range"
+                   min="1" max="50" step="1" value="20" aria-label="精排候选数">
+            <span class="funnel-value" id="config-edit-value">20</span>
+          </div>
+        </div>
+        <p class="side-note config-note" id="config-note">
+          <span class="config-dot" aria-hidden="true"></span>
+          <span id="config-note-text">拖动即时生效，重启后恢复 .env 默认值</span>
+        </p>
+      </section>
+
+      <section class="side-panel side-history" aria-label="历史会话">
+        <div class="panel-head">
+          <h2>历史会话</h2>
+          <span class="panel-count" id="session-count"></span>
+        </div>
+        <div class="session-list" id="sessions">
+          <p class="muted">正在读取…</p>
+        </div>
+      </section>
+
+      <section class="side-panel">
+        <div class="panel-head">
+          <h2>长期画像</h2>
+          <button class="link-btn" id="clear-profile" type="button">清空</button>
+        </div>
+        <div class="profile" id="profile">
+          <p class="muted">正在读取…</p>
+        </div>
+      </section>
+
+      <section class="side-panel side-examples">
+        <div class="panel-head">
+          <h2>试试这样问</h2>
+        </div>
+        <div class="examples" id="examples"></div>
+      </section>
+
+      <div class="side-foot">
+        <label class="switch">
+          <input type="checkbox" id="show-trace">
+          <span class="switch-track" aria-hidden="true"><span></span></span>
+          <span>显示决策轨迹</span>
+        </label>
+        <p class="side-note">检索 · 工具调用 · 两级记忆<br>数据：Amazon 运动户外商品</p>
+      </div>
+    </aside>
+
+    <main class="main" id="main">
+      <header class="topbar">
+        <div class="title-block">
+          <h1 id="view-title">购物助手</h1>
+          <p id="subtitle">Amazon 运动户外（Sports &amp; Outdoors）10 万条商品 · 说需求，我来检索、比较、给建议</p>
+        </div>
+        <nav class="view-tabs" role="tablist" aria-label="切换视图">
+          <button class="view-tab is-active" id="tab-chat" type="button" role="tab"
+                  aria-selected="true" aria-controls="messages">
+            <svg class="tab-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                 stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"
+                 aria-hidden="true">
+              <path d="M20 12a8 8 0 0 1-8 8H5l-3 2 1.2-4.2A8 8 0 0 1 12 4a8 8 0 0 1 8 8Z"/>
+            </svg>
+            <span>对话</span>
+          </button>
+          <button class="view-tab" id="tab-catalog" type="button" role="tab"
+                  aria-selected="false" aria-controls="catalog">
+            <svg class="tab-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                 stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"
+                 aria-hidden="true">
+              <rect x="4" y="4" width="6.5" height="6.5" rx="1.6"/>
+              <rect x="13.5" y="4" width="6.5" height="6.5" rx="1.6"/>
+              <rect x="4" y="13.5" width="6.5" height="6.5" rx="1.6"/>
+              <rect x="13.5" y="13.5" width="6.5" height="6.5" rx="1.6"/>
+            </svg>
+            <span>商品库</span>
+          </button>
+        </nav>
+        <button class="btn btn-ghost" id="new-chat" type="button">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"
+               stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M12 5v14M5 12h14"/>
+          </svg>
+          新会话
+        </button>
+      </header>
+
+      <div class="messages" id="messages" role="log" aria-live="polite"></div>
+
+      <div class="composer-wrap">
+        <div class="model-bar">
+          <label class="model-picker" for="model-select">
+            <span class="model-picker-label">模型</span>
+            <select id="model-select" class="model-select" aria-label="选择回答模型">
+              <option value="deepseek">DeepSeek（云端）</option>
+              <option value="qwen">Qwen（本地 · 速度较慢）</option>
+            </select>
+          </label>
+          <span class="model-status" id="model-status" data-state="checking" role="status">
+            <span class="model-dot" aria-hidden="true"></span>
+            <span id="model-status-text">正在检测…</span>
+          </span>
+          <button class="model-refresh" id="model-refresh" type="button"
+                  title="重新检测本地模型可用性" aria-label="重新检测模型可用性">↻</button>
+        </div>
+        <form class="composer" id="composer">
+          <textarea id="input" rows="1" maxlength="2000"
+                    placeholder="例如：两个人用的露营帐篷，预算 $100 以内"
+                    aria-label="输入购物需求"></textarea>
+          <button class="btn btn-stop" id="stop" type="button"
+                  title="结束生成" aria-label="结束生成">
+            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+              <rect x="7" y="7" width="10" height="10" rx="2"/>
+            </svg>
+            <span>停止</span>
+          </button>
+          <button class="btn btn-send" id="send" type="submit" aria-label="发送">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                 stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="m4 12 16-8-5 16-3.5-6.5L4 12Z"/>
+            </svg>
+            <span>发送</span>
+          </button>
+        </form>
+        <p class="hint">Enter 发送 · Shift + Enter 换行 · 回答基于真实商品资料，价格以页面为准</p>
+      </div>
+
+      <div class="catalog" id="catalog" role="tabpanel" aria-label="商品库" hidden>
+        <div class="catalog-inner">
+          <section class="catalog-stats" id="catalog-stats" aria-label="商品库概览"></section>
+
+          <section class="catalog-charts">
+            <div class="chart-card">
+              <div class="chart-head">
+                <h2>价格分布</h2>
+                <span class="chart-note" id="price-note"></span>
+              </div>
+              <div class="bars" id="price-bars"></div>
+            </div>
+            <div class="chart-card">
+              <div class="chart-head">
+                <h2>品牌 Top 8</h2>
+                <span class="chart-note" id="brand-note"></span>
+              </div>
+              <div class="bars" id="brand-bars"></div>
+            </div>
+          </section>
+
+          <section class="catalog-browser" aria-label="商品列表">
+            <div class="browser-toolbar">
+              <label class="search-box">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                     stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <circle cx="11" cy="11" r="6.5"/><path d="m16 16 4 4"/>
+                </svg>
+                <input id="catalog-q" type="search" autocomplete="off"
+                       placeholder="搜索商品，如 yoga / tent / waterproof"
+                       aria-label="搜索商品">
+              </label>
+              <select class="select" id="catalog-price" aria-label="价格筛选">
+                <option value="all">全部价格</option>
+                <option value="priced">只看有标价</option>
+                <option value="unpriced">只看未标价</option>
+                <option value="0-25">$25 以内</option>
+                <option value="25-50">$25–50</option>
+                <option value="50-100">$50–100</option>
+                <option value="100-">$100 以上</option>
+              </select>
+              <select class="select" id="catalog-sort" aria-label="排序">
+                <option value="default">默认排序</option>
+                <option value="price_asc">价格从低到高</option>
+                <option value="price_desc">价格从高到低</option>
+                <option value="brand">按品牌</option>
+              </select>
+            </div>
+            <div class="browser-meta">
+              <p class="catalog-count" id="catalog-count">正在加载商品…</p>
+              <span class="catalog-source" id="catalog-source"></span>
+            </div>
+            <div class="product-grid" id="product-grid"></div>
+            <nav class="pager" id="catalog-pager" aria-label="分页"></nav>
+          </section>
+        </div>
+      </div>
+    </main>
+  </div>
+
+  <dialog class="product-modal" id="product-modal" aria-labelledby="modal-title">
+    <div class="modal-head">
+      <div class="modal-heading">
+        <span class="modal-kicker" id="modal-kicker">商品详情</span>
+        <h2 id="modal-title">商品详情</h2>
+      </div>
+      <button class="modal-close" id="modal-close" type="button" aria-label="关闭商品详情">
+        <span aria-hidden="true">×</span>
+      </button>
+    </div>
+    <div class="modal-body" id="modal-body"></div>
+  </dialog>
+
+  <script src="/static/app.js"></script>
+</body>
+</html>
