@@ -137,7 +137,7 @@ HTTP 侧有两个额外约定：
 ### 3.1 Docker（推荐）
 
 ```bash
-git clone https://github.com/<your-id>/shopagent.git
+git clone https://github.com/goldencorner/shopagent.git
 cd shopagent
 
 cp .env.example .env          # 填 DEEPSEEK_API_KEY
