@@ -1,0 +1,38 @@
+# 本地环境
+.venv/
+.venv313/
+__pycache__/
+*.pyc
+.idea/
+.pytest_cache/
+.DS_Store
+NUL
+
+# 密钥
+.env
+
+# 数据与索引：体积大，且 Amazon 数据不适合再分发
+data/*.jsonl
+data/raw/
+data/memory_index/
+data/memory_index_beauty_3000/
+data/user_profile.json
+data/sessions/
+data/fts_index.db
+data/_embeddings_*.npy
+
+# 评测运行输出（保留 README 引用的几份，便于核对数字）
+eval/results_*.json
+!eval/results_20261105_213756.json
+!eval/results_20261106_182435.json
+!eval/results_20261109_173555.json
+!eval/results_20261110_125144.json
+!eval/results_20261110_125457.json
+eval/agent_results_*.json
+!eval/agent_results_20261105_215652.json
+!eval/agent_results_20261106_204221.json
+
+# 部署产物
+deploy/out/
+deploy/images.tar.gz
+*.log

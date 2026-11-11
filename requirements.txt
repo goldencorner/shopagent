@@ -1,0 +1,21 @@
+requests>=2.31.0
+sentence-transformers>=3.0.0
+psycopg[binary]>=3.2.0
+pgvector>=0.3.0
+rank-bm25>=0.2.2
+openai>=1.40.0
+python-dotenv>=1.0.0
+tqdm>=4.66.0
+numpy>=1.26.0
+
+# Week 2：Agent 编排与 MCP（需要 Python >= 3.10）
+langgraph>=0.2.0
+# 锁 1.x：mcp 2.x 把 FastMCP 改名成 MCPServer，API 全变
+mcp[cli]>=1.2.0,<2
+
+# 开发/测试
+pytest>=8.0.0
+
+# Week 3：HTTP 服务
+fastapi>=0.115.0
+uvicorn[standard]>=0.30.0

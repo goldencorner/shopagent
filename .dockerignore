@@ -1,0 +1,10 @@
+.venv/
+.venv313/
+__pycache__/
+*.pyc
+data/
+eval/
+tickets/
+.git/
+.env
+README.md
