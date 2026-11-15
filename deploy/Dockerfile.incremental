@@ -1,0 +1,9 @@
+# 增量部署用：以服务器上已有的镜像为底，只替换应用代码。
+# 国内机器拉不到 python:3.11-slim，所以不能从头 build；基础层已经在线上了。
+#
+# 服务器上把 shopagent/ 和本文件放进同一个空目录作为构建上下文：
+#   docker tag agent-mvp-api:latest agent-mvp-api:base   # 首次执行一次
+#   docker build -f Dockerfile.incremental -t agent-mvp-api:latest .
+#   cd /opt/shopagent && docker compose up -d --no-deps --force-recreate api
+FROM agent-mvp-api:base
+COPY shopagent ./shopagent

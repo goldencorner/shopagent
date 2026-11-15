@@ -942,7 +942,9 @@ button { cursor: pointer; }
   margin: 0 auto 8px;
   display: flex;
   align-items: center;
+  flex-wrap: wrap;
   gap: 10px;
+  row-gap: 6px;
   padding: 0 4px;
 }
 
@@ -982,7 +984,8 @@ button { cursor: pointer; }
   color: var(--muted);
 }
 
-#model-status-text {
+#model-status-text,
+#router-status-text {
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
@@ -1033,6 +1036,64 @@ button { cursor: pointer; }
 @keyframes model-spin {
   to { transform: rotate(360deg); }
 }
+
+/* router 开关：就放在模型选择旁边，本地 LoRA / 云端 DeepSeek 二选一。
+   和侧栏的 .switch 分开写，这里是浅色底。 */
+.model-bar-sep {
+  flex: none;
+  margin-left: auto;
+  width: 1px;
+  height: 18px;
+  background: var(--line);
+}
+
+.router-toggle {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  flex: none;
+  color: var(--muted);
+  font-size: 11.5px;
+  cursor: pointer;
+  user-select: none;
+  position: relative;
+}
+
+.router-toggle input {
+  position: absolute;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.router-track {
+  position: relative;
+  width: 30px;
+  height: 17px;
+  flex: none;
+  border-radius: 999px;
+  background: #cbd6e4;
+  transition: background 0.18s ease;
+}
+
+.router-track span {
+  position: absolute;
+  top: 2.5px;
+  left: 2.5px;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: #ffffff;
+  box-shadow: 0 1px 2px rgba(15, 35, 70, 0.22);
+  transition: transform 0.18s ease;
+}
+
+.router-toggle input:checked + .router-track { background: var(--brand); }
+.router-toggle input:checked + .router-track span { transform: translateX(13px); }
+.router-toggle input:focus-visible + .router-track {
+  outline: 2px solid var(--brand);
+  outline-offset: 2px;
+}
+.router-toggle.is-busy { opacity: 0.6; cursor: progress; }
 
 .composer {
   width: min(100%, 860px);

@@ -39,6 +39,9 @@ services:
       QWEN_BASE_URL: http://host.docker.internal:1234/v1
       # 第一段健康检查：qwen-proxy 只回答隧道是否连通
       QWEN_HEALTH_URL: http://host.docker.internal:1235/health
+      # 本地 router 复用同一条隧道；模型 id 是 LM Studio 里的 router-lora。
+      # 默认 SHOPAGENT_ROUTER 仍是 llm，页面上打开开关才走本地。
+      SHOPAGENT_LOCAL_ROUTER_MODEL: "${SHOPAGENT_LOCAL_ROUTER_MODEL:-router-lora}"
       HF_HUB_OFFLINE: "1"
       TRANSFORMERS_OFFLINE: "1"
     extra_hosts:

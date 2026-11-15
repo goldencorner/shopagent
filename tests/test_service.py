@@ -81,6 +81,13 @@ def client(tmp_path, monkeypatch):
         yield c
 
 
+@pytest.fixture(autouse=True)
+def _reset_router_override():
+    service.router_mode.set_mode(None)
+    yield
+    service.router_mode.set_mode(None)
+
+
 def test_health(client):
     resp = client.get("/health")
     assert resp.status_code == 200
@@ -88,6 +95,53 @@ def test_health(client):
     assert body["status"] == "ok"
     assert body["products"] > 0
     assert body["rerank_candidates"] == settings.rerank_candidates
+
+
+def test_router_config_defaults_to_env(client, monkeypatch):
+    monkeypatch.delenv("SHOPAGENT_ROUTER", raising=False)
+    monkeypatch.setattr(
+        service,
+        "router_status",
+        lambda force=False: {"available": False, "model": "router-lora", "detail": "模型未加载"},
+    )
+    body = client.get("/config/router").json()
+    assert body["mode"] == "llm"
+    assert body["default"] == "llm"
+    assert body["override"] is None
+    assert body["local"]["available"] is False
+    assert body["local"]["model"] == "router-lora"
+    assert "local" in body["modes"]
+
+
+def test_router_switch_hot_updates(client, monkeypatch):
+    monkeypatch.setattr(
+        service,
+        "router_status",
+        lambda force=False: {"available": True, "model": "router-lora", "detail": "已加载"},
+    )
+    resp = client.post("/config/router", json={"mode": "local"})
+    assert resp.status_code == 200
+    body = resp.json()
+    assert body["mode"] == "local"
+    assert body["override"] == "local"
+    assert body["local"]["available"] is True
+    # /health 也要跟着变
+    assert client.get("/health").json()["router"] == "local"
+
+    restored = client.post("/config/router", json={"mode": "default"}).json()
+    assert restored["mode"] == "llm"
+    assert restored["override"] is None
+
+
+def test_router_switch_rejects_unknown_mode(client, monkeypatch):
+    monkeypatch.setattr(
+        service,
+        "router_status",
+        lambda force=False: {"available": False, "model": None, "detail": "模型未加载"},
+    )
+    resp = client.post("/config/router", json={"mode": "gpt4"})
+    assert resp.status_code == 400
+    assert client.get("/config/router").json()["mode"] == "llm"
 
 
 def test_models_endpoint_lists_availability(client, monkeypatch):

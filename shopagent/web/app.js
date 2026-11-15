@@ -37,6 +37,10 @@
   const configNoteText = $("#config-note-text");
   const configRange = $("#config-range");
   const configEditValue = $("#config-edit-value");
+  const routerToggle = $("#router-toggle");
+  const routerLocal = $("#router-local");
+  const routerStatus = $("#router-status");
+  const routerStatusText = $("#router-status-text");
   const funnelRecall = $("#funnel-recall");
   const funnelRerank = $("#funnel-rerank");
   const funnelRerankValue = $("#funnel-rerank-value");
@@ -1338,6 +1342,70 @@
     }
   }
 
+  // ---------- router 开关 ----------
+  // 勾上走本地 LoRA（/config/router 热改，只改服务内存），取消走云端 DeepSeek。
+  // 本地模型没加载时 router 会自动回退 DeepSeek，所以开关不会把服务切挂。
+
+  function renderRouter(data) {
+    const mode = data.mode || "llm";
+    const local = data.local || {};
+    routerLocal.checked = mode === "local";
+    if (mode === "keyword" || mode === "shop") {
+      routerStatus.dataset.state = "idle";
+      routerStatusText.textContent = `${mode}（.env）`;
+    } else if (mode !== "local") {
+      routerStatus.dataset.state = "idle";
+      routerStatusText.textContent = "云端 DeepSeek";
+    } else if (local.available) {
+      routerStatus.dataset.state = "ok";
+      routerStatusText.textContent = `${local.model || "LoRA"} 已就绪`;
+    } else {
+      routerStatus.dataset.state = "err";
+      routerStatusText.textContent = "未就绪，自动回退";
+    }
+    routerToggle.title = local.available
+      ? "打开后 router 走本地 LoRA（Qwen2.5-1.5B）"
+      : "本地 LoRA 未就绪：打开也会自动回退云端 DeepSeek";
+  }
+
+  async function refreshRouter(force) {
+    try {
+      const data = await api(`/config/router${force ? "?refresh=1" : ""}`);
+      renderRouter(data);
+    } catch {
+      routerStatus.dataset.state = "err";
+      routerStatusText.textContent = "状态未知";
+    }
+  }
+
+  routerLocal.addEventListener("change", async () => {
+    const mode = routerLocal.checked ? "local" : "llm";
+    const wanted = routerLocal.checked;
+    routerToggle.classList.add("is-busy");
+    routerLocal.disabled = true;
+    try {
+      const data = await api("/config/router", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ mode }),
+      });
+      renderRouter(data);
+      setConfigNote(
+        wanted
+          ? "已切到本地 LoRA；模型未加载时自动回退 DeepSeek"
+          : "已切回云端 DeepSeek",
+        "ok"
+      );
+    } catch (err) {
+      routerLocal.checked = !wanted;
+      setConfigNote(`切换失败：${err.message}`, "err");
+    } finally {
+      routerToggle.classList.remove("is-busy");
+      routerLocal.disabled = false;
+    }
+  });
+
+
   // ---------- 历史会话 ----------
 
   let sessionsCache = [];
@@ -1497,6 +1565,7 @@
 
   renderExamples();
   refreshHealth();
+  refreshRouter(false);
   refreshModels(false);
   refreshProfile();
   loadHistory();

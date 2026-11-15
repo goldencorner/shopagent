@@ -28,10 +28,11 @@ from fastapi.staticfiles import StaticFiles
 from pydantic import BaseModel, Field
 from starlette.concurrency import run_in_threadpool
 
-from . import llm, memory
+from . import llm, memory, router_mode
 from .agent import run_agent, stream_agent
 from .catalog import browse, count, get_product, stats
 from .config import settings
+from .local_router import router_status
 from .retrieval import (
     MAX_RERANK_CANDIDATES,
     MIN_RERANK_CANDIDATES,
@@ -68,6 +69,27 @@ class ChatRequest(BaseModel):
 
 class RerankCandidatesRequest(BaseModel):
     value: int = Field(..., ge=MIN_RERANK_CANDIDATES, le=MAX_RERANK_CANDIDATES)
+
+
+class RouterModeRequest(BaseModel):
+    # 传 "default" 恢复 .env 的值
+    mode: str = Field(..., min_length=1, max_length=16)
+
+
+def _router_payload(force: bool = False) -> dict:
+    """router 开关的完整状态：当前值、默认值、本地模型是否就绪。"""
+    status = router_status(force=force)
+    return {
+        "mode": router_mode.current(),
+        "default": router_mode.env_default(),
+        "override": router_mode.override(),
+        "modes": list(router_mode.MODES),
+        "local": {
+            "available": bool(status.get("available")),
+            "model": status.get("model"),
+            "detail": status.get("detail"),
+        },
+    }
 
 
 def _next_or_none(iterator):
@@ -118,6 +140,7 @@ def create_app(store: str | None = None, mode: str | None = None) -> FastAPI:
             "mode": mode,
             "products": count(),
             "rerank_candidates": current_rerank_candidates(),
+            "router": router_mode.current(),
         }
 
     @app.get("/models")
@@ -147,6 +170,21 @@ def create_app(store: str | None = None, mode: str | None = None) -> FastAPI:
         """页面上热改精排候选数：只改内存，新请求立刻生效，重启后回到默认值。"""
         logger.info("rerank_candidates -> %s", req.value)
         return {"rerank_candidates": set_rerank_candidates(req.value)}
+
+    @app.get("/config/router")
+    def get_router_config(refresh: bool = False) -> dict:
+        """router 模式 + 本地 LoRA 是否就绪（探测定长 2.5s，默认吃 30s 缓存）。"""
+        return _router_payload(force=refresh)
+
+    @app.post("/config/router")
+    def update_router(req: RouterModeRequest) -> dict:
+        """热切 router：llm / local / keyword / shop，只改内存，重启回 .env。"""
+        try:
+            mode = router_mode.set_mode(req.mode)
+        except ValueError as exc:
+            raise HTTPException(status_code=400, detail=str(exc)) from exc
+        logger.info("router mode -> %s", mode)
+        return _router_payload()
 
     @app.post("/chat")
     def chat(req: ChatRequest) -> dict:

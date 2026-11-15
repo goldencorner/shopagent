@@ -197,6 +197,8 @@ def run_agent(store: str, mode: str, limit: int | None) -> None:
 
     configs = [
         ("baseline", {"SHOPAGENT_ROUTER": "llm", "SHOPAGENT_GENERATE_GUARD": "1"}),
+        # 需要本地 LoRA router 已加载；不可用会自动回退 LLM，trace 里能看到。
+        ("router=local", {"SHOPAGENT_ROUTER": "local", "SHOPAGENT_GENERATE_GUARD": "1"}),
         ("router=keyword", {"SHOPAGENT_ROUTER": "keyword", "SHOPAGENT_GENERATE_GUARD": "1"}),
         ("router=shop", {"SHOPAGENT_ROUTER": "shop", "SHOPAGENT_GENERATE_GUARD": "1"}),
         ("guard=off", {"SHOPAGENT_ROUTER": "llm", "SHOPAGENT_GENERATE_GUARD": "0"}),

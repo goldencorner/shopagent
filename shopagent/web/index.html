@@ -159,6 +159,17 @@
           </span>
           <button class="model-refresh" id="model-refresh" type="button"
                   title="重新检测本地模型可用性" aria-label="重新检测模型可用性">↻</button>
+          <span class="model-bar-sep" aria-hidden="true"></span>
+          <label class="router-toggle" id="router-toggle"
+                 title="打开后 router 走本地 LoRA（Qwen2.5-1.5B）；模型未加载会自动回退云端">
+            <input type="checkbox" id="router-local">
+            <span class="router-track" aria-hidden="true"><span></span></span>
+            <span>LoRA 路由</span>
+          </label>
+          <span class="model-status" id="router-status" data-state="checking" role="status">
+            <span class="model-dot" aria-hidden="true"></span>
+            <span id="router-status-text">检测中…</span>
+          </span>
         </div>
         <form class="composer" id="composer">
           <textarea id="input" rows="1" maxlength="2000"

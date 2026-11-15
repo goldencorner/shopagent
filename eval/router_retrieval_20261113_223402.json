@@ -1,0 +1,2056 @@
+{
+  "generated_at": "2026-11-13T22:34:02",
+  "eval": "C:\\Users\\asf\\Desktop\\agent-mvp\\eval\\retrieval_eval_zh50.jsonl",
+  "store": "pg",
+  "retrieval_mode": "hybrid_rerank",
+  "k": 5,
+  "hit_k": 3,
+  "metrics": {
+    "raw_zh": {
+      "n": 50,
+      "hit_k": 3,
+      "hit": 0.0,
+      "mrr": 0.0,
+      "ndcg": 0.0,
+      "failed_rewrite": 0,
+      "p50_rewrite_ms": 0.0
+    },
+    "planner_llm": {
+      "n": 50,
+      "hit_k": 3,
+      "hit": 0.46,
+      "mrr": 0.3933,
+      "ndcg": 0.4105,
+      "failed_rewrite": 0,
+      "p50_rewrite_ms": 979.5
+    },
+    "lora_router": {
+      "n": 50,
+      "hit_k": 3,
+      "hit": 0.12,
+      "mrr": 0.1,
+      "ndcg": 0.1052,
+      "failed_rewrite": 0,
+      "p50_rewrite_ms": 252.2
+    },
+    "english_gold": {
+      "n": 50,
+      "hit_k": 3,
+      "hit": 0.56,
+      "mrr": 0.4833,
+      "ndcg": 0.5031,
+      "failed_rewrite": 0,
+      "p50_rewrite_ms": 0.0
+    }
+  },
+  "details": {
+    "raw_zh": [
+      {
+        "id": "zh_hw_01",
+        "query_zh": "适合霜冻夜晚保暖但夏天可透气的睡袋，脚部空间宽敞，$250以下",
+        "en_query": "适合霜冻夜晚保暖但夏天可透气的睡袋，脚部空间宽敞，$250以下",
+        "rewrite_ms": 0.0,
+        "rank": null,
+        "hit": 0,
+        "mrr": 0.0,
+        "ndcg": 0.0
+      },
+      {
+        "id": "zh_hw_02",
+        "query_zh": "夜间徒步用的免提灯，照射距离超过100米，使用AA电池，价格约$60",
+        "en_query": "夜间徒步用的免提灯，照射距离超过100米，使用AA电池，价格约$60",
+        "rewrite_ms": 0.0,
+        "rank": null,
+        "hit": 0,
+        "mrr": 0.0,
+        "ndcg": 0.0
+      },
+      {
+        "id": "zh_hw_03",
+        "query_zh": "小型保温包 一日游能装六瓶装保持冷藏 可放入背包 15美元以下",
+        "en_query": "小型保温包 一日游能装六瓶装保持冷藏 可放入背包 15美元以下",
+        "rewrite_ms": 0.0,
+        "rank": null,
+        "hit": 0,
+        "mrr": 0.0,
+        "ndcg": 0.0
+      },
+      {
+        "id": "zh_hw_04",
+        "query_zh": "船用栏杆夹式鱼竿固定支架 可调角度 $60以下",
+        "en_query": "船用栏杆夹式鱼竿固定支架 可调角度 $60以下",
+        "rewrite_ms": 0.0,
+        "rank": null,
+        "hit": 0,
+        "mrr": 0.0,
+        "ndcg": 0.0
+      },
+      {
+        "id": "zh_hw_05",
+        "query_zh": "带拉链口袋可放钥匙和手机的瑜伽垫手提袋，可机洗",
+        "en_query": "带拉链口袋可放钥匙和手机的瑜伽垫手提袋，可机洗",
+        "rewrite_ms": 0.0,
+        "rank": null,
+        "hit": 0,
+        "mrr": 0.0,
+        "ndcg": 0.0
+      },
+      {
+        "id": "zh_hw_06",
+        "query_zh": "脚踝固定阻力带 用于冲刺和敏捷训练 附带训练说明 30美元以下",
+        "en_query": "脚踝固定阻力带 用于冲刺和敏捷训练 附带训练说明 30美元以下",
+        "rewrite_ms": 0.0,
+        "rank": null,
+        "hit": 0,
+        "mrr": 0.0,
+        "ndcg": 0.0
+      },
+      {
+        "id": "zh_hw_07",
+        "query_zh": "节省空间的可调节哑铃 家庭健身房 每只约50磅 200美元以下",
+        "en_query": "节省空间的可调节哑铃 家庭健身房 每只约50磅 200美元以下",
+        "rewrite_ms": 0.0,
+        "rank": null,
+        "hit": 0,
+        "mrr": 0.0,
+        "ndcg": 0.0
+      },
+      {
+        "id": "zh_hw_08",
+        "query_zh": "徒步时防止雪和泥进入靴子的防水鞋套，可调节，30美元以下",
+        "en_query": "徒步时防止雪和泥进入靴子的防水鞋套，可调节，30美元以下",
+        "rewrite_ms": 0.0,
+        "rank": null,
+        "hit": 0,
+        "mrr": 0.0,
+        "ndcg": 0.0
+      },
+      {
+        "id": "zh_hw_09",
+        "query_zh": "能装两支球拍且带独立脏鞋隔层的背包，$60以下",
+        "en_query": "能装两支球拍且带独立脏鞋隔层的背包，$60以下",
+        "rewrite_ms": 0.0,
+        "rank": null,
+        "hit": 0,
+        "mrr": 0.0,
+        "ndcg": 0.0
+      },
+      {
+        "id": "zh_hw_10",
+        "query_zh": "批量无压网球 用于发球机 不会变扁 60个装 $50以下",
+        "en_query": "批量无压网球 用于发球机 不会变扁 60个装 $50以下",
+        "rewrite_ms": 0.0,
+        "rank": null,
+        "hit": 0,
+        "mrr": 0.0,
+        "ndcg": 0.0
+      },
+      {
+        "id": "zh_hw_11",
+        "query_zh": "US Coast Guard 认证 女士救生衣 划桨 活动自如 80美元以下",
+        "en_query": "US Coast Guard 认证 女士救生衣 划桨 活动自如 80美元以下",
+        "rewrite_ms": 0.0,
+        "rank": null,
+        "hit": 0,
+        "mrr": 0.0,
+        "ndcg": 0.0
+      },
+      {
+        "id": "zh_hw_12",
+        "query_zh": "滑雪靴旅行包 带透气侧袋 可装头盔和外套 100美元以下",
+        "en_query": "滑雪靴旅行包 带透气侧袋 可装头盔和外套 100美元以下",
+        "rewrite_ms": 0.0,
+        "rank": null,
+        "hit": 0,
+        "mrr": 0.0,
+        "ndcg": 0.0
+      },
+      {
+        "id": "zh_hw_13",
+        "query_zh": "女士举重用的薄款加垫手套，不显笨重，$25以下",
+        "en_query": "女士举重用的薄款加垫手套，不显笨重，$25以下",
+        "rewrite_ms": 0.0,
+        "rank": null,
+        "hit": 0,
+        "mrr": 0.0,
+        "ndcg": 0.0
+      },
+      {
+        "id": "zh_hw_14",
+        "query_zh": "可调节速度跳绳 有氧运动 舒适泡沫手柄 20美元以下",
+        "en_query": "可调节速度跳绳 有氧运动 舒适泡沫手柄 20美元以下",
+        "rewrite_ms": 0.0,
+        "rank": null,
+        "hit": 0,
+        "mrr": 0.0,
+        "ndcg": 0.0
+      },
+      {
+        "id": "zh_hw_15",
+        "query_zh": "36英寸泡沫轴 用于锻炼后按摩紧绷肌肉 中等硬度 $90以下",
+        "en_query": "36英寸泡沫轴 用于锻炼后按摩紧绷肌肉 中等硬度 $90以下",
+        "rewrite_ms": 0.0,
+        "rank": null,
+        "hit": 0,
+        "mrr": 0.0,
+        "ndcg": 0.0
+      },
+      {
+        "id": "zh_hw_16",
+        "query_zh": "超轻罐装炉 单人背包露营用 约4分钟烧开水 可收纳进小盒 35美元以下",
+        "en_query": "超轻罐装炉 单人背包露营用 约4分钟烧开水 可收纳进小盒 35美元以下",
+        "rewrite_ms": 0.0,
+        "rank": null,
+        "hit": 0,
+        "mrr": 0.0,
+        "ndcg": 0.0
+      },
+      {
+        "id": "zh_hw_17",
+        "query_zh": "小型自行车灯 夹在车把或座管上 闪烁模式能用一整周 $25以下",
+        "en_query": "小型自行车灯 夹在车把或座管上 闪烁模式能用一整周 $25以下",
+        "rewrite_ms": 0.0,
+        "rank": null,
+        "hit": 0,
+        "mrr": 0.0,
+        "ndcg": 0.0
+      },
+      {
+        "id": "zh_hw_18",
+        "query_zh": "5号足球 软触感 高中训练用 保气 40美元以下",
+        "en_query": "5号足球 软触感 高中训练用 保气 40美元以下",
+        "rewrite_ms": 0.0,
+        "rank": null,
+        "hit": 0,
+        "mrr": 0.0,
+        "ndcg": 0.0
+      },
+      {
+        "id": "zh_hw_19",
+        "query_zh": "2升越野跑水袋背包 可喷水 可接直列过滤器 $45以下",
+        "en_query": "2升越野跑水袋背包 可喷水 可接直列过滤器 $45以下",
+        "rewrite_ms": 0.0,
+        "rank": null,
+        "hit": 0,
+        "mrr": 0.0,
+        "ndcg": 0.0
+      },
+      {
+        "id": "zh_hw_20",
+        "query_zh": "四季双人背包帐篷 抗强风雪 双门 带门厅 120美元以下",
+        "en_query": "四季双人背包帐篷 抗强风雪 双门 带门厅 120美元以下",
+        "rewrite_ms": 0.0,
+        "rank": null,
+        "hit": 0,
+        "mrr": 0.0,
+        "ndcg": 0.0
+      },
+      {
+        "id": "zh_hw_21",
+        "query_zh": "紧凑型狩猎发射器 小型猎物 手动上弦 附带3个宽头箭和3支练习箭 60美元以下",
+        "en_query": "紧凑型狩猎发射器 小型猎物 手动上弦 附带3个宽头箭和3支练习箭 60美元以下",
+        "rewrite_ms": 0.0,
+        "rank": null,
+        "hit": 0,
+        "mrr": 0.0,
+        "ndcg": 0.0
+      },
+      {
+        "id": "zh_hw_22",
+        "query_zh": "投球手臂紧身面料袖套 局间保暖 快干",
+        "en_query": "投球手臂紧身面料袖套 局间保暖 快干",
+        "rewrite_ms": 0.0,
+        "rank": null,
+        "hit": 0,
+        "mrr": 0.0,
+        "ndcg": 0.0
+      },
+      {
+        "id": "zh_hw_23",
+        "query_zh": "绑腿负重 渐进增加阻力 抬腿训练 20美元以下",
+        "en_query": "绑腿负重 渐进增加阻力 抬腿训练 20美元以下",
+        "rewrite_ms": 0.0,
+        "rank": null,
+        "hit": 0,
+        "mrr": 0.0,
+        "ndcg": 0.0
+      },
+      {
+        "id": "zh_hw_24",
+        "query_zh": "通勤用平滑替换轮胎 适用于铺装路面和轻度碎石路 35mm宽",
+        "en_query": "通勤用平滑替换轮胎 适用于铺装路面和轻度碎石路 35mm宽",
+        "rewrite_ms": 0.0,
+        "rank": null,
+        "hit": 0,
+        "mrr": 0.0,
+        "ndcg": 0.0
+      },
+      {
+        "id": "zh_hw_25",
+        "query_zh": "能在风雨中点燃篝火且不需要打火机液的方块，六块装",
+        "en_query": "能在风雨中点燃篝火且不需要打火机液的方块，六块装",
+        "rewrite_ms": 0.0,
+        "rank": null,
+        "hit": 0,
+        "mrr": 0.0,
+        "ndcg": 0.0
+      },
+      {
+        "id": "zh_hw_26",
+        "query_zh": "女士通勤双肩包 带笔记本电脑加厚隔层 透气背板",
+        "en_query": "女士通勤双肩包 带笔记本电脑加厚隔层 透气背板",
+        "rewrite_ms": 0.0,
+        "rank": null,
+        "hit": 0,
+        "mrr": 0.0,
+        "ndcg": 0.0
+      },
+      {
+        "id": "zh_hw_27",
+        "query_zh": "双面尼龙腰带 塑料扣 不会触发金属探测器 20美元以下",
+        "en_query": "双面尼龙腰带 塑料扣 不会触发金属探测器 20美元以下",
+        "rewrite_ms": 0.0,
+        "rank": null,
+        "hit": 0,
+        "mrr": 0.0,
+        "ndcg": 0.0
+      },
+      {
+        "id": "zh_hw_28",
+        "query_zh": "多节硬饵 左右摆动 高速拖钓稳定 鲈鱼",
+        "en_query": "多节硬饵 左右摆动 高速拖钓稳定 鲈鱼",
+        "rewrite_ms": 0.0,
+        "rank": null,
+        "hit": 0,
+        "mrr": 0.0,
+        "ndcg": 0.0
+      },
+      {
+        "id": "zh_hw_29",
+        "query_zh": "窄款车顶行李架托盘 带大量固定点 可绑装备和滑雪板架",
+        "en_query": "窄款车顶行李架托盘 带大量固定点 可绑装备和滑雪板架",
+        "rewrite_ms": 0.0,
+        "rank": null,
+        "hit": 0,
+        "mrr": 0.0,
+        "ndcg": 0.0
+      },
+      {
+        "id": "zh_hw_30",
+        "query_zh": "带软垫的墙壁挂钩，可放长板或吉他，含螺丝，$15以下",
+        "en_query": "带软垫的墙壁挂钩，可放长板或吉他，含螺丝，$15以下",
+        "rewrite_ms": 0.0,
+        "rank": null,
+        "hit": 0,
+        "mrr": 0.0,
+        "ndcg": 0.0
+      },
+      {
+        "id": "zh_hw_31",
+        "query_zh": "拉伸课穿的弹力裤 膝盖处贴身 脚踝处宽松 35美元以下",
+        "en_query": "拉伸课穿的弹力裤 膝盖处贴身 脚踝处宽松 35美元以下",
+        "rewrite_ms": 0.0,
+        "rank": null,
+        "hit": 0,
+        "mrr": 0.0,
+        "ndcg": 0.0
+      },
+      {
+        "id": "zh_hw_32",
+        "query_zh": "适合高级骑手的马衔铁，靠鼻压起作用，嘴部有软橡胶和铜",
+        "en_query": "适合高级骑手的马衔铁，靠鼻压起作用，嘴部有软橡胶和铜",
+        "rewrite_ms": 0.0,
+        "rank": null,
+        "hit": 0,
+        "mrr": 0.0,
+        "ndcg": 0.0
+      },
+      {
+        "id": "zh_hw_33",
+        "query_zh": "护耳器 能放大安静声音但把枪声降到安全水平 可折叠小巧",
+        "en_query": "护耳器 能放大安静声音但把枪声降到安全水平 可折叠小巧",
+        "rewrite_ms": 0.0,
+        "rank": null,
+        "hit": 0,
+        "mrr": 0.0,
+        "ndcg": 0.0
+      },
+      {
+        "id": "zh_hw_34",
+        "query_zh": "防漏保温杯 幼儿用 单手可开吸管 16 ounces",
+        "en_query": "防漏保温杯 幼儿用 单手可开吸管 16 ounces",
+        "rewrite_ms": 0.0,
+        "rank": null,
+        "hit": 0,
+        "mrr": 0.0,
+        "ndcg": 0.0
+      },
+      {
+        "id": "zh_hw_35",
+        "query_zh": "8英尺台球桌替换台呢 炭灰色 商用加厚 150美元以下",
+        "en_query": "8英尺台球桌替换台呢 炭灰色 商用加厚 150美元以下",
+        "rewrite_ms": 0.0,
+        "rank": null,
+        "hit": 0,
+        "mrr": 0.0,
+        "ndcg": 0.0
+      },
+      {
+        "id": "zh_hw_36",
+        "query_zh": "深雪行走入门套装 含雪杖和腿套 一口价",
+        "en_query": "深雪行走入门套装 含雪杖和腿套 一口价",
+        "rewrite_ms": 0.0,
+        "rank": null,
+        "hit": 0,
+        "mrr": 0.0,
+        "ndcg": 0.0
+      },
+      {
+        "id": "zh_hw_37",
+        "query_zh": "7.5英尺淡水轻饵抛投鱼竿 线号最大12磅",
+        "en_query": "7.5英尺淡水轻饵抛投鱼竿 线号最大12磅",
+        "rewrite_ms": 0.0,
+        "rank": null,
+        "hit": 0,
+        "mrr": 0.0,
+        "ndcg": 0.0
+      },
+      {
+        "id": "zh_hw_38",
+        "query_zh": "儿童三轮车或滑板车用的响亮捏喇叭，单螺丝安装，$15以下",
+        "en_query": "儿童三轮车或滑板车用的响亮捏喇叭，单螺丝安装，$15以下",
+        "rewrite_ms": 0.0,
+        "rank": null,
+        "hit": 0,
+        "mrr": 0.0,
+        "ndcg": 0.0
+      },
+      {
+        "id": "zh_hw_39",
+        "query_zh": "手工调校的木制鸭哨 狩猎用 带金属环 20美元以下",
+        "en_query": "手工调校的木制鸭哨 狩猎用 带金属环 20美元以下",
+        "rewrite_ms": 0.0,
+        "rank": null,
+        "hit": 0,
+        "mrr": 0.0,
+        "ndcg": 0.0
+      },
+      {
+        "id": "zh_hw_40",
+        "query_zh": "短款运动袜 紧贴脚部 脚跟和脚趾有缓冲 跑步用",
+        "en_query": "短款运动袜 紧贴脚部 脚跟和脚趾有缓冲 跑步用",
+        "rewrite_ms": 0.0,
+        "rank": null,
+        "hit": 0,
+        "mrr": 0.0,
+        "ndcg": 0.0
+      },
+      {
+        "id": "zh_hw_41",
+        "query_zh": "能固定手电筒或登山杖在1英寸织带上并可单手释放的夹扣",
+        "en_query": "能固定手电筒或登山杖在1英寸织带上并可单手释放的夹扣",
+        "rewrite_ms": 0.0,
+        "rank": null,
+        "hit": 0,
+        "mrr": 0.0,
+        "ndcg": 0.0
+      },
+      {
+        "id": "zh_hw_42",
+        "query_zh": "细编织线 高强度 远投 绿色水域隐形",
+        "en_query": "细编织线 高强度 远投 绿色水域隐形",
+        "rewrite_ms": 0.0,
+        "rank": null,
+        "hit": 0,
+        "mrr": 0.0,
+        "ndcg": 0.0
+      },
+      {
+        "id": "zh_hw_43",
+        "query_zh": "软泡沫球和球棒套装 让孩子练习曲线球 不会受伤",
+        "en_query": "软泡沫球和球棒套装 让孩子练习曲线球 不会受伤",
+        "rewrite_ms": 0.0,
+        "rank": null,
+        "hit": 0,
+        "mrr": 0.0,
+        "ndcg": 0.0
+      },
+      {
+        "id": "zh_hw_44",
+        "query_zh": "硬地足球鞋 固定钉 保持双脚干爽 男款 12码",
+        "en_query": "硬地足球鞋 固定钉 保持双脚干爽 男款 12码",
+        "rewrite_ms": 0.0,
+        "rank": null,
+        "hit": 0,
+        "mrr": 0.0,
+        "ndcg": 0.0
+      },
+      {
+        "id": "zh_hw_45",
+        "query_zh": "成对发射泥靶的练习用抛靶机，带可折叠操作员座椅",
+        "en_query": "成对发射泥靶的练习用抛靶机，带可折叠操作员座椅",
+        "rewrite_ms": 0.0,
+        "rank": null,
+        "hit": 0,
+        "mrr": 0.0,
+        "ndcg": 0.0
+      },
+      {
+        "id": "zh_hw_46",
+        "query_zh": "家用引体向上和双杠臂屈伸独立式支架，高度可调，承重耐用",
+        "en_query": "家用引体向上和双杠臂屈伸独立式支架，高度可调，承重耐用",
+        "rewrite_ms": 0.0,
+        "rank": null,
+        "hit": 0,
+        "mrr": 0.0,
+        "ndcg": 0.0
+      },
+      {
+        "id": "zh_hw_47",
+        "query_zh": "短袖防晒泳衣 浮潜 水上健身操",
+        "en_query": "短袖防晒泳衣 浮潜 水上健身操",
+        "rewrite_ms": 0.0,
+        "rank": null,
+        "hit": 0,
+        "mrr": 0.0,
+        "ndcg": 0.0
+      },
+      {
+        "id": "zh_hw_48",
+        "query_zh": "冷水冲浪板蜡 两块装 一块底蜡一块面蜡",
+        "en_query": "冷水冲浪板蜡 两块装 一块底蜡一块面蜡",
+        "rewrite_ms": 0.0,
+        "rank": null,
+        "hit": 0,
+        "mrr": 0.0,
+        "ndcg": 0.0
+      },
+      {
+        "id": "zh_hw_49",
+        "query_zh": "山地车锻造合金替换曲柄 适配100mm五通",
+        "en_query": "山地车锻造合金替换曲柄 适配100mm五通",
+        "rewrite_ms": 0.0,
+        "rank": null,
+        "hit": 0,
+        "mrr": 0.0,
+        "ndcg": 0.0
+      },
+      {
+        "id": "zh_hw_50",
+        "query_zh": "钓鱼包 五个隔层 橡胶网袋 船甲板上稳定放置",
+        "en_query": "钓鱼包 五个隔层 橡胶网袋 船甲板上稳定放置",
+        "rewrite_ms": 0.0,
+        "rank": null,
+        "hit": 0,
+        "mrr": 0.0,
+        "ndcg": 0.0
+      }
+    ],
+    "planner_llm": [
+      {
+        "id": "zh_hw_01",
+        "query_zh": "适合霜冻夜晚保暖但夏天可透气的睡袋，脚部空间宽敞，$250以下",
+        "en_query": "sleeping bag for frosty nights warm but breathable in summer, spacious footbox, under $250",
+        "rewrite_ms": 1264.1,
+        "rank": 3,
+        "hit": 1,
+        "mrr": 0.3333333333333333,
+        "ndcg": 0.5
+      },
+      {
+        "id": "zh_hw_02",
+        "query_zh": "夜间徒步用的免提灯，照射距离超过100米，使用AA电池，价格约$60",
+        "en_query": "hands-free light for night hiking, beam distance over 100 meters, uses AA batteries, price around $60",
+        "rewrite_ms": 1061.2,
+        "rank": null,
+        "hit": 0,
+        "mrr": 0.0,
+        "ndcg": 0.0
+      },
+      {
+        "id": "zh_hw_03",
+        "query_zh": "小型保温包 一日游能装六瓶装保持冷藏 可放入背包 15美元以下",
+        "en_query": "small insulated bag day trip holds six-pack keeps refrigerated fits in backpack under $15",
+        "rewrite_ms": 1112.4,
+        "rank": null,
+        "hit": 0,
+        "mrr": 0.0,
+        "ndcg": 0.0
+      },
+      {
+        "id": "zh_hw_04",
+        "query_zh": "船用栏杆夹式鱼竿固定支架 可调角度 $60以下",
+        "en_query": "marine rail clamp-on fishing rod holder adjustable angle under $60",
+        "rewrite_ms": 712.9,
+        "rank": null,
+        "hit": 0,
+        "mrr": 0.0,
+        "ndcg": 0.0
+      },
+      {
+        "id": "zh_hw_05",
+        "query_zh": "带拉链口袋可放钥匙和手机的瑜伽垫手提袋，可机洗",
+        "en_query": "yoga mat carrying bag with zippered pocket for keys and phone, machine washable",
+        "rewrite_ms": 859.5,
+        "rank": null,
+        "hit": 0,
+        "mrr": 0.0,
+        "ndcg": 0.0
+      },
+      {
+        "id": "zh_hw_06",
+        "query_zh": "脚踝固定阻力带 用于冲刺和敏捷训练 附带训练说明 30美元以下",
+        "en_query": "ankle resistance band for sprint and agility training with training instructions under $30",
+        "rewrite_ms": 752.6,
+        "rank": 1,
+        "hit": 1,
+        "mrr": 1.0,
+        "ndcg": 1.0
+      },
+      {
+        "id": "zh_hw_07",
+        "query_zh": "节省空间的可调节哑铃 家庭健身房 每只约50磅 200美元以下",
+        "en_query": "space-saving adjustable dumbbells home gym about 50 lbs each under 200 USD",
+        "rewrite_ms": 1238.6,
+        "rank": null,
+        "hit": 0,
+        "mrr": 0.0,
+        "ndcg": 0.0
+      },
+      {
+        "id": "zh_hw_08",
+        "query_zh": "徒步时防止雪和泥进入靴子的防水鞋套，可调节，30美元以下",
+        "en_query": "waterproof boot gaiters for hiking prevent snow and mud from entering boots adjustable under $30",
+        "rewrite_ms": 992.0,
+        "rank": 1,
+        "hit": 1,
+        "mrr": 1.0,
+        "ndcg": 1.0
+      },
+      {
+        "id": "zh_hw_09",
+        "query_zh": "能装两支球拍且带独立脏鞋隔层的背包，$60以下",
+        "en_query": "backpack holds two rackets with separate dirty shoe compartment under $60",
+        "rewrite_ms": 756.7,
+        "rank": 1,
+        "hit": 1,
+        "mrr": 1.0,
+        "ndcg": 1.0
+      },
+      {
+        "id": "zh_hw_10",
+        "query_zh": "批量无压网球 用于发球机 不会变扁 60个装 $50以下",
+        "en_query": "bulk pressureless tennis balls for ball machine won't go flat 60 pack under $50",
+        "rewrite_ms": 804.0,
+        "rank": 1,
+        "hit": 1,
+        "mrr": 1.0,
+        "ndcg": 1.0
+      },
+      {
+        "id": "zh_hw_11",
+        "query_zh": "US Coast Guard 认证 女士救生衣 划桨 活动自如 80美元以下",
+        "en_query": "US Coast Guard approved women's life jacket paddling freedom of movement under 80 dollars",
+        "rewrite_ms": 907.1,
+        "rank": null,
+        "hit": 0,
+        "mrr": 0.0,
+        "ndcg": 0.0
+      },
+      {
+        "id": "zh_hw_12",
+        "query_zh": "滑雪靴旅行包 带透气侧袋 可装头盔和外套 100美元以下",
+        "en_query": "ski boot travel bag with ventilated side pocket fits helmet and jacket under $100",
+        "rewrite_ms": 725.0,
+        "rank": 5,
+        "hit": 0,
+        "mrr": 0.0,
+        "ndcg": 0.0
+      },
+      {
+        "id": "zh_hw_13",
+        "query_zh": "女士举重用的薄款加垫手套，不显笨重，$25以下",
+        "en_query": "women's weightlifting gloves thin padded lightweight not bulky under $25",
+        "rewrite_ms": 838.4,
+        "rank": null,
+        "hit": 0,
+        "mrr": 0.0,
+        "ndcg": 0.0
+      },
+      {
+        "id": "zh_hw_14",
+        "query_zh": "可调节速度跳绳 有氧运动 舒适泡沫手柄 20美元以下",
+        "en_query": "adjustable speed jump rope cardio workout comfortable foam handles under $20",
+        "rewrite_ms": 679.9,
+        "rank": 2,
+        "hit": 1,
+        "mrr": 0.5,
+        "ndcg": 0.6309297535714575
+      },
+      {
+        "id": "zh_hw_15",
+        "query_zh": "36英寸泡沫轴 用于锻炼后按摩紧绷肌肉 中等硬度 $90以下",
+        "en_query": "36 inch foam roller for post-workout massage of tight muscles medium firmness under $90",
+        "rewrite_ms": 1048.4,
+        "rank": null,
+        "hit": 0,
+        "mrr": 0.0,
+        "ndcg": 0.0
+      },
+      {
+        "id": "zh_hw_16",
+        "query_zh": "超轻罐装炉 单人背包露营用 约4分钟烧开水 可收纳进小盒 35美元以下",
+        "en_query": "ultralight canister stove solo backpacking camping boils water in about 4 minutes packs into small box under $35",
+        "rewrite_ms": 1185.5,
+        "rank": 1,
+        "hit": 1,
+        "mrr": 1.0,
+        "ndcg": 1.0
+      },
+      {
+        "id": "zh_hw_17",
+        "query_zh": "小型自行车灯 夹在车把或座管上 闪烁模式能用一整周 $25以下",
+        "en_query": "small bike light clip on handlebar or seatpost flashing mode lasts one week under $25",
+        "rewrite_ms": 770.7,
+        "rank": null,
+        "hit": 0,
+        "mrr": 0.0,
+        "ndcg": 0.0
+      },
+      {
+        "id": "zh_hw_18",
+        "query_zh": "5号足球 软触感 高中训练用 保气 40美元以下",
+        "en_query": "size 5 soccer ball soft touch high school training air retention under $40",
+        "rewrite_ms": 1120.3,
+        "rank": null,
+        "hit": 0,
+        "mrr": 0.0,
+        "ndcg": 0.0
+      },
+      {
+        "id": "zh_hw_19",
+        "query_zh": "2升越野跑水袋背包 可喷水 可接直列过滤器 $45以下",
+        "en_query": "2L trail running hydration backpack with spray nozzle, compatible with inline filter, under $45",
+        "rewrite_ms": 1034.2,
+        "rank": null,
+        "hit": 0,
+        "mrr": 0.0,
+        "ndcg": 0.0
+      },
+      {
+        "id": "zh_hw_20",
+        "query_zh": "四季双人背包帐篷 抗强风雪 双门 带门厅 120美元以下",
+        "en_query": "4-season 2-person backpacking tent wind and snow resistant double door with vestibule under $120",
+        "rewrite_ms": 589.9,
+        "rank": null,
+        "hit": 0,
+        "mrr": 0.0,
+        "ndcg": 0.0
+      },
+      {
+        "id": "zh_hw_21",
+        "query_zh": "紧凑型狩猎发射器 小型猎物 手动上弦 附带3个宽头箭和3支练习箭 60美元以下",
+        "en_query": "compact hunting crossbow small game manual cocking includes 3 broadhead arrows and 3 practice arrows under $60",
+        "rewrite_ms": 860.8,
+        "rank": null,
+        "hit": 0,
+        "mrr": 0.0,
+        "ndcg": 0.0
+      },
+      {
+        "id": "zh_hw_22",
+        "query_zh": "投球手臂紧身面料袖套 局间保暖 快干",
+        "en_query": "pitching arm compression sleeve between innings warm-up quick-dry",
+        "rewrite_ms": 1162.8,
+        "rank": 3,
+        "hit": 1,
+        "mrr": 0.3333333333333333,
+        "ndcg": 0.5
+      },
+      {
+        "id": "zh_hw_23",
+        "query_zh": "绑腿负重 渐进增加阻力 抬腿训练 20美元以下",
+        "en_query": "ankle weights adjustable resistance leg lift training under $20",
+        "rewrite_ms": 808.4,
+        "rank": null,
+        "hit": 0,
+        "mrr": 0.0,
+        "ndcg": 0.0
+      },
+      {
+        "id": "zh_hw_24",
+        "query_zh": "通勤用平滑替换轮胎 适用于铺装路面和轻度碎石路 35mm宽",
+        "en_query": "commuting smooth replacement tires suitable for paved roads and light gravel roads 35mm wide",
+        "rewrite_ms": 1217.2,
+        "rank": 5,
+        "hit": 0,
+        "mrr": 0.0,
+        "ndcg": 0.0
+      },
+      {
+        "id": "zh_hw_25",
+        "query_zh": "能在风雨中点燃篝火且不需要打火机液的方块，六块装",
+        "en_query": "fire starter cubes that light campfire in wind and rain no lighter fluid required, 6-pack",
+        "rewrite_ms": 1032.0,
+        "rank": 1,
+        "hit": 1,
+        "mrr": 1.0,
+        "ndcg": 1.0
+      },
+      {
+        "id": "zh_hw_26",
+        "query_zh": "女士通勤双肩包 带笔记本电脑加厚隔层 透气背板",
+        "en_query": "women's commuter backpack with padded laptop compartment breathable back panel",
+        "rewrite_ms": 1231.9,
+        "rank": 1,
+        "hit": 1,
+        "mrr": 1.0,
+        "ndcg": 1.0
+      },
+      {
+        "id": "zh_hw_27",
+        "query_zh": "双面尼龙腰带 塑料扣 不会触发金属探测器 20美元以下",
+        "en_query": "double-sided nylon belt plastic buckle metal detector safe under $20",
+        "rewrite_ms": 1054.1,
+        "rank": 2,
+        "hit": 1,
+        "mrr": 0.5,
+        "ndcg": 0.6309297535714575
+      },
+      {
+        "id": "zh_hw_28",
+        "query_zh": "多节硬饵 左右摆动 高速拖钓稳定 鲈鱼",
+        "en_query": "multi-joint hard bait left-right wobble high-speed trolling stable bass",
+        "rewrite_ms": 1156.5,
+        "rank": null,
+        "hit": 0,
+        "mrr": 0.0,
+        "ndcg": 0.0
+      },
+      {
+        "id": "zh_hw_29",
+        "query_zh": "窄款车顶行李架托盘 带大量固定点 可绑装备和滑雪板架",
+        "en_query": "narrow roof rack tray with many tie-down points for securing gear and ski rack",
+        "rewrite_ms": 1209.8,
+        "rank": 1,
+        "hit": 1,
+        "mrr": 1.0,
+        "ndcg": 1.0
+      },
+      {
+        "id": "zh_hw_30",
+        "query_zh": "带软垫的墙壁挂钩，可放长板或吉他，含螺丝，$15以下",
+        "en_query": "padded wall hook for longboard or guitar, includes screws, under $15",
+        "rewrite_ms": 1000.1,
+        "rank": 1,
+        "hit": 1,
+        "mrr": 1.0,
+        "ndcg": 1.0
+      },
+      {
+        "id": "zh_hw_31",
+        "query_zh": "拉伸课穿的弹力裤 膝盖处贴身 脚踝处宽松 35美元以下",
+        "en_query": "stretching class elastic pants fitted at knees loose at ankles under $35",
+        "rewrite_ms": 679.3,
+        "rank": null,
+        "hit": 0,
+        "mrr": 0.0,
+        "ndcg": 0.0
+      },
+      {
+        "id": "zh_hw_32",
+        "query_zh": "适合高级骑手的马衔铁，靠鼻压起作用，嘴部有软橡胶和铜",
+        "en_query": "horse bit for advanced riders, nose pressure action, soft rubber and copper mouth",
+        "rewrite_ms": 902.3,
+        "rank": 1,
+        "hit": 1,
+        "mrr": 1.0,
+        "ndcg": 1.0
+      },
+      {
+        "id": "zh_hw_33",
+        "query_zh": "护耳器 能放大安静声音但把枪声降到安全水平 可折叠小巧",
+        "en_query": "ear protection hearing enhancer amplifies quiet sounds reduces gunshots to safe level foldable compact",
+        "rewrite_ms": 962.6,
+        "rank": null,
+        "hit": 0,
+        "mrr": 0.0,
+        "ndcg": 0.0
+      },
+      {
+        "id": "zh_hw_34",
+        "query_zh": "防漏保温杯 幼儿用 单手可开吸管 16 ounces",
+        "en_query": "leak-proof insulated water bottle for toddlers one-hand open straw 16 ounces",
+        "rewrite_ms": 909.5,
+        "rank": 1,
+        "hit": 1,
+        "mrr": 1.0,
+        "ndcg": 1.0
+      },
+      {
+        "id": "zh_hw_35",
+        "query_zh": "8英尺台球桌替换台呢 炭灰色 商用加厚 150美元以下",
+        "en_query": "8ft pool table replacement felt charcoal gray commercial thickened under $150",
+        "rewrite_ms": 1194.5,
+        "rank": 2,
+        "hit": 1,
+        "mrr": 0.5,
+        "ndcg": 0.6309297535714575
+      },
+      {
+        "id": "zh_hw_36",
+        "query_zh": "深雪行走入门套装 含雪杖和腿套 一口价",
+        "en_query": "deep snow walking beginner set including snow poles and gaiters fixed price",
+        "rewrite_ms": 714.4,
+        "rank": null,
+        "hit": 0,
+        "mrr": 0.0,
+        "ndcg": 0.0
+      },
+      {
+        "id": "zh_hw_37",
+        "query_zh": "7.5英尺淡水轻饵抛投鱼竿 线号最大12磅",
+        "en_query": "7.5ft freshwater light lure casting fishing rod max line 12lb",
+        "rewrite_ms": 510.1,
+        "rank": null,
+        "hit": 0,
+        "mrr": 0.0,
+        "ndcg": 0.0
+      },
+      {
+        "id": "zh_hw_38",
+        "query_zh": "儿童三轮车或滑板车用的响亮捏喇叭，单螺丝安装，$15以下",
+        "en_query": "loud squeeze horn for kids tricycle or scooter, single screw mounting, under $15",
+        "rewrite_ms": 1105.5,
+        "rank": 2,
+        "hit": 1,
+        "mrr": 0.5,
+        "ndcg": 0.6309297535714575
+      },
+      {
+        "id": "zh_hw_39",
+        "query_zh": "手工调校的木制鸭哨 狩猎用 带金属环 20美元以下",
+        "en_query": "hand-tuned wooden duck call hunting with metal ring under $20",
+        "rewrite_ms": 1317.2,
+        "rank": 1,
+        "hit": 1,
+        "mrr": 1.0,
+        "ndcg": 1.0
+      },
+      {
+        "id": "zh_hw_40",
+        "query_zh": "短款运动袜 紧贴脚部 脚跟和脚趾有缓冲 跑步用",
+        "en_query": "short athletic socks snug fit cushioned heel and toe for running",
+        "rewrite_ms": 966.9,
+        "rank": null,
+        "hit": 0,
+        "mrr": 0.0,
+        "ndcg": 0.0
+      },
+      {
+        "id": "zh_hw_41",
+        "query_zh": "能固定手电筒或登山杖在1英寸织带上并可单手释放的夹扣",
+        "en_query": "clip mount for flashlight or trekking pole on 1 inch webbing, one-hand release",
+        "rewrite_ms": 1220.9,
+        "rank": 1,
+        "hit": 1,
+        "mrr": 1.0,
+        "ndcg": 1.0
+      },
+      {
+        "id": "zh_hw_42",
+        "query_zh": "细编织线 高强度 远投 绿色水域隐形",
+        "en_query": "fine braided line high strength long cast green water invisibility",
+        "rewrite_ms": 812.9,
+        "rank": null,
+        "hit": 0,
+        "mrr": 0.0,
+        "ndcg": 0.0
+      },
+      {
+        "id": "zh_hw_43",
+        "query_zh": "软泡沫球和球棒套装 让孩子练习曲线球 不会受伤",
+        "en_query": "soft foam ball and bat set for kids practicing curveballs no injury",
+        "rewrite_ms": 1220.7,
+        "rank": 1,
+        "hit": 1,
+        "mrr": 1.0,
+        "ndcg": 1.0
+      },
+      {
+        "id": "zh_hw_44",
+        "query_zh": "硬地足球鞋 固定钉 保持双脚干爽 男款 12码",
+        "en_query": "hard ground soccer cleats fixed studs keep feet dry men's size 12",
+        "rewrite_ms": 800.5,
+        "rank": 1,
+        "hit": 1,
+        "mrr": 1.0,
+        "ndcg": 1.0
+      },
+      {
+        "id": "zh_hw_45",
+        "query_zh": "成对发射泥靶的练习用抛靶机，带可折叠操作员座椅",
+        "en_query": "pair launch clay target practice trap thrower with foldable operator seat",
+        "rewrite_ms": 962.2,
+        "rank": 1,
+        "hit": 1,
+        "mrr": 1.0,
+        "ndcg": 1.0
+      },
+      {
+        "id": "zh_hw_46",
+        "query_zh": "家用引体向上和双杠臂屈伸独立式支架，高度可调，承重耐用",
+        "en_query": "home pull-up and dip station freestanding stand, height adjustable, weight capacity durable",
+        "rewrite_ms": 1019.2,
+        "rank": null,
+        "hit": 0,
+        "mrr": 0.0,
+        "ndcg": 0.0
+      },
+      {
+        "id": "zh_hw_47",
+        "query_zh": "短袖防晒泳衣 浮潜 水上健身操",
+        "en_query": "short sleeve sun protection swimsuit snorkeling water aerobics",
+        "rewrite_ms": 814.2,
+        "rank": null,
+        "hit": 0,
+        "mrr": 0.0,
+        "ndcg": 0.0
+      },
+      {
+        "id": "zh_hw_48",
+        "query_zh": "冷水冲浪板蜡 两块装 一块底蜡一块面蜡",
+        "en_query": "cold water surfboard wax 2-pack one base wax one top wax",
+        "rewrite_ms": 954.3,
+        "rank": 4,
+        "hit": 0,
+        "mrr": 0.0,
+        "ndcg": 0.0
+      },
+      {
+        "id": "zh_hw_49",
+        "query_zh": "山地车锻造合金替换曲柄 适配100mm五通",
+        "en_query": "mountain bike forged alloy replacement crankset compatible with 100mm bottom bracket",
+        "rewrite_ms": 1146.4,
+        "rank": null,
+        "hit": 0,
+        "mrr": 0.0,
+        "ndcg": 0.0
+      },
+      {
+        "id": "zh_hw_50",
+        "query_zh": "钓鱼包 五个隔层 橡胶网袋 船甲板上稳定放置",
+        "en_query": "fishing bag five compartments rubber mesh pocket stable placement on boat deck",
+        "rewrite_ms": 1332.4,
+        "rank": 1,
+        "hit": 1,
+        "mrr": 1.0,
+        "ndcg": 1.0
+      }
+    ],
+    "lora_router": [
+      {
+        "id": "zh_hw_01",
+        "query_zh": "适合霜冻夜晚保暖但夏天可透气的睡袋，脚部空间宽敞，$250以下",
+        "en_query": "suitable for frosty nights, breathable in summer, spacious feet space, under $250",
+        "rewrite_ms": 277.7,
+        "rank": null,
+        "hit": 0,
+        "mrr": 0.0,
+        "ndcg": 0.0
+      },
+      {
+        "id": "zh_hw_02",
+        "query_zh": "夜间徒步用的免提灯，照射距离超过100米，使用AA电池，价格约$60",
+        "en_query": "night hiking flashlight with AA battery, more than 100m range",
+        "rewrite_ms": 224.0,
+        "rank": null,
+        "hit": 0,
+        "mrr": 0.0,
+        "ndcg": 0.0
+      },
+      {
+        "id": "zh_hw_03",
+        "query_zh": "小型保温包 一日游能装六瓶装保持冷藏 可放入背包 15美元以下",
+        "en_query": "small insulated bag for one day trip, can hold six bottles of cold drinks, fits in backpack, under $15",
+        "rewrite_ms": 312.0,
+        "rank": null,
+        "hit": 0,
+        "mrr": 0.0,
+        "ndcg": 0.0
+      },
+      {
+        "id": "zh_hw_04",
+        "query_zh": "船用栏杆夹式鱼竿固定支架 可调角度 $60以下",
+        "en_query": "fish竿支架, adjustable angle",
+        "rewrite_ms": 160.2,
+        "rank": null,
+        "hit": 0,
+        "mrr": 0.0,
+        "ndcg": 0.0
+      },
+      {
+        "id": "zh_hw_05",
+        "query_zh": "带拉链口袋可放钥匙和手机的瑜伽垫手提袋，可机洗",
+        "en_query": "yoga pad with key and phone pockets, adjustable straps, washable",
+        "rewrite_ms": 230.8,
+        "rank": null,
+        "hit": 0,
+        "mrr": 0.0,
+        "ndcg": 0.0
+      },
+      {
+        "id": "zh_hw_06",
+        "query_zh": "脚踝固定阻力带 用于冲刺和敏捷训练 附带训练说明 30美元以下",
+        "en_query": "脚踝固定阻力带, 冲刺和敏捷训练, 训练说明, 30美元以下",
+        "rewrite_ms": 278.6,
+        "rank": null,
+        "hit": 0,
+        "mrr": 0.0,
+        "ndcg": 0.0
+      },
+      {
+        "id": "zh_hw_07",
+        "query_zh": "节省空间的可调节哑铃 家庭健身房 每只约50磅 200美元以下",
+        "en_query": "save space adjustable dumbbell home gym each about 50 pounds under $200",
+        "rewrite_ms": 264.8,
+        "rank": null,
+        "hit": 0,
+        "mrr": 0.0,
+        "ndcg": 0.0
+      },
+      {
+        "id": "zh_hw_08",
+        "query_zh": "徒步时防止雪和泥进入靴子的防水鞋套，可调节，30美元以下",
+        "en_query": "徒步防水鞋套, 可调节, 价格低于30美元",
+        "rewrite_ms": 242.7,
+        "rank": null,
+        "hit": 0,
+        "mrr": 0.0,
+        "ndcg": 0.0
+      },
+      {
+        "id": "zh_hw_09",
+        "query_zh": "能装两支球拍且带独立脏鞋隔层的背包，$60以下",
+        "en_query": "two-ball-paddles, independent shoe storage compartment, under $60 backpack",
+        "rewrite_ms": 253.0,
+        "rank": null,
+        "hit": 0,
+        "mrr": 0.0,
+        "ndcg": 0.0
+      },
+      {
+        "id": "zh_hw_10",
+        "query_zh": "批量无压网球 用于发球机 不会变扁 60个装 $50以下",
+        "en_query": "batch unpressured tennis balls for use with a ball machine, not prone to flattening, 60 units, under $50",
+        "rewrite_ms": 314.3,
+        "rank": 2,
+        "hit": 1,
+        "mrr": 0.5,
+        "ndcg": 0.6309297535714575
+      },
+      {
+        "id": "zh_hw_11",
+        "query_zh": "US Coast Guard 认证 女士救生衣 划桨 活动自如 80美元以下",
+        "en_query": "US Coast Guard certified women's life jacket with paddle, easy to operate under $80",
+        "rewrite_ms": 255.0,
+        "rank": null,
+        "hit": 0,
+        "mrr": 0.0,
+        "ndcg": 0.0
+      },
+      {
+        "id": "zh_hw_12",
+        "query_zh": "滑雪靴旅行包 带透气侧袋 可装头盔和外套 100美元以下",
+        "en_query": "ski boots with breathable side pocket, can carry helmet and outerwear under $100",
+        "rewrite_ms": 228.0,
+        "rank": null,
+        "hit": 0,
+        "mrr": 0.0,
+        "ndcg": 0.0
+      },
+      {
+        "id": "zh_hw_13",
+        "query_zh": "女士举重用的薄款加垫手套，不显笨重，$25以下",
+        "en_query": "women's light weight gym gloves",
+        "rewrite_ms": 191.9,
+        "rank": null,
+        "hit": 0,
+        "mrr": 0.0,
+        "ndcg": 0.0
+      },
+      {
+        "id": "zh_hw_14",
+        "query_zh": "可调节速度跳绳 有氧运动 舒适泡沫手柄 20美元以下",
+        "en_query": "adjustable-speed jump rope for aerobic exercise with comfortable foam handle under $20",
+        "rewrite_ms": 236.9,
+        "rank": null,
+        "hit": 0,
+        "mrr": 0.0,
+        "ndcg": 0.0
+      },
+      {
+        "id": "zh_hw_15",
+        "query_zh": "36英寸泡沫轴 用于锻炼后按摩紧绷肌肉 中等硬度 $90以下",
+        "en_query": "36-inch foam roller for post-exercise muscle relaxation, medium hardness under $90",
+        "rewrite_ms": 257.1,
+        "rank": null,
+        "hit": 0,
+        "mrr": 0.0,
+        "ndcg": 0.0
+      },
+      {
+        "id": "zh_hw_16",
+        "query_zh": "超轻罐装炉 单人背包露营用 约4分钟烧开水 可收纳进小盒 35美元以下",
+        "en_query": "超轻罐装炉单人背包露营用约4分钟烧开水可收纳进小盒35美元以下",
+        "rewrite_ms": 310.8,
+        "rank": null,
+        "hit": 0,
+        "mrr": 0.0,
+        "ndcg": 0.0
+      },
+      {
+        "id": "zh_hw_17",
+        "query_zh": "小型自行车灯 夹在车把或座管上 闪烁模式能用一整周 $25以下",
+        "en_query": "small bicycle light, clip on handlebar or seat tube, long-lasting flashing mode under $25",
+        "rewrite_ms": 277.3,
+        "rank": null,
+        "hit": 0,
+        "mrr": 0.0,
+        "ndcg": 0.0
+      },
+      {
+        "id": "zh_hw_18",
+        "query_zh": "5号足球 软触感 高中训练用 保气 40美元以下",
+        "en_query": "5-number football, soft touch, high school training use, breathable, under $40",
+        "rewrite_ms": 245.2,
+        "rank": null,
+        "hit": 0,
+        "mrr": 0.0,
+        "ndcg": 0.0
+      },
+      {
+        "id": "zh_hw_19",
+        "query_zh": "2升越野跑水袋背包 可喷水 可接直列过滤器 $45以下",
+        "en_query": "2L backpack with water bottle, sprayable and filterable, under $45",
+        "rewrite_ms": 256.0,
+        "rank": null,
+        "hit": 0,
+        "mrr": 0.0,
+        "ndcg": 0.0
+      },
+      {
+        "id": "zh_hw_20",
+        "query_zh": "四季双人背包帐篷 抗强风雪 双门 带门厅 120美元以下",
+        "en_query": "four-season double-person backpack tent, strong wind and snow resistance, double doors with lobby, under $120",
+        "rewrite_ms": 271.5,
+        "rank": null,
+        "hit": 0,
+        "mrr": 0.0,
+        "ndcg": 0.0
+      },
+      {
+        "id": "zh_hw_21",
+        "query_zh": "紧凑型狩猎发射器 小型猎物 手动上弦 附带3个宽头箭和3支练习箭 60美元以下",
+        "en_query": "compact hunting launcher, small game, manual reloading, includes 3 wide-point arrows and 3 practice arrows, under $60",
+        "rewrite_ms": 310.6,
+        "rank": null,
+        "hit": 0,
+        "mrr": 0.0,
+        "ndcg": 0.0
+      },
+      {
+        "id": "zh_hw_22",
+        "query_zh": "投球手臂紧身面料袖套 局间保暖 快干",
+        "en_query": "army jacket with fast-drying fabric, warm in the cold",
+        "rewrite_ms": 238.4,
+        "rank": null,
+        "hit": 0,
+        "mrr": 0.0,
+        "ndcg": 0.0
+      },
+      {
+        "id": "zh_hw_23",
+        "query_zh": "绑腿负重 渐进增加阻力 抬腿训练 20美元以下",
+        "en_query": "绑腿负重训练, 进步性增加阻力, 提升腿部力量",
+        "rewrite_ms": 247.7,
+        "rank": null,
+        "hit": 0,
+        "mrr": 0.0,
+        "ndcg": 0.0
+      },
+      {
+        "id": "zh_hw_24",
+        "query_zh": "通勤用平滑替换轮胎 适用于铺装路面和轻度碎石路 35mm宽",
+        "en_query": "通勤用平滑替换轮胎, 35mm宽",
+        "rewrite_ms": 224.4,
+        "rank": null,
+        "hit": 0,
+        "mrr": 0.0,
+        "ndcg": 0.0
+      },
+      {
+        "id": "zh_hw_25",
+        "query_zh": "能在风雨中点燃篝火且不需要打火机液的方块，六块装",
+        "en_query": "rainproof fire pit with no matches or lighter needed",
+        "rewrite_ms": 200.5,
+        "rank": null,
+        "hit": 0,
+        "mrr": 0.0,
+        "ndcg": 0.0
+      },
+      {
+        "id": "zh_hw_26",
+        "query_zh": "女士通勤双肩包 带笔记本电脑加厚隔层 透气背板",
+        "en_query": "women's commuter backpack with laptop compartment, padded back panel, breathable design",
+        "rewrite_ms": 229.5,
+        "rank": 1,
+        "hit": 1,
+        "mrr": 1.0,
+        "ndcg": 1.0
+      },
+      {
+        "id": "zh_hw_27",
+        "query_zh": "双面尼龙腰带 塑料扣 不会触发金属探测器 20美元以下",
+        "en_query": "double-sided nylon waistband with plastic snap, non-metallic trigger, under $20",
+        "rewrite_ms": 265.0,
+        "rank": null,
+        "hit": 0,
+        "mrr": 0.0,
+        "ndcg": 0.0
+      },
+      {
+        "id": "zh_hw_28",
+        "query_zh": "多节硬饵 左右摆动 高速拖钓稳定 鲈鱼",
+        "en_query": "high-speed drag fishing bait for large fish",
+        "rewrite_ms": 201.0,
+        "rank": null,
+        "hit": 0,
+        "mrr": 0.0,
+        "ndcg": 0.0
+      },
+      {
+        "id": "zh_hw_29",
+        "query_zh": "窄款车顶行李架托盘 带大量固定点 可绑装备和滑雪板架",
+        "en_query": "窄款车顶行李架托盘,带大量固定点,可绑装备和滑雪板架",
+        "rewrite_ms": 284.8,
+        "rank": null,
+        "hit": 0,
+        "mrr": 0.0,
+        "ndcg": 0.0
+      },
+      {
+        "id": "zh_hw_30",
+        "query_zh": "带软垫的墙壁挂钩，可放长板或吉他，含螺丝，$15以下",
+        "en_query": "soft pad wall hanger for long boards and guitars, screws included, under $15",
+        "rewrite_ms": 251.4,
+        "rank": 1,
+        "hit": 1,
+        "mrr": 1.0,
+        "ndcg": 1.0
+      },
+      {
+        "id": "zh_hw_31",
+        "query_zh": "拉伸课穿的弹力裤 膝盖处贴身 脚踝处宽松 35美元以下",
+        "en_query": "stretch pants for legs, knee area snug, ankle area loose, under $35",
+        "rewrite_ms": 239.3,
+        "rank": null,
+        "hit": 0,
+        "mrr": 0.0,
+        "ndcg": 0.0
+      },
+      {
+        "id": "zh_hw_32",
+        "query_zh": "适合高级骑手的马衔铁，靠鼻压起作用，嘴部有软橡胶和铜",
+        "en_query": "high-end rider's horse bit with nose pressure, soft rubber and copper in the mouth",
+        "rewrite_ms": 246.7,
+        "rank": 1,
+        "hit": 1,
+        "mrr": 1.0,
+        "ndcg": 1.0
+      },
+      {
+        "id": "zh_hw_33",
+        "query_zh": "护耳器 能放大安静声音但把枪声降到安全水平 可折叠小巧",
+        "en_query": "护耳器 放大安静声音 把枪声降到安全水平 可折叠 小巧",
+        "rewrite_ms": 270.3,
+        "rank": null,
+        "hit": 0,
+        "mrr": 0.0,
+        "ndcg": 0.0
+      },
+      {
+        "id": "zh_hw_34",
+        "query_zh": "防漏保温杯 幼儿用 单手可开吸管 16 ounces",
+        "en_query": "fleece insulated cup for children, single-handed opening with sip tube, 16 oz",
+        "rewrite_ms": 253.8,
+        "rank": 4,
+        "hit": 0,
+        "mrr": 0.0,
+        "ndcg": 0.0
+      },
+      {
+        "id": "zh_hw_35",
+        "query_zh": "8英尺台球桌替换台呢 炭灰色 商用加厚 150美元以下",
+        "en_query": "8ft billiard table replacement, charcoal gray, commercial thick, under $150",
+        "rewrite_ms": 304.8,
+        "rank": null,
+        "hit": 0,
+        "mrr": 0.0,
+        "ndcg": 0.0
+      },
+      {
+        "id": "zh_hw_36",
+        "query_zh": "深雪行走入门套装 含雪杖和腿套 一口价",
+        "en_query": "deep snow walking beginner set, including snow staff and leg cover",
+        "rewrite_ms": 220.7,
+        "rank": null,
+        "hit": 0,
+        "mrr": 0.0,
+        "ndcg": 0.0
+      },
+      {
+        "id": "zh_hw_37",
+        "query_zh": "7.5英尺淡水轻饵抛投鱼竿 线号最大12磅",
+        "en_query": "7.5 英尺 淡水轻饵 抛投鱼竿 线号 12 磅",
+        "rewrite_ms": 322.5,
+        "rank": null,
+        "hit": 0,
+        "mrr": 0.0,
+        "ndcg": 0.0
+      },
+      {
+        "id": "zh_hw_38",
+        "query_zh": "儿童三轮车或滑板车用的响亮捏喇叭，单螺丝安装，$15以下",
+        "en_query": "children's three-wheeler or skateboard with loud horn, single bolt installation, under $15",
+        "rewrite_ms": 272.2,
+        "rank": null,
+        "hit": 0,
+        "mrr": 0.0,
+        "ndcg": 0.0
+      },
+      {
+        "id": "zh_hw_39",
+        "query_zh": "手工调校的木制鸭哨 狩猎用 带金属环 20美元以下",
+        "en_query": "handmade wooden duck whistle for hunting with metal ring under $20",
+        "rewrite_ms": 226.4,
+        "rank": 4,
+        "hit": 0,
+        "mrr": 0.0,
+        "ndcg": 0.0
+      },
+      {
+        "id": "zh_hw_40",
+        "query_zh": "短款运动袜 紧贴脚部 脚跟和脚趾有缓冲 跑步用",
+        "en_query": "short-sleeve running socks with cushioning for the heel and toe",
+        "rewrite_ms": 253.8,
+        "rank": 2,
+        "hit": 1,
+        "mrr": 0.5,
+        "ndcg": 0.6309297535714575
+      },
+      {
+        "id": "zh_hw_41",
+        "query_zh": "能固定手电筒或登山杖在1英寸织带上并可单手释放的夹扣",
+        "en_query": "handheld flashlight or trekking pole with a clip that can be released with one hand on a 1-inch strap",
+        "rewrite_ms": 273.5,
+        "rank": null,
+        "hit": 0,
+        "mrr": 0.0,
+        "ndcg": 0.0
+      },
+      {
+        "id": "zh_hw_42",
+        "query_zh": "细编织线 高强度 远投 绿色水域隐形",
+        "en_query": "green waterborne invisible, high strength, long distance projection, fine yarn",
+        "rewrite_ms": 223.3,
+        "rank": null,
+        "hit": 0,
+        "mrr": 0.0,
+        "ndcg": 0.0
+      },
+      {
+        "id": "zh_hw_43",
+        "query_zh": "软泡沫球和球棒套装 让孩子练习曲线球 不会受伤",
+        "en_query": "soft foam ball and bat set for kids to practice curve balls, safe from injury",
+        "rewrite_ms": 254.7,
+        "rank": 1,
+        "hit": 1,
+        "mrr": 1.0,
+        "ndcg": 1.0
+      },
+      {
+        "id": "zh_hw_44",
+        "query_zh": "硬地足球鞋 固定钉 保持双脚干爽 男款 12码",
+        "en_query": "hard court soccer shoes with fixed spikes, breathable for both feet, men's size 12",
+        "rewrite_ms": 255.7,
+        "rank": 4,
+        "hit": 0,
+        "mrr": 0.0,
+        "ndcg": 0.0
+      },
+      {
+        "id": "zh_hw_45",
+        "query_zh": "成对发射泥靶的练习用抛靶机，带可折叠操作员座椅",
+        "en_query": "pair launch target practice throwing machine with foldable operator seat",
+        "rewrite_ms": 220.3,
+        "rank": null,
+        "hit": 0,
+        "mrr": 0.0,
+        "ndcg": 0.0
+      },
+      {
+        "id": "zh_hw_46",
+        "query_zh": "家用引体向上和双杠臂屈伸独立式支架，高度可调，承重耐用",
+        "en_query": "home-use adjustable height pull-up bar and parallel bars, durable and capable of supporting weight",
+        "rewrite_ms": 267.8,
+        "rank": null,
+        "hit": 0,
+        "mrr": 0.0,
+        "ndcg": 0.0
+      },
+      {
+        "id": "zh_hw_47",
+        "query_zh": "短袖防晒泳衣 浮潜 水上健身操",
+        "en_query": "short sleeve sun protection swimwear, floatation, water sports workout",
+        "rewrite_ms": 231.3,
+        "rank": null,
+        "hit": 0,
+        "mrr": 0.0,
+        "ndcg": 0.0
+      },
+      {
+        "id": "zh_hw_48",
+        "query_zh": "冷水冲浪板蜡 两块装 一块底蜡一块面蜡",
+        "en_query": "cold water surfing board wax two packs, one base wax and one top wax",
+        "rewrite_ms": 240.8,
+        "rank": 5,
+        "hit": 0,
+        "mrr": 0.0,
+        "ndcg": 0.0
+      },
+      {
+        "id": "zh_hw_49",
+        "query_zh": "山地车锻造合金替换曲柄 适配100mm五通",
+        "en_query": "mountain bike alloy crank replacement for 100mm five spoke",
+        "rewrite_ms": 239.5,
+        "rank": null,
+        "hit": 0,
+        "mrr": 0.0,
+        "ndcg": 0.0
+      },
+      {
+        "id": "zh_hw_50",
+        "query_zh": "钓鱼包 五个隔层 橡胶网袋 船甲板上稳定放置",
+        "en_query": "five-layer fishing bag with rubber net and stable placement on deck",
+        "rewrite_ms": 215.7,
+        "rank": null,
+        "hit": 0,
+        "mrr": 0.0,
+        "ndcg": 0.0
+      }
+    ],
+    "english_gold": [
+      {
+        "id": "zh_hw_01",
+        "query_zh": "适合霜冻夜晚保暖但夏天可透气的睡袋，脚部空间宽敞，$250以下",
+        "en_query": "a sleeping bag warm enough for frosty nights but ventable in summer, roomy around the feet, under $250",
+        "rewrite_ms": 0.0,
+        "rank": 2,
+        "hit": 1,
+        "mrr": 0.5,
+        "ndcg": 0.6309297535714575
+      },
+      {
+        "id": "zh_hw_02",
+        "query_zh": "夜间徒步用的免提灯，照射距离超过100米，使用AA电池，价格约$60",
+        "en_query": "hands-free light for night hiking that throws a beam over 100 meters and runs on AA batteries, around $60",
+        "rewrite_ms": 0.0,
+        "rank": null,
+        "hit": 0,
+        "mrr": 0.0,
+        "ndcg": 0.0
+      },
+      {
+        "id": "zh_hw_03",
+        "query_zh": "小型保温包 一日游能装六瓶装保持冷藏 可放入背包 15美元以下",
+        "en_query": "small insulated bag that keeps a six-pack cold on day trips and fits inside a backpack, under $15",
+        "rewrite_ms": 0.0,
+        "rank": null,
+        "hit": 0,
+        "mrr": 0.0,
+        "ndcg": 0.0
+      },
+      {
+        "id": "zh_hw_04",
+        "query_zh": "船用栏杆夹式鱼竿固定支架 可调角度 $60以下",
+        "en_query": "clamp-on holder to keep a fishing rod secure on a boat rail, adjustable angle, under $60",
+        "rewrite_ms": 0.0,
+        "rank": null,
+        "hit": 0,
+        "mrr": 0.0,
+        "ndcg": 0.0
+      },
+      {
+        "id": "zh_hw_05",
+        "query_zh": "带拉链口袋可放钥匙和手机的瑜伽垫手提袋，可机洗",
+        "en_query": "carry bag for a yoga mat with a zip pocket for keys and phone, machine washable",
+        "rewrite_ms": 0.0,
+        "rank": 1,
+        "hit": 1,
+        "mrr": 1.0,
+        "ndcg": 1.0
+      },
+      {
+        "id": "zh_hw_06",
+        "query_zh": "脚踝固定阻力带 用于冲刺和敏捷训练 附带训练说明 30美元以下",
+        "en_query": "resistance band that attaches at the ankles for sprint and agility drills, comes with drill instructions, under $30",
+        "rewrite_ms": 0.0,
+        "rank": 1,
+        "hit": 1,
+        "mrr": 1.0,
+        "ndcg": 1.0
+      },
+      {
+        "id": "zh_hw_07",
+        "query_zh": "节省空间的可调节哑铃 家庭健身房 每只约50磅 200美元以下",
+        "en_query": "space-saving adjustable weights for a home gym that go up to about 50 pounds per hand, under $200",
+        "rewrite_ms": 0.0,
+        "rank": null,
+        "hit": 0,
+        "mrr": 0.0,
+        "ndcg": 0.0
+      },
+      {
+        "id": "zh_hw_08",
+        "query_zh": "徒步时防止雪和泥进入靴子的防水鞋套，可调节，30美元以下",
+        "en_query": "waterproof covers that keep snow and mud out of my boots when hiking, adjustable, under $30",
+        "rewrite_ms": 0.0,
+        "rank": null,
+        "hit": 0,
+        "mrr": 0.0,
+        "ndcg": 0.0
+      },
+      {
+        "id": "zh_hw_09",
+        "query_zh": "能装两支球拍且带独立脏鞋隔层的背包，$60以下",
+        "en_query": "backpack that carries two rackets plus a separate compartment for dirty shoes, under $60",
+        "rewrite_ms": 0.0,
+        "rank": 1,
+        "hit": 1,
+        "mrr": 1.0,
+        "ndcg": 1.0
+      },
+      {
+        "id": "zh_hw_10",
+        "query_zh": "批量无压网球 用于发球机 不会变扁 60个装 $50以下",
+        "en_query": "bulk pressureless tennis balls for a ball machine that won't go flat, 60 pack, under $50",
+        "rewrite_ms": 0.0,
+        "rank": 1,
+        "hit": 1,
+        "mrr": 1.0,
+        "ndcg": 1.0
+      },
+      {
+        "id": "zh_hw_11",
+        "query_zh": "US Coast Guard 认证 女士救生衣 划桨 活动自如 80美元以下",
+        "en_query": "US Coast Guard approved life jacket for a woman that allows freedom of movement for paddling, under $80",
+        "rewrite_ms": 0.0,
+        "rank": null,
+        "hit": 0,
+        "mrr": 0.0,
+        "ndcg": 0.0
+      },
+      {
+        "id": "zh_hw_12",
+        "query_zh": "滑雪靴旅行包 带透气侧袋 可装头盔和外套 100美元以下",
+        "en_query": "travel bag for ski boots with vented side pockets that also holds a helmet and jacket, under $100",
+        "rewrite_ms": 0.0,
+        "rank": 1,
+        "hit": 1,
+        "mrr": 1.0,
+        "ndcg": 1.0
+      },
+      {
+        "id": "zh_hw_13",
+        "query_zh": "女士举重用的薄款加垫手套，不显笨重，$25以下",
+        "en_query": "thin padded gloves for women lifting weights that don't feel bulky, under $25",
+        "rewrite_ms": 0.0,
+        "rank": null,
+        "hit": 0,
+        "mrr": 0.0,
+        "ndcg": 0.0
+      },
+      {
+        "id": "zh_hw_14",
+        "query_zh": "可调节速度跳绳 有氧运动 舒适泡沫手柄 20美元以下",
+        "en_query": "adjustable speed rope for cardio workouts with comfortable foam handles, under $20",
+        "rewrite_ms": 0.0,
+        "rank": 2,
+        "hit": 1,
+        "mrr": 0.5,
+        "ndcg": 0.6309297535714575
+      },
+      {
+        "id": "zh_hw_15",
+        "query_zh": "36英寸泡沫轴 用于锻炼后按摩紧绷肌肉 中等硬度 $90以下",
+        "en_query": "36-inch foam roller for massaging tight muscles after workouts, medium firmness, under $90",
+        "rewrite_ms": 0.0,
+        "rank": null,
+        "hit": 0,
+        "mrr": 0.0,
+        "ndcg": 0.0
+      },
+      {
+        "id": "zh_hw_16",
+        "query_zh": "超轻罐装炉 单人背包露营用 约4分钟烧开水 可收纳进小盒 35美元以下",
+        "en_query": "ultralight canister stove for solo backpacking that boils water in about four minutes and packs into a small case, under $35",
+        "rewrite_ms": 0.0,
+        "rank": 1,
+        "hit": 1,
+        "mrr": 1.0,
+        "ndcg": 1.0
+      },
+      {
+        "id": "zh_hw_17",
+        "query_zh": "小型自行车灯 夹在车把或座管上 闪烁模式能用一整周 $25以下",
+        "en_query": "tiny bike light that clips onto handlebars or seatpost and lasts all week on flashing mode, under $25",
+        "rewrite_ms": 0.0,
+        "rank": null,
+        "hit": 0,
+        "mrr": 0.0,
+        "ndcg": 0.0
+      },
+      {
+        "id": "zh_hw_18",
+        "query_zh": "5号足球 软触感 高中训练用 保气 40美元以下",
+        "en_query": "size 5 soccer ball with a soft touch for high school practice that keeps its air, under $40",
+        "rewrite_ms": 0.0,
+        "rank": null,
+        "hit": 0,
+        "mrr": 0.0,
+        "ndcg": 0.0
+      },
+      {
+        "id": "zh_hw_19",
+        "query_zh": "2升越野跑水袋背包 可喷水 可接直列过滤器 $45以下",
+        "en_query": "2-liter hydration backpack for trail running that can spray water and attach an inline filter, under $45",
+        "rewrite_ms": 0.0,
+        "rank": null,
+        "hit": 0,
+        "mrr": 0.0,
+        "ndcg": 0.0
+      },
+      {
+        "id": "zh_hw_20",
+        "query_zh": "四季双人背包帐篷 抗强风雪 双门 带门厅 120美元以下",
+        "en_query": "four-season backpacking tent for two that holds up in strong wind and snow, has two doors and a vestibule, under $120",
+        "rewrite_ms": 0.0,
+        "rank": 5,
+        "hit": 0,
+        "mrr": 0.0,
+        "ndcg": 0.0
+      },
+      {
+        "id": "zh_hw_21",
+        "query_zh": "紧凑型狩猎发射器 小型猎物 手动上弦 附带3个宽头箭和3支练习箭 60美元以下",
+        "en_query": "compact hunting launcher for small game that cocks by hand and ships with three broad heads plus three practice arrows, under $60",
+        "rewrite_ms": 0.0,
+        "rank": 1,
+        "hit": 1,
+        "mrr": 1.0,
+        "ndcg": 1.0
+      },
+      {
+        "id": "zh_hw_22",
+        "query_zh": "投球手臂紧身面料袖套 局间保暖 快干",
+        "en_query": "tight fabric sleeve for my throwing arm that keeps it warm between innings and dries fast",
+        "rewrite_ms": 0.0,
+        "rank": null,
+        "hit": 0,
+        "mrr": 0.0,
+        "ndcg": 0.0
+      },
+      {
+        "id": "zh_hw_23",
+        "query_zh": "绑腿负重 渐进增加阻力 抬腿训练 20美元以下",
+        "en_query": "strap-on weights for the lower leg that let me add resistance gradually during leg raises, under $20",
+        "rewrite_ms": 0.0,
+        "rank": null,
+        "hit": 0,
+        "mrr": 0.0,
+        "ndcg": 0.0
+      },
+      {
+        "id": "zh_hw_24",
+        "query_zh": "通勤用平滑替换轮胎 适用于铺装路面和轻度碎石路 35mm宽",
+        "en_query": "smooth replacement tire for commuting on pavement and light gravel, 35mm wide",
+        "rewrite_ms": 0.0,
+        "rank": null,
+        "hit": 0,
+        "mrr": 0.0,
+        "ndcg": 0.0
+      },
+      {
+        "id": "zh_hw_25",
+        "query_zh": "能在风雨中点燃篝火且不需要打火机液的方块，六块装",
+        "en_query": "cubes that get a campfire going in wind and rain and don't need lighter fluid, six pack",
+        "rewrite_ms": 0.0,
+        "rank": null,
+        "hit": 0,
+        "mrr": 0.0,
+        "ndcg": 0.0
+      },
+      {
+        "id": "zh_hw_26",
+        "query_zh": "女士通勤双肩包 带笔记本电脑加厚隔层 透气背板",
+        "en_query": "daypack for a woman with a padded slot for a laptop and a breathable back panel for commuting",
+        "rewrite_ms": 0.0,
+        "rank": 1,
+        "hit": 1,
+        "mrr": 1.0,
+        "ndcg": 1.0
+      },
+      {
+        "id": "zh_hw_27",
+        "query_zh": "双面尼龙腰带 塑料扣 不会触发金属探测器 20美元以下",
+        "en_query": "reversible nylon belt with a plastic buckle that won't trip metal detectors, under $20",
+        "rewrite_ms": 0.0,
+        "rank": 1,
+        "hit": 1,
+        "mrr": 1.0,
+        "ndcg": 1.0
+      },
+      {
+        "id": "zh_hw_28",
+        "query_zh": "多节硬饵 左右摆动 高速拖钓稳定 鲈鱼",
+        "en_query": "jointed hard lure that swims side to side and stays stable when trolled fast for bass",
+        "rewrite_ms": 0.0,
+        "rank": 1,
+        "hit": 1,
+        "mrr": 1.0,
+        "ndcg": 1.0
+      },
+      {
+        "id": "zh_hw_29",
+        "query_zh": "窄款车顶行李架托盘 带大量固定点 可绑装备和滑雪板架",
+        "en_query": "narrow cargo tray for roof bars with plenty of anchor points to strap down gear and ski holders",
+        "rewrite_ms": 0.0,
+        "rank": 1,
+        "hit": 1,
+        "mrr": 1.0,
+        "ndcg": 1.0
+      },
+      {
+        "id": "zh_hw_30",
+        "query_zh": "带软垫的墙壁挂钩，可放长板或吉他，含螺丝，$15以下",
+        "en_query": "padded wall hook that holds a longboard or a guitar, screws included, under $15",
+        "rewrite_ms": 0.0,
+        "rank": 1,
+        "hit": 1,
+        "mrr": 1.0,
+        "ndcg": 1.0
+      },
+      {
+        "id": "zh_hw_31",
+        "query_zh": "拉伸课穿的弹力裤 膝盖处贴身 脚踝处宽松 35美元以下",
+        "en_query": "stretchy bottoms for stretching class that are snug at the knee and looser at the ankle, under $35",
+        "rewrite_ms": 0.0,
+        "rank": null,
+        "hit": 0,
+        "mrr": 0.0,
+        "ndcg": 0.0
+      },
+      {
+        "id": "zh_hw_32",
+        "query_zh": "适合高级骑手的马衔铁，靠鼻压起作用，嘴部有软橡胶和铜",
+        "en_query": "bit for an advanced rider that works off nose pressure with soft rubber and copper in the mouth",
+        "rewrite_ms": 0.0,
+        "rank": 1,
+        "hit": 1,
+        "mrr": 1.0,
+        "ndcg": 1.0
+      },
+      {
+        "id": "zh_hw_33",
+        "query_zh": "护耳器 能放大安静声音但把枪声降到安全水平 可折叠小巧",
+        "en_query": "ear protection that amplifies quiet sounds but cuts gunshots to a safe level and folds up small",
+        "rewrite_ms": 0.0,
+        "rank": null,
+        "hit": 0,
+        "mrr": 0.0,
+        "ndcg": 0.0
+      },
+      {
+        "id": "zh_hw_34",
+        "query_zh": "防漏保温杯 幼儿用 单手可开吸管 16 ounces",
+        "en_query": "leak-proof insulated cup for a toddler with a straw they can open one-handed, 16 ounces",
+        "rewrite_ms": 0.0,
+        "rank": 1,
+        "hit": 1,
+        "mrr": 1.0,
+        "ndcg": 1.0
+      },
+      {
+        "id": "zh_hw_35",
+        "query_zh": "8英尺台球桌替换台呢 炭灰色 商用加厚 150美元以下",
+        "en_query": "replacement cloth for an eight-foot billiard table in charcoal, heavy enough for commercial use, under $150",
+        "rewrite_ms": 0.0,
+        "rank": 3,
+        "hit": 1,
+        "mrr": 0.3333333333333333,
+        "ndcg": 0.5
+      },
+      {
+        "id": "zh_hw_36",
+        "query_zh": "深雪行走入门套装 含雪杖和腿套 一口价",
+        "en_query": "starter kit for walking on deep snow that includes poles and leg covers for one price",
+        "rewrite_ms": 0.0,
+        "rank": null,
+        "hit": 0,
+        "mrr": 0.0,
+        "ndcg": 0.0
+      },
+      {
+        "id": "zh_hw_37",
+        "query_zh": "7.5英尺淡水轻饵抛投鱼竿 线号最大12磅",
+        "en_query": "seven-and-a-half foot rod for casting light lures in freshwater with line up to 12-pound test",
+        "rewrite_ms": 0.0,
+        "rank": null,
+        "hit": 0,
+        "mrr": 0.0,
+        "ndcg": 0.0
+      },
+      {
+        "id": "zh_hw_38",
+        "query_zh": "儿童三轮车或滑板车用的响亮捏喇叭，单螺丝安装，$15以下",
+        "en_query": "loud squeeze horn for a child's trike or scooter that mounts with one screw, under $15",
+        "rewrite_ms": 0.0,
+        "rank": 1,
+        "hit": 1,
+        "mrr": 1.0,
+        "ndcg": 1.0
+      },
+      {
+        "id": "zh_hw_39",
+        "query_zh": "手工调校的木制鸭哨 狩猎用 带金属环 20美元以下",
+        "en_query": "hand-tuned wooden call for duck hunting with a metal band around it, under $20",
+        "rewrite_ms": 0.0,
+        "rank": 1,
+        "hit": 1,
+        "mrr": 1.0,
+        "ndcg": 1.0
+      },
+      {
+        "id": "zh_hw_40",
+        "query_zh": "短款运动袜 紧贴脚部 脚跟和脚趾有缓冲 跑步用",
+        "en_query": "short athletic socks that squeeze the foot and cushion the heel and toe for running",
+        "rewrite_ms": 0.0,
+        "rank": 2,
+        "hit": 1,
+        "mrr": 0.5,
+        "ndcg": 0.6309297535714575
+      },
+      {
+        "id": "zh_hw_41",
+        "query_zh": "能固定手电筒或登山杖在1英寸织带上并可单手释放的夹扣",
+        "en_query": "clips that hold a flashlight or trekking pole onto one-inch webbing and release with one hand",
+        "rewrite_ms": 0.0,
+        "rank": 2,
+        "hit": 1,
+        "mrr": 0.5,
+        "ndcg": 0.6309297535714575
+      },
+      {
+        "id": "zh_hw_42",
+        "query_zh": "细编织线 高强度 远投 绿色水域隐形",
+        "en_query": "thin braided line with high strength for casting distance that stays invisible in green water",
+        "rewrite_ms": 0.0,
+        "rank": null,
+        "hit": 0,
+        "mrr": 0.0,
+        "ndcg": 0.0
+      },
+      {
+        "id": "zh_hw_43",
+        "query_zh": "软泡沫球和球棒套装 让孩子练习曲线球 不会受伤",
+        "en_query": "soft foam ball and bat set that lets a kid practice curveballs without getting hurt",
+        "rewrite_ms": 0.0,
+        "rank": 1,
+        "hit": 1,
+        "mrr": 1.0,
+        "ndcg": 1.0
+      },
+      {
+        "id": "zh_hw_44",
+        "query_zh": "硬地足球鞋 固定钉 保持双脚干爽 男款 12码",
+        "en_query": "firm-ground soccer shoes with fixed studs that keep feet dry, men's size 12",
+        "rewrite_ms": 0.0,
+        "rank": 1,
+        "hit": 1,
+        "mrr": 1.0,
+        "ndcg": 1.0
+      },
+      {
+        "id": "zh_hw_45",
+        "query_zh": "成对发射泥靶的练习用抛靶机，带可折叠操作员座椅",
+        "en_query": "machine that launches clay targets in pairs for practice and folds out a seat for the operator",
+        "rewrite_ms": 0.0,
+        "rank": 3,
+        "hit": 1,
+        "mrr": 0.3333333333333333,
+        "ndcg": 0.5
+      },
+      {
+        "id": "zh_hw_46",
+        "query_zh": "家用引体向上和双杠臂屈伸独立式支架，高度可调，承重耐用",
+        "en_query": "freestanding frame for pull-ups and dips at home that adjusts in height and holds heavy use",
+        "rewrite_ms": 0.0,
+        "rank": null,
+        "hit": 0,
+        "mrr": 0.0,
+        "ndcg": 0.0
+      },
+      {
+        "id": "zh_hw_47",
+        "query_zh": "短袖防晒泳衣 浮潜 水上健身操",
+        "en_query": "short-sleeve swim shirt with sun protection for snorkeling and aqua aerobics",
+        "rewrite_ms": 0.0,
+        "rank": 1,
+        "hit": 1,
+        "mrr": 1.0,
+        "ndcg": 1.0
+      },
+      {
+        "id": "zh_hw_48",
+        "query_zh": "冷水冲浪板蜡 两块装 一块底蜡一块面蜡",
+        "en_query": "surfboard wax for cold water sold as two bars, one base coat and one top coat",
+        "rewrite_ms": 0.0,
+        "rank": 2,
+        "hit": 1,
+        "mrr": 0.5,
+        "ndcg": 0.6309297535714575
+      },
+      {
+        "id": "zh_hw_49",
+        "query_zh": "山地车锻造合金替换曲柄 适配100mm五通",
+        "en_query": "forged alloy replacement crank arms for a mountain bike that fit a 100mm bottom bracket",
+        "rewrite_ms": 0.0,
+        "rank": 1,
+        "hit": 1,
+        "mrr": 1.0,
+        "ndcg": 1.0
+      },
+      {
+        "id": "zh_hw_50",
+        "query_zh": "钓鱼包 五个隔层 橡胶网袋 船甲板上稳定放置",
+        "en_query": "fishing bag with five compartments and rubber mesh pouches that sits stable on a boat deck",
+        "rewrite_ms": 0.0,
+        "rank": 1,
+        "hit": 1,
+        "mrr": 1.0,
+        "ndcg": 1.0
+      }
+    ]
+  }
+}

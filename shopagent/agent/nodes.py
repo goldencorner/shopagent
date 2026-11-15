@@ -15,7 +15,8 @@ import json
 import os
 import re
 
-from .. import memory, rag
+from .. import memory, rag, router_mode
+from ..local_router import route_local, router_status
 from ..llm import (
     GenerationCancelled,
     chat,
@@ -54,7 +55,7 @@ PLANNER_PROMPT = """你是一个电商导购 Agent 的规划器。你的唯一�
 4. 一次只调一个最有必要的工具，最多 {max_steps} 步。
 5. 用户问「有没有更便宜的」，用 find_similar 或 search_products 加 max_price。
 6. 历史对话只用来理解指代（「那款」「它」「再便宜点」）。当前问题和历史话题无关时，
-   按当前问题检索，不要沿用上一轮的品类关键词。
+   按当前问题检索，不要沿用上一轮的品类关键词。{rewritten_hint}
 
 已知用户偏好：{profile}"""
 
@@ -109,8 +110,18 @@ _COMPARE_RE = re.compile(r"对比|区别|哪个好|选哪个|比较|vs\.?", re.I
 
 
 def _router_mode() -> str:
-    """SHOPAGENT_ROUTER=llm（默认）/ shop（全部走导购）/ keyword（规则路由）。"""
-    return os.getenv("SHOPAGENT_ROUTER", "llm").strip().lower()
+    """SHOPAGENT_ROUTER=llm（默认）/ shop / keyword / local（本地 LoRA 小模型）。
+
+    页面开关会覆盖 .env，见 shopagent/router_mode.py。
+    """
+    return router_mode.current()
+
+
+def _local_min_conf() -> float:
+    try:
+        return float(os.getenv("SHOPAGENT_LOCAL_ROUTER_MIN_CONF", "0.55"))
+    except ValueError:
+        return 0.55
 
 
 def _keyword_intent(query: str) -> str:
@@ -122,38 +133,79 @@ def _keyword_intent(query: str) -> str:
     return "shop"
 
 
+def _llm_intent(query: str) -> str:
+    """老链路：DeepSeek 判意图。本地不可用或置信度低时回退到这里。"""
+    try:
+        obj = chat_json([{"role": "user", "content": ROUTER_PROMPT.format(query=query[:500])}])
+        return str(obj.get("intent", "shop")).strip().lower()
+    except GenerationCancelled:
+        raise
+    except Exception:
+        return "shop"
+
+
 def router(state: dict) -> dict:
     query = state.get("query", "")
     mode = _router_mode()
+    rewritten = ""
+    confidence: float | None = None
+    note = ""
 
     if mode == "shop":
         intent = "shop"
     elif mode == "keyword":
         intent = _keyword_intent(query)
+    elif mode == "local":
+        status = router_status()
+        if not status.get("available"):
+            intent = _llm_intent(query)
+            note = f"本地不可用（{status.get('detail', '未知原因')}），回退 llm"
+        else:
+            try:
+                result = route_local(query)
+            except GenerationCancelled:
+                raise
+            except Exception as exc:
+                intent = _llm_intent(query)
+                note = f"本地调用失败（{type(exc).__name__}），回退 llm"
+            else:
+                confidence = float(result.get("confidence") or 0.0)
+                if confidence < _local_min_conf():
+                    intent = _llm_intent(query)
+                    note = f"置信度 {confidence:.2f} 低于阈值，回退 llm"
+                else:
+                    intent = result["intent"]
+                    rewritten = result.get("en_query") or ""
     else:
-        try:
-            obj = chat_json([{"role": "user", "content": ROUTER_PROMPT.format(query=query[:500])}])
-            intent = str(obj.get("intent", "shop")).strip().lower()
-        except GenerationCancelled:
-            raise
-        except Exception:
-            intent = "shop"
+        intent = _llm_intent(query)
 
     if intent not in {"shop", "compare", "chitchat"}:
         intent = "shop"
-    return {"intent": intent, "trace": [f"router → {intent}（{mode}）"]}
+    detail = f"local {confidence:.2f}" if confidence is not None else mode
+    trace = [f"router → {intent}（{detail}{'，' + note if note else ''}）"]
+    if rewritten:
+        trace.append(f"router 改写 → {rewritten[:80]}")
+    return {"intent": intent, "rewritten_query": rewritten, "trace": trace}
 
 
 # ---------------- planner ----------------
 
 
 def planner(state: dict) -> dict:
+    rewritten = (state.get("rewritten_query") or "").strip()
+    hint = (
+        f"\n7. 小模型已把本轮需求改写成英文检索词：{rewritten}。"
+        "调用 search_products 时优先使用它；用户原话里更精确的条件仍然以用户为准。"
+        if rewritten
+        else ""
+    )
     messages: list[dict] = [
         {
             "role": "system",
             "content": PLANNER_PROMPT.format(
                 max_steps=MAX_STEPS,
                 profile=memory.profile_summary(state.get("profile") or {}),
+                rewritten_hint=hint,
             ),
         }
     ]

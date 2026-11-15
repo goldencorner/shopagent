@@ -15,6 +15,7 @@ class AgentState(TypedDict, total=False):
     history: list[dict]              # 短期记忆：最近几轮对话
     profile: dict                    # 长期记忆：用户画像
     intent: str                      # router 的判定结果
+    rewritten_query: str             # 小模型 router 给出的英文检索词（仅 local 模式）
 
     messages: Annotated[list[dict], operator.add]   # assistant/tool 消息流
     tool_results: Annotated[list[dict], operator.add]

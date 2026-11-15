@@ -14,12 +14,14 @@ NUL
 # 数据与索引：体积大，且 Amazon 数据不适合再分发
 data/*.jsonl
 data/raw/
+data/_eval_profile.json
 data/memory_index/
 data/memory_index_beauty_3000/
 data/user_profile.json
 data/sessions/
 data/fts_index.db
 data/_embeddings_*.npy
+data/router/
 
 # 评测运行输出（保留 README 引用的几份，便于核对数字）
 eval/results_*.json
@@ -35,4 +37,5 @@ eval/agent_results_*.json
 # 部署产物
 deploy/out/
 deploy/images.tar.gz
+dist/
 *.log

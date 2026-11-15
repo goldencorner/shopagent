@@ -1,0 +1,1235 @@
+{
+  "generated_at": "2026-11-13T22:38:47",
+  "local_model": "qwen2.5-1.5b-instruct",
+  "sets": {
+    "hard": {
+      "rows": 39,
+      "results": {
+        "keyword": {
+          "mode": "keyword",
+          "n": 39,
+          "accuracy": 0.641,
+          "invalid": 0,
+          "macro_f1": 0.5733,
+          "per_class": {
+            "shop": {
+              "precision": 0.6,
+              "recall": 0.9,
+              "f1": 0.72,
+              "support": 20
+            },
+            "compare": {
+              "precision": 1.0,
+              "recall": 0.4,
+              "f1": 0.5714,
+              "support": 10
+            },
+            "chitchat": {
+              "precision": 0.6,
+              "recall": 0.3333,
+              "f1": 0.4286,
+              "support": 9
+            }
+          },
+          "confusion": {
+            "shop": {
+              "shop": 18,
+              "compare": 0,
+              "chitchat": 2
+            },
+            "compare": {
+              "shop": 6,
+              "compare": 4,
+              "chitchat": 0
+            },
+            "chitchat": {
+              "shop": 6,
+              "compare": 0,
+              "chitchat": 3
+            }
+          },
+          "latency_ms": {
+            "mean": 0.0,
+            "p50": 0.0,
+            "p95": 0.0
+          },
+          "rewrite": {
+            "n": 30,
+            "exact": 0.0,
+            "jaccard": 0.0
+          },
+          "errors": [],
+          "rows": [
+            {
+              "query": "这两个哪个更值",
+              "gold": "compare",
+              "pred": "shop",
+              "gold_en": "compare two products which is better value",
+              "pred_en": "",
+              "ms": 0.0,
+              "error": ""
+            },
+            {
+              "query": "谢谢，我先看看瑜伽垫",
+              "gold": "chitchat",
+              "pred": "chitchat",
+              "gold_en": "",
+              "pred_en": "",
+              "ms": 0.0,
+              "error": ""
+            },
+            {
+              "query": "你们是机器人吗",
+              "gold": "chitchat",
+              "pred": "shop",
+              "gold_en": "",
+              "pred_en": "",
+              "ms": 0.0,
+              "error": ""
+            },
+            {
+              "query": "刚才那个帐篷有便宜点的吗",
+              "gold": "shop",
+              "pred": "shop",
+              "gold_en": "cheaper camping tent",
+              "pred_en": "",
+              "ms": 0.0,
+              "error": ""
+            },
+            {
+              "query": "有没有比 $50 的哑铃更好的",
+              "gold": "compare",
+              "pred": "shop",
+              "gold_en": "better dumbbell than $50",
+              "pred_en": "",
+              "ms": 0.0,
+              "error": ""
+            },
+            {
+              "query": "帮我选一个，A 和 B 我拿不定主意",
+              "gold": "compare",
+              "pred": "shop",
+              "gold_en": "choose between A and B",
+              "pred_en": "",
+              "ms": 0.0,
+              "error": ""
+            },
+            {
+              "query": "我不想买，只是随便看看",
+              "gold": "chitchat",
+              "pred": "shop",
+              "gold_en": "",
+              "pred_en": "",
+              "ms": 0.0,
+              "error": ""
+            },
+            {
+              "query": "这两款区别大吗",
+              "gold": "compare",
+              "pred": "compare",
+              "gold_en": "difference between these two",
+              "pred_en": "",
+              "ms": 0.0,
+              "error": ""
+            },
+            {
+              "query": "推荐个礼物，送男朋友",
+              "gold": "shop",
+              "pred": "shop",
+              "gold_en": "gift for boyfriend",
+              "pred_en": "",
+              "ms": 0.0,
+              "error": ""
+            },
+            {
+              "query": "我上次买的猫粮快吃完了",
+              "gold": "shop",
+              "pred": "shop",
+              "gold_en": "cat food",
+              "pred_en": "",
+              "ms": 0.0,
+              "error": ""
+            },
+            {
+              "query": "你好，我想买个瑜伽垫",
+              "gold": "shop",
+              "pred": "chitchat",
+              "gold_en": "yoga mat",
+              "pred_en": "",
+              "ms": 0.0,
+              "error": ""
+            },
+            {
+              "query": "便宜的那个和贵的有什么区别",
+              "gold": "compare",
+              "pred": "compare",
+              "gold_en": "difference between cheaper and expensive one",
+              "pred_en": "",
+              "ms": 0.0,
+              "error": ""
+            },
+            {
+              "query": "这个多少钱",
+              "gold": "shop",
+              "pred": "shop",
+              "gold_en": "price of this product",
+              "pred_en": "",
+              "ms": 0.0,
+              "error": ""
+            },
+            {
+              "query": "帮我对比一下",
+              "gold": "compare",
+              "pred": "compare",
+              "gold_en": "compare products",
+              "pred_en": "",
+              "ms": 0.0,
+              "error": ""
+            },
+            {
+              "query": "哪个牌子的帐篷好",
+              "gold": "shop",
+              "pred": "shop",
+              "gold_en": "best brand camping tent",
+              "pred_en": "",
+              "ms": 0.0,
+              "error": ""
+            },
+            {
+              "query": "在吗？想问问猫砂",
+              "gold": "shop",
+              "pred": "chitchat",
+              "gold_en": "cat litter",
+              "pred_en": "",
+              "ms": 0.0,
+              "error": ""
+            },
+            {
+              "query": "不要 $100 以上的",
+              "gold": "shop",
+              "pred": "shop",
+              "gold_en": "products under $100",
+              "pred_en": "",
+              "ms": 0.0,
+              "error": ""
+            },
+            {
+              "query": "我不需要推荐，谢谢",
+              "gold": "chitchat",
+              "pred": "shop",
+              "gold_en": "",
+              "pred_en": "",
+              "ms": 0.0,
+              "error": ""
+            },
+            {
+              "query": "这两款都要",
+              "gold": "shop",
+              "pred": "shop",
+              "gold_en": "both products",
+              "pred_en": "",
+              "ms": 0.0,
+              "error": ""
+            },
+            {
+              "query": "你能帮我下单吗",
+              "gold": "shop",
+              "pred": "shop",
+              "gold_en": "place an order",
+              "pred_en": "",
+              "ms": 0.0,
+              "error": ""
+            },
+            {
+              "query": "有什么适合油皮的防晒推荐吗",
+              "gold": "shop",
+              "pred": "shop",
+              "gold_en": "sunscreen for oily skin",
+              "pred_en": "",
+              "ms": 0.0,
+              "error": ""
+            },
+            {
+              "query": "这个和那个比哪个便宜",
+              "gold": "compare",
+              "pred": "shop",
+              "gold_en": "which is cheaper",
+              "pred_en": "",
+              "ms": 0.0,
+              "error": ""
+            },
+            {
+              "query": "太贵了，有没有便宜点的",
+              "gold": "shop",
+              "pred": "shop",
+              "gold_en": "cheaper alternative",
+              "pred_en": "",
+              "ms": 0.0,
+              "error": ""
+            },
+            {
+              "query": "随便看看",
+              "gold": "chitchat",
+              "pred": "shop",
+              "gold_en": "",
+              "pred_en": "",
+              "ms": 0.0,
+              "error": ""
+            },
+            {
+              "query": "你们能退货吗",
+              "gold": "chitchat",
+              "pred": "shop",
+              "gold_en": "",
+              "pred_en": "",
+              "ms": 0.0,
+              "error": ""
+            },
+            {
+              "query": "帮我找一双 42 码的跑鞋，预算 500 以内",
+              "gold": "shop",
+              "pred": "shop",
+              "gold_en": "size 42 running shoes under 500",
+              "pred_en": "",
+              "ms": 0.0,
+              "error": ""
+            },
+            {
+              "query": "蓝牙耳机和有线耳机哪个音质好",
+              "gold": "compare",
+              "pred": "shop",
+              "gold_en": "bluetooth vs wired headphones sound quality",
+              "pred_en": "",
+              "ms": 0.0,
+              "error": ""
+            },
+            {
+              "query": "猫砂盆和猫砂一起买有优惠吗",
+              "gold": "shop",
+              "pred": "shop",
+              "gold_en": "cat litter box and cat litter bundle discount",
+              "pred_en": "",
+              "ms": 0.0,
+              "error": ""
+            },
+            {
+              "query": "我想要个轻一点的，现在这个太重了",
+              "gold": "shop",
+              "pred": "shop",
+              "gold_en": "lighter alternative",
+              "pred_en": "",
+              "ms": 0.0,
+              "error": ""
+            },
+            {
+              "query": "第一张图和第二张图有什么区别",
+              "gold": "compare",
+              "pred": "compare",
+              "gold_en": "difference between first and second image",
+              "pred_en": "",
+              "ms": 0.0,
+              "error": ""
+            },
+            {
+              "query": "不用了，我就看看",
+              "gold": "chitchat",
+              "pred": "shop",
+              "gold_en": "",
+              "pred_en": "",
+              "ms": 0.0,
+              "error": ""
+            },
+            {
+              "query": "在吗",
+              "gold": "chitchat",
+              "pred": "chitchat",
+              "gold_en": "",
+              "pred_en": "",
+              "ms": 0.0,
+              "error": ""
+            },
+            {
+              "query": "这两款哪个更适合新手",
+              "gold": "compare",
+              "pred": "shop",
+              "gold_en": "which is better for beginners",
+              "pred_en": "",
+              "ms": 0.0,
+              "error": ""
+            },
+            {
+              "query": "预算三百，推荐个耳机",
+              "gold": "shop",
+              "pred": "shop",
+              "gold_en": "headphones under 300",
+              "pred_en": "",
+              "ms": 0.0,
+              "error": ""
+            },
+            {
+              "query": "谢谢你的建议",
+              "gold": "chitchat",
+              "pred": "chitchat",
+              "gold_en": "",
+              "pred_en": "",
+              "ms": 0.0,
+              "error": ""
+            },
+            {
+              "query": "猫粮不用了，我换狗粮",
+              "gold": "shop",
+              "pred": "shop",
+              "gold_en": "dog food",
+              "pred_en": "",
+              "ms": 0.0,
+              "error": ""
+            },
+            {
+              "query": "瑜伽垫先不买了，帐篷有推荐吗",
+              "gold": "shop",
+              "pred": "shop",
+              "gold_en": "camping tent",
+              "pred_en": "",
+              "ms": 0.0,
+              "error": ""
+            },
+            {
+              "query": "别给我推荐贵的",
+              "gold": "shop",
+              "pred": "shop",
+              "gold_en": "affordable products",
+              "pred_en": "",
+              "ms": 0.0,
+              "error": ""
+            },
+            {
+              "query": "我不想要这个颜色",
+              "gold": "shop",
+              "pred": "shop",
+              "gold_en": "different color",
+              "pred_en": "",
+              "ms": 0.0,
+              "error": ""
+            }
+          ]
+        },
+        "deepseek": {
+          "mode": "deepseek",
+          "n": 39,
+          "accuracy": 0.9231,
+          "invalid": 0,
+          "macro_f1": 0.9217,
+          "per_class": {
+            "shop": {
+              "precision": 0.9474,
+              "recall": 0.9,
+              "f1": 0.9231,
+              "support": 20
+            },
+            "compare": {
+              "precision": 1.0,
+              "recall": 1.0,
+              "f1": 1.0,
+              "support": 10
+            },
+            "chitchat": {
+              "precision": 0.8,
+              "recall": 0.8889,
+              "f1": 0.8421,
+              "support": 9
+            }
+          },
+          "confusion": {
+            "shop": {
+              "shop": 18,
+              "compare": 0,
+              "chitchat": 2
+            },
+            "compare": {
+              "shop": 0,
+              "compare": 10,
+              "chitchat": 0
+            },
+            "chitchat": {
+              "shop": 1,
+              "compare": 0,
+              "chitchat": 8
+            }
+          },
+          "latency_ms": {
+            "mean": 874.2,
+            "p50": 876.4,
+            "p95": 1209.9
+          },
+          "rewrite": {
+            "n": 30,
+            "exact": 0.4333,
+            "jaccard": 0.6571
+          },
+          "errors": [],
+          "rows": [
+            {
+              "query": "这两个哪个更值",
+              "gold": "compare",
+              "pred": "compare",
+              "gold_en": "compare two products which is better value",
+              "pred_en": "",
+              "ms": 1276.2,
+              "error": ""
+            },
+            {
+              "query": "谢谢，我先看看瑜伽垫",
+              "gold": "chitchat",
+              "pred": "shop",
+              "gold_en": "",
+              "pred_en": "yoga mat",
+              "ms": 895.5,
+              "error": ""
+            },
+            {
+              "query": "你们是机器人吗",
+              "gold": "chitchat",
+              "pred": "chitchat",
+              "gold_en": "",
+              "pred_en": "",
+              "ms": 999.8,
+              "error": ""
+            },
+            {
+              "query": "刚才那个帐篷有便宜点的吗",
+              "gold": "shop",
+              "pred": "shop",
+              "gold_en": "cheaper camping tent",
+              "pred_en": "cheaper tent",
+              "ms": 943.1,
+              "error": ""
+            },
+            {
+              "query": "有没有比 $50 的哑铃更好的",
+              "gold": "compare",
+              "pred": "compare",
+              "gold_en": "better dumbbell than $50",
+              "pred_en": "dumbbells better than $50",
+              "ms": 798.8,
+              "error": ""
+            },
+            {
+              "query": "帮我选一个，A 和 B 我拿不定主意",
+              "gold": "compare",
+              "pred": "compare",
+              "gold_en": "choose between A and B",
+              "pred_en": "choose between A and B",
+              "ms": 901.1,
+              "error": ""
+            },
+            {
+              "query": "我不想买，只是随便看看",
+              "gold": "chitchat",
+              "pred": "chitchat",
+              "gold_en": "",
+              "pred_en": "",
+              "ms": 748.8,
+              "error": ""
+            },
+            {
+              "query": "这两款区别大吗",
+              "gold": "compare",
+              "pred": "compare",
+              "gold_en": "difference between these two",
+              "pred_en": "difference between these two products",
+              "ms": 1061.8,
+              "error": ""
+            },
+            {
+              "query": "推荐个礼物，送男朋友",
+              "gold": "shop",
+              "pred": "shop",
+              "gold_en": "gift for boyfriend",
+              "pred_en": "gift for boyfriend",
+              "ms": 744.3,
+              "error": ""
+            },
+            {
+              "query": "我上次买的猫粮快吃完了",
+              "gold": "shop",
+              "pred": "shop",
+              "gold_en": "cat food",
+              "pred_en": "cat food",
+              "ms": 984.7,
+              "error": ""
+            },
+            {
+              "query": "你好，我想买个瑜伽垫",
+              "gold": "shop",
+              "pred": "shop",
+              "gold_en": "yoga mat",
+              "pred_en": "yoga mat",
+              "ms": 1211.8,
+              "error": ""
+            },
+            {
+              "query": "便宜的那个和贵的有什么区别",
+              "gold": "compare",
+              "pred": "compare",
+              "gold_en": "difference between cheaper and expensive one",
+              "pred_en": "difference between cheap and expensive",
+              "ms": 858.8,
+              "error": ""
+            },
+            {
+              "query": "这个多少钱",
+              "gold": "shop",
+              "pred": "shop",
+              "gold_en": "price of this product",
+              "pred_en": "price inquiry",
+              "ms": 852.6,
+              "error": ""
+            },
+            {
+              "query": "帮我对比一下",
+              "gold": "compare",
+              "pred": "compare",
+              "gold_en": "compare products",
+              "pred_en": "",
+              "ms": 803.5,
+              "error": ""
+            },
+            {
+              "query": "哪个牌子的帐篷好",
+              "gold": "shop",
+              "pred": "shop",
+              "gold_en": "best brand camping tent",
+              "pred_en": "best tent brand",
+              "ms": 617.0,
+              "error": ""
+            },
+            {
+              "query": "在吗？想问问猫砂",
+              "gold": "shop",
+              "pred": "shop",
+              "gold_en": "cat litter",
+              "pred_en": "cat litter",
+              "ms": 620.3,
+              "error": ""
+            },
+            {
+              "query": "不要 $100 以上的",
+              "gold": "shop",
+              "pred": "shop",
+              "gold_en": "products under $100",
+              "pred_en": "products under $100",
+              "ms": 876.4,
+              "error": ""
+            },
+            {
+              "query": "我不需要推荐，谢谢",
+              "gold": "chitchat",
+              "pred": "chitchat",
+              "gold_en": "",
+              "pred_en": "",
+              "ms": 1194.9,
+              "error": ""
+            },
+            {
+              "query": "这两款都要",
+              "gold": "shop",
+              "pred": "shop",
+              "gold_en": "both products",
+              "pred_en": "both of these two products",
+              "ms": 1084.4,
+              "error": ""
+            },
+            {
+              "query": "你能帮我下单吗",
+              "gold": "shop",
+              "pred": "shop",
+              "gold_en": "place an order",
+              "pred_en": "help me place an order",
+              "ms": 869.7,
+              "error": ""
+            },
+            {
+              "query": "有什么适合油皮的防晒推荐吗",
+              "gold": "shop",
+              "pred": "shop",
+              "gold_en": "sunscreen for oily skin",
+              "pred_en": "sunscreen for oily skin",
+              "ms": 594.3,
+              "error": ""
+            },
+            {
+              "query": "这个和那个比哪个便宜",
+              "gold": "compare",
+              "pred": "compare",
+              "gold_en": "which is cheaper",
+              "pred_en": "which is cheaper",
+              "ms": 540.5,
+              "error": ""
+            },
+            {
+              "query": "太贵了，有没有便宜点的",
+              "gold": "shop",
+              "pred": "shop",
+              "gold_en": "cheaper alternative",
+              "pred_en": "cheaper alternative",
+              "ms": 1209.9,
+              "error": ""
+            },
+            {
+              "query": "随便看看",
+              "gold": "chitchat",
+              "pred": "chitchat",
+              "gold_en": "",
+              "pred_en": "",
+              "ms": 1202.2,
+              "error": ""
+            },
+            {
+              "query": "你们能退货吗",
+              "gold": "chitchat",
+              "pred": "chitchat",
+              "gold_en": "",
+              "pred_en": "",
+              "ms": 961.9,
+              "error": ""
+            },
+            {
+              "query": "帮我找一双 42 码的跑鞋，预算 500 以内",
+              "gold": "shop",
+              "pred": "shop",
+              "gold_en": "size 42 running shoes under 500",
+              "pred_en": "running shoes size 42 under 500",
+              "ms": 742.2,
+              "error": ""
+            },
+            {
+              "query": "蓝牙耳机和有线耳机哪个音质好",
+              "gold": "compare",
+              "pred": "compare",
+              "gold_en": "bluetooth vs wired headphones sound quality",
+              "pred_en": "bluetooth earphones vs wired earphones sound quality comparison",
+              "ms": 711.4,
+              "error": ""
+            },
+            {
+              "query": "猫砂盆和猫砂一起买有优惠吗",
+              "gold": "shop",
+              "pred": "shop",
+              "gold_en": "cat litter box and cat litter bundle discount",
+              "pred_en": "cat litter box and cat litter bundle discount",
+              "ms": 740.8,
+              "error": ""
+            },
+            {
+              "query": "我想要个轻一点的，现在这个太重了",
+              "gold": "shop",
+              "pred": "shop",
+              "gold_en": "lighter alternative",
+              "pred_en": "lightweight",
+              "ms": 644.0,
+              "error": ""
+            },
+            {
+              "query": "第一张图和第二张图有什么区别",
+              "gold": "compare",
+              "pred": "compare",
+              "gold_en": "difference between first and second image",
+              "pred_en": "difference between first image and second image",
+              "ms": 945.6,
+              "error": ""
+            },
+            {
+              "query": "不用了，我就看看",
+              "gold": "chitchat",
+              "pred": "chitchat",
+              "gold_en": "",
+              "pred_en": "",
+              "ms": 882.5,
+              "error": ""
+            },
+            {
+              "query": "在吗",
+              "gold": "chitchat",
+              "pred": "chitchat",
+              "gold_en": "",
+              "pred_en": "",
+              "ms": 720.5,
+              "error": ""
+            },
+            {
+              "query": "这两款哪个更适合新手",
+              "gold": "compare",
+              "pred": "compare",
+              "gold_en": "which is better for beginners",
+              "pred_en": "which one is more suitable for beginners",
+              "ms": 880.8,
+              "error": ""
+            },
+            {
+              "query": "预算三百，推荐个耳机",
+              "gold": "shop",
+              "pred": "shop",
+              "gold_en": "headphones under 300",
+              "pred_en": "headphones under 300",
+              "ms": 1046.2,
+              "error": ""
+            },
+            {
+              "query": "谢谢你的建议",
+              "gold": "chitchat",
+              "pred": "chitchat",
+              "gold_en": "",
+              "pred_en": "",
+              "ms": 946.7,
+              "error": ""
+            },
+            {
+              "query": "猫粮不用了，我换狗粮",
+              "gold": "shop",
+              "pred": "chitchat",
+              "gold_en": "dog food",
+              "pred_en": "",
+              "ms": 904.2,
+              "error": ""
+            },
+            {
+              "query": "瑜伽垫先不买了，帐篷有推荐吗",
+              "gold": "shop",
+              "pred": "shop",
+              "gold_en": "camping tent",
+              "pred_en": "tent recommendation",
+              "ms": 799.2,
+              "error": ""
+            },
+            {
+              "query": "别给我推荐贵的",
+              "gold": "shop",
+              "pred": "chitchat",
+              "gold_en": "affordable products",
+              "pred_en": "",
+              "ms": 711.3,
+              "error": ""
+            },
+            {
+              "query": "我不想要这个颜色",
+              "gold": "shop",
+              "pred": "shop",
+              "gold_en": "different color",
+              "pred_en": "product different color",
+              "ms": 564.1,
+              "error": ""
+            }
+          ]
+        },
+        "local": {
+          "mode": "local",
+          "n": 39,
+          "accuracy": 0.7692,
+          "invalid": 0,
+          "macro_f1": 0.7403,
+          "per_class": {
+            "shop": {
+              "precision": 0.75,
+              "recall": 0.9,
+              "f1": 0.8182,
+              "support": 20
+            },
+            "compare": {
+              "precision": 0.875,
+              "recall": 0.7,
+              "f1": 0.7778,
+              "support": 10
+            },
+            "chitchat": {
+              "precision": 0.7143,
+              "recall": 0.5556,
+              "f1": 0.625,
+              "support": 9
+            }
+          },
+          "confusion": {
+            "shop": {
+              "shop": 18,
+              "compare": 1,
+              "chitchat": 1
+            },
+            "compare": {
+              "shop": 2,
+              "compare": 7,
+              "chitchat": 1
+            },
+            "chitchat": {
+              "shop": 4,
+              "compare": 0,
+              "chitchat": 5
+            }
+          },
+          "latency_ms": {
+            "mean": 139.1,
+            "p50": 134.4,
+            "p95": 182.8
+          },
+          "rewrite": {
+            "n": 30,
+            "exact": 0.1,
+            "jaccard": 0.4396
+          },
+          "errors": [],
+          "rows": [
+            {
+              "query": "这两个哪个更值",
+              "gold": "compare",
+              "pred": "compare",
+              "gold_en": "compare two products which is better value",
+              "pred_en": "which one is better",
+              "ms": 151.4,
+              "error": ""
+            },
+            {
+              "query": "谢谢，我先看看瑜伽垫",
+              "gold": "chitchat",
+              "pred": "shop",
+              "gold_en": "",
+              "pred_en": "yoga mat",
+              "ms": 124.6,
+              "error": ""
+            },
+            {
+              "query": "你们是机器人吗",
+              "gold": "chitchat",
+              "pred": "chitchat",
+              "gold_en": "",
+              "pred_en": "Are you a robot?",
+              "ms": 155.1,
+              "error": ""
+            },
+            {
+              "query": "刚才那个帐篷有便宜点的吗",
+              "gold": "shop",
+              "pred": "shop",
+              "gold_en": "cheaper camping tent",
+              "pred_en": "cheap tent",
+              "ms": 119.5,
+              "error": ""
+            },
+            {
+              "query": "有没有比 $50 的哑铃更好的",
+              "gold": "compare",
+              "pred": "shop",
+              "gold_en": "better dumbbell than $50",
+              "pred_en": "better than $50 dumbbells",
+              "ms": 164.4,
+              "error": ""
+            },
+            {
+              "query": "帮我选一个，A 和 B 我拿不定主意",
+              "gold": "compare",
+              "pred": "compare",
+              "gold_en": "choose between A and B",
+              "pred_en": "compare A and B",
+              "ms": 135.2,
+              "error": ""
+            },
+            {
+              "query": "我不想买，只是随便看看",
+              "gold": "chitchat",
+              "pred": "chitchat",
+              "gold_en": "",
+              "pred_en": "I don't want to buy, just browsing.",
+              "ms": 182.8,
+              "error": ""
+            },
+            {
+              "query": "这两款区别大吗",
+              "gold": "compare",
+              "pred": "compare",
+              "gold_en": "difference between these two",
+              "pred_en": "difference between these两款",
+              "ms": 129.6,
+              "error": ""
+            },
+            {
+              "query": "推荐个礼物，送男朋友",
+              "gold": "shop",
+              "pred": "shop",
+              "gold_en": "gift for boyfriend",
+              "pred_en": "gift recommendation for boyfriend",
+              "ms": 137.9,
+              "error": ""
+            },
+            {
+              "query": "我上次买的猫粮快吃完了",
+              "gold": "shop",
+              "pred": "shop",
+              "gold_en": "cat food",
+              "pred_en": "cat food, expiration date",
+              "ms": 141.7,
+              "error": ""
+            },
+            {
+              "query": "你好，我想买个瑜伽垫",
+              "gold": "shop",
+              "pred": "shop",
+              "gold_en": "yoga mat",
+              "pred_en": "buy yoga mat",
+              "ms": 127.5,
+              "error": ""
+            },
+            {
+              "query": "便宜的那个和贵的有什么区别",
+              "gold": "compare",
+              "pred": "compare",
+              "gold_en": "difference between cheaper and expensive one",
+              "pred_en": "difference between cheap and expensive",
+              "ms": 135.2,
+              "error": ""
+            },
+            {
+              "query": "这个多少钱",
+              "gold": "shop",
+              "pred": "shop",
+              "gold_en": "price of this product",
+              "pred_en": "price",
+              "ms": 117.5,
+              "error": ""
+            },
+            {
+              "query": "帮我对比一下",
+              "gold": "compare",
+              "pred": "compare",
+              "gold_en": "compare products",
+              "pred_en": "compare",
+              "ms": 114.2,
+              "error": ""
+            },
+            {
+              "query": "哪个牌子的帐篷好",
+              "gold": "shop",
+              "pred": "shop",
+              "gold_en": "best brand camping tent",
+              "pred_en": "good tent brands",
+              "ms": 125.4,
+              "error": ""
+            },
+            {
+              "query": "在吗？想问问猫砂",
+              "gold": "shop",
+              "pred": "chitchat",
+              "gold_en": "cat litter",
+              "pred_en": "cat litter",
+              "ms": 132.2,
+              "error": ""
+            },
+            {
+              "query": "不要 $100 以上的",
+              "gold": "shop",
+              "pred": "shop",
+              "gold_en": "products under $100",
+              "pred_en": "$100",
+              "ms": 129.8,
+              "error": ""
+            },
+            {
+              "query": "我不需要推荐，谢谢",
+              "gold": "chitchat",
+              "pred": "chitchat",
+              "gold_en": "",
+              "pred_en": "",
+              "ms": 114.6,
+              "error": ""
+            },
+            {
+              "query": "这两款都要",
+              "gold": "shop",
+              "pred": "shop",
+              "gold_en": "both products",
+              "pred_en": "compare two products",
+              "ms": 118.3,
+              "error": ""
+            },
+            {
+              "query": "你能帮我下单吗",
+              "gold": "shop",
+              "pred": "shop",
+              "gold_en": "place an order",
+              "pred_en": "can-you-help-me-place-an-order",
+              "ms": 149.5,
+              "error": ""
+            },
+            {
+              "query": "有什么适合油皮的防晒推荐吗",
+              "gold": "shop",
+              "pred": "shop",
+              "gold_en": "sunscreen for oily skin",
+              "pred_en": "oil skin sunscreen recommendations",
+              "ms": 134.0,
+              "error": ""
+            },
+            {
+              "query": "这个和那个比哪个便宜",
+              "gold": "compare",
+              "pred": "compare",
+              "gold_en": "which is cheaper",
+              "pred_en": "cheap comparison",
+              "ms": 117.7,
+              "error": ""
+            },
+            {
+              "query": "太贵了，有没有便宜点的",
+              "gold": "shop",
+              "pred": "shop",
+              "gold_en": "cheaper alternative",
+              "pred_en": "cheap",
+              "ms": 118.4,
+              "error": ""
+            },
+            {
+              "query": "随便看看",
+              "gold": "chitchat",
+              "pred": "shop",
+              "gold_en": "",
+              "pred_en": "look at products",
+              "ms": 134.4,
+              "error": ""
+            },
+            {
+              "query": "你们能退货吗",
+              "gold": "chitchat",
+              "pred": "shop",
+              "gold_en": "",
+              "pred_en": "can-you-return-things",
+              "ms": 137.5,
+              "error": ""
+            },
+            {
+              "query": "帮我找一双 42 码的跑鞋，预算 500 以内",
+              "gold": "shop",
+              "pred": "shop",
+              "gold_en": "size 42 running shoes under 500",
+              "pred_en": "find running shoes with size 42 and under $500",
+              "ms": 202.0,
+              "error": ""
+            },
+            {
+              "query": "蓝牙耳机和有线耳机哪个音质好",
+              "gold": "compare",
+              "pred": "shop",
+              "gold_en": "bluetooth vs wired headphones sound quality",
+              "pred_en": "best bluetooth headphones vs wired headphones",
+              "ms": 150.9,
+              "error": ""
+            },
+            {
+              "query": "猫砂盆和猫砂一起买有优惠吗",
+              "gold": "shop",
+              "pred": "shop",
+              "gold_en": "cat litter box and cat litter bundle discount",
+              "pred_en": "cat litter and cat litter box",
+              "ms": 156.9,
+              "error": ""
+            },
+            {
+              "query": "我想要个轻一点的，现在这个太重了",
+              "gold": "shop",
+              "pred": "shop",
+              "gold_en": "lighter alternative",
+              "pred_en": "light weight",
+              "ms": 117.6,
+              "error": ""
+            },
+            {
+              "query": "第一张图和第二张图有什么区别",
+              "gold": "compare",
+              "pred": "chitchat",
+              "gold_en": "difference between first and second image",
+              "pred_en": "What's the difference between the first and second picture?",
+              "ms": 198.2,
+              "error": ""
+            },
+            {
+              "query": "不用了，我就看看",
+              "gold": "chitchat",
+              "pred": "shop",
+              "gold_en": "",
+              "pred_en": "look at products",
+              "ms": 129.1,
+              "error": ""
+            },
+            {
+              "query": "在吗",
+              "gold": "chitchat",
+              "pred": "chitchat",
+              "gold_en": "",
+              "pred_en": "is anyone there?",
+              "ms": 144.5,
+              "error": ""
+            },
+            {
+              "query": "这两款哪个更适合新手",
+              "gold": "compare",
+              "pred": "compare",
+              "gold_en": "which is better for beginners",
+              "pred_en": "which is better for beginners",
+              "ms": 150.4,
+              "error": ""
+            },
+            {
+              "query": "预算三百，推荐个耳机",
+              "gold": "shop",
+              "pred": "shop",
+              "gold_en": "headphones under 300",
+              "pred_en": "budget_300, headphone recommendation",
+              "ms": 158.5,
+              "error": ""
+            },
+            {
+              "query": "谢谢你的建议",
+              "gold": "chitchat",
+              "pred": "chitchat",
+              "gold_en": "",
+              "pred_en": "...",
+              "ms": 130.2,
+              "error": ""
+            },
+            {
+              "query": "猫粮不用了，我换狗粮",
+              "gold": "shop",
+              "pred": "shop",
+              "gold_en": "dog food",
+              "pred_en": "dog food",
+              "ms": 125.4,
+              "error": ""
+            },
+            {
+              "query": "瑜伽垫先不买了，帐篷有推荐吗",
+              "gold": "shop",
+              "pred": "compare",
+              "gold_en": "camping tent",
+              "pred_en": "yoga mat, tent",
+              "ms": 142.3,
+              "error": ""
+            },
+            {
+              "query": "别给我推荐贵的",
+              "gold": "shop",
+              "pred": "shop",
+              "gold_en": "affordable products",
+              "pred_en": "don't recommend expensive",
+              "ms": 125.9,
+              "error": ""
+            },
+            {
+              "query": "我不想要这个颜色",
+              "gold": "shop",
+              "pred": "shop",
+              "gold_en": "different color",
+              "pred_en": "I don't want this color",
+              "ms": 146.3,
+              "error": ""
+            }
+          ]
+        }
+      }
+    }
+  }
+}

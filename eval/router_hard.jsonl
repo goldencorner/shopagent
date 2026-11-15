@@ -1,0 +1,39 @@
+{"query": "这两个哪个更值", "intent": "compare", "en_query": "compare two products which is better value", "note": "指代 + 比较"}
+{"query": "谢谢，我先看看瑜伽垫", "intent": "chitchat", "en_query": "", "note": "礼貌拒绝，含商品词"}
+{"query": "你们是机器人吗", "intent": "chitchat", "en_query": "", "note": "问身份"}
+{"query": "刚才那个帐篷有便宜点的吗", "intent": "shop", "en_query": "cheaper camping tent", "note": "指代 + 找更便宜"}
+{"query": "有没有比 $50 的哑铃更好的", "intent": "compare", "en_query": "better dumbbell than $50", "note": "隐含对比基准"}
+{"query": "帮我选一个，A 和 B 我拿不定主意", "intent": "compare", "en_query": "choose between A and B", "note": "显式选择"}
+{"query": "我不想买，只是随便看看", "intent": "chitchat", "en_query": "", "note": "否定购买"}
+{"query": "这两款区别大吗", "intent": "compare", "en_query": "difference between these two", "note": "问区别"}
+{"query": "推荐个礼物，送男朋友", "intent": "shop", "en_query": "gift for boyfriend", "note": "场景化导购"}
+{"query": "我上次买的猫粮快吃完了", "intent": "shop", "en_query": "cat food", "note": "隐含复购"}
+{"query": "你好，我想买个瑜伽垫", "intent": "shop", "en_query": "yoga mat", "note": "寒暄 + 购物，购物为主"}
+{"query": "便宜的那个和贵的有什么区别", "intent": "compare", "en_query": "difference between cheaper and expensive one", "note": "指代 + 比较"}
+{"query": "这个多少钱", "intent": "shop", "en_query": "price of this product", "note": "问价"}
+{"query": "帮我对比一下", "intent": "compare", "en_query": "compare products", "note": "无宾语，但意图明确"}
+{"query": "哪个牌子的帐篷好", "intent": "shop", "en_query": "best brand camping tent", "note": "问推荐，边界样例"}
+{"query": "在吗？想问问猫砂", "intent": "shop", "en_query": "cat litter", "note": "寒暄 + 购物"}
+{"query": "不要 $100 以上的", "intent": "shop", "en_query": "products under $100", "note": "只有预算约束"}
+{"query": "我不需要推荐，谢谢", "intent": "chitchat", "en_query": "", "note": "明确拒绝"}
+{"query": "这两款都要", "intent": "shop", "en_query": "both products", "note": "购买决定，边界样例"}
+{"query": "你能帮我下单吗", "intent": "shop", "en_query": "place an order", "note": "想买，但 Agent 不支持下单"}
+{"query": "有什么适合油皮的防晒推荐吗", "intent": "shop", "en_query": "sunscreen for oily skin", "note": "属性约束"}
+{"query": "这个和那个比哪个便宜", "intent": "compare", "en_query": "which is cheaper", "note": "指代 + 比较"}
+{"query": "太贵了，有没有便宜点的", "intent": "shop", "en_query": "cheaper alternative", "note": "否定 + 找替代"}
+{"query": "随便看看", "intent": "chitchat", "en_query": "", "note": "无购物需求"}
+{"query": "你们能退货吗", "intent": "chitchat", "en_query": "", "note": "售后政策"}
+{"query": "帮我找一双 42 码的跑鞋，预算 500 以内", "intent": "shop", "en_query": "size 42 running shoes under 500", "note": "尺寸 + 预算"}
+{"query": "蓝牙耳机和有线耳机哪个音质好", "intent": "compare", "en_query": "bluetooth vs wired headphones sound quality", "note": "两类商品对比"}
+{"query": "猫砂盆和猫砂一起买有优惠吗", "intent": "shop", "en_query": "cat litter box and cat litter bundle discount", "note": "问优惠"}
+{"query": "我想要个轻一点的，现在这个太重了", "intent": "shop", "en_query": "lighter alternative", "note": "比较级但目标是找替代，边界样例"}
+{"query": "第一张图和第二张图有什么区别", "intent": "compare", "en_query": "difference between first and second image", "note": "问区别"}
+{"query": "不用了，我就看看", "intent": "chitchat", "en_query": "", "note": "拒绝"}
+{"query": "在吗", "intent": "chitchat", "en_query": "", "note": "纯寒暄"}
+{"query": "这两款哪个更适合新手", "intent": "compare", "en_query": "which is better for beginners", "note": "选择"}
+{"query": "预算三百，推荐个耳机", "intent": "shop", "en_query": "headphones under 300", "note": "预算 + 推荐"}
+{"query": "谢谢你的建议", "intent": "chitchat", "en_query": "", "note": "感谢"}
+{"query": "猫粮不用了，我换狗粮", "intent": "shop", "en_query": "dog food", "note": "否定旧品类 + 新需求"}
+{"query": "瑜伽垫先不买了，帐篷有推荐吗", "intent": "shop", "en_query": "camping tent", "note": "否定 + 新品类"}
+{"query": "别给我推荐贵的", "intent": "shop", "en_query": "affordable products", "note": "否定式约束"}
+{"query": "我不想要这个颜色", "intent": "shop", "en_query": "different color", "note": "指代 + 否定属性"}

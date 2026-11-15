@@ -1,0 +1,253 @@
+{
+  "generated_at": "2026-11-15T16:49:26",
+  "eval": "C:\\Users\\asf\\Desktop\\agent-mvp\\eval\\retrieval_eval_zh50.jsonl",
+  "store": "pg",
+  "retrieval_mode": "hybrid_rerank",
+  "top_k": 5,
+  "hit_k": 3,
+  "metrics": {
+    "gold": {
+      "n": 2,
+      "hit_k": 3,
+      "hit": 0.5,
+      "mrr": 0.25,
+      "ndcg": 0.3155,
+      "no_search": 0,
+      "p50_query_ms": 0.0
+    },
+    "lora_direct": {
+      "n": 2,
+      "hit_k": 3,
+      "hit": 0.0,
+      "mrr": 0.0,
+      "ndcg": 0.0,
+      "no_search": 0,
+      "p50_query_ms": 0.0
+    },
+    "planner_llm": {
+      "n": 2,
+      "hit_k": 3,
+      "hit": 0.0,
+      "mrr": 0.0,
+      "ndcg": 0.0,
+      "no_search": 0,
+      "p50_query_ms": 1257.9
+    },
+    "planner_lora": {
+      "n": 2,
+      "hit_k": 3,
+      "hit": 0.0,
+      "mrr": 0.0,
+      "ndcg": 0.0,
+      "no_search": 0,
+      "p50_query_ms": 847.1
+    }
+  },
+  "details": {
+    "gold": [
+      {
+        "id": "zh_hw_01",
+        "query_zh": "适合霜冻夜晚保暖但夏天可透气的睡袋，脚部空间宽敞，$250以下",
+        "query_en_gold": "a sleeping bag warm enough for frosty nights but ventable in summer, roomy around the feet, under $250",
+        "planner_query": "a sleeping bag warm enough for frosty nights but ventable in summer, roomy around the feet, under $250",
+        "max_price": null,
+        "asins": [
+          "B07WG69DTC",
+          "B09TDBMRZ6",
+          "B07BDHJXMD",
+          "B0B5JNP1MP",
+          "B00LEBF9YQ"
+        ],
+        "rank": 2,
+        "hit": 1,
+        "mrr": 0.5,
+        "ndcg": 0.6309297535714575,
+        "query_ms": 0.0,
+        "no_search": false,
+        "tools": []
+      },
+      {
+        "id": "zh_hw_02",
+        "query_zh": "夜间徒步用的免提灯，照射距离超过100米，使用AA电池，价格约$60",
+        "query_en_gold": "hands-free light for night hiking that throws a beam over 100 meters and runs on AA batteries, around $60",
+        "planner_query": "hands-free light for night hiking that throws a beam over 100 meters and runs on AA batteries, around $60",
+        "max_price": null,
+        "asins": [
+          "B00Z7R305I",
+          "B00GQRZFOC",
+          "B00AU6DXFS",
+          "B00DJ5BY58",
+          "B0BZK5J75R"
+        ],
+        "rank": null,
+        "hit": 0,
+        "mrr": 0.0,
+        "ndcg": 0.0,
+        "query_ms": 0.0,
+        "no_search": false,
+        "tools": []
+      }
+    ],
+    "lora_direct": [
+      {
+        "id": "zh_hw_01",
+        "query_zh": "适合霜冻夜晚保暖但夏天可透气的睡袋，脚部空间宽敞，$250以下",
+        "query_en_gold": "a sleeping bag warm enough for frosty nights but ventable in summer, roomy around the feet, under $250",
+        "planner_query": "warmth under frosty nights breathable summer sleepers wide feet size under 250",
+        "max_price": null,
+        "asins": [
+          "B0009PUSSK",
+          "B00X9J33MG",
+          "B09Q8ZD74X",
+          "B08HZ1DTC1",
+          "B09BMS2NCG"
+        ],
+        "rank": null,
+        "hit": 0,
+        "mrr": 0.0,
+        "ndcg": 0.0,
+        "query_ms": 0.0,
+        "no_search": false,
+        "tools": [],
+        "lora_en": "warmth under frosty nights breathable summer sleepers wide feet size under 250",
+        "lora_intent": "shop",
+        "lora_ms": 441.8
+      },
+      {
+        "id": "zh_hw_02",
+        "query_zh": "夜间徒步用的免提灯，照射距离超过100米，使用AA电池，价格约$60",
+        "query_en_gold": "hands-free light for night hiking that throws a beam over 100 meters and runs on AA batteries, around $60",
+        "planner_query": "night hiking flashlight AA battery range over 100m",
+        "max_price": null,
+        "asins": [
+          "B073XHHHKW",
+          "B076C2FC5J",
+          "B08FD1YV1F",
+          "B0745KHDXT",
+          "B08YR3MB1W"
+        ],
+        "rank": null,
+        "hit": 0,
+        "mrr": 0.0,
+        "ndcg": 0.0,
+        "query_ms": 0.0,
+        "no_search": false,
+        "tools": [],
+        "lora_en": "night hiking flashlight AA battery range over 100m",
+        "lora_intent": "shop",
+        "lora_ms": 218.9
+      }
+    ],
+    "planner_llm": [
+      {
+        "id": "zh_hw_01",
+        "query_zh": "适合霜冻夜晚保暖但夏天可透气的睡袋，脚部空间宽敞，$250以下",
+        "query_en_gold": "a sleeping bag warm enough for frosty nights but ventable in summer, roomy around the feet, under $250",
+        "planner_query": "sleeping bag warm for freezing nights breathable summer wide footbox",
+        "max_price": 250,
+        "asins": [
+          "B09WDK139N",
+          "B084JBQDW5",
+          "B09CKDY52X",
+          "B09BMS2NCG",
+          "B07GKDWNJK"
+        ],
+        "rank": null,
+        "hit": 0,
+        "mrr": 0.0,
+        "ndcg": 0.0,
+        "query_ms": 1161.3,
+        "no_search": false,
+        "tools": [
+          "search_products"
+        ]
+      },
+      {
+        "id": "zh_hw_02",
+        "query_zh": "夜间徒步用的免提灯，照射距离超过100米，使用AA电池，价格约$60",
+        "query_en_gold": "hands-free light for night hiking that throws a beam over 100 meters and runs on AA batteries, around $60",
+        "planner_query": "hands-free headlamp AA battery long throw 100m night hiking",
+        "max_price": 60,
+        "asins": [
+          "B07BSPQSKF",
+          "B015YV06GW",
+          "B0007OEQX6",
+          "B00Z7R305I",
+          "B09MJZ7TTL"
+        ],
+        "rank": null,
+        "hit": 0,
+        "mrr": 0.0,
+        "ndcg": 0.0,
+        "query_ms": 1354.5,
+        "no_search": false,
+        "tools": [
+          "search_products"
+        ]
+      }
+    ],
+    "planner_lora": [
+      {
+        "id": "zh_hw_01",
+        "query_zh": "适合霜冻夜晚保暖但夏天可透气的睡袋，脚部空间宽敞，$250以下",
+        "query_en_gold": "a sleeping bag warm enough for frosty nights but ventable in summer, roomy around the feet, under $250",
+        "planner_query": "warmth under frosty nights breathable summer sleepers wide feet size under 250",
+        "max_price": 250,
+        "asins": [
+          "B09Q8ZD74X",
+          "B09BMS2NCG",
+          "B0009PUSSK",
+          "B00X9J33MG",
+          "B08HZ1DTC1"
+        ],
+        "rank": null,
+        "hit": 0,
+        "mrr": 0.0,
+        "ndcg": 0.0,
+        "query_ms": 988.8,
+        "no_search": false,
+        "tools": [
+          "search_products"
+        ],
+        "lora_en": "warmth under frosty nights breathable summer sleepers wide feet size under 250",
+        "lora_intent": "shop",
+        "lora_ms": 441.8,
+        "jaccard_with_hint": 1.0
+      },
+      {
+        "id": "zh_hw_02",
+        "query_zh": "夜间徒步用的免提灯，照射距离超过100米，使用AA电池，价格约$60",
+        "query_en_gold": "hands-free light for night hiking that throws a beam over 100 meters and runs on AA batteries, around $60",
+        "planner_query": "night hiking hands-free flashlight AA battery range over 100m",
+        "max_price": 60,
+        "asins": [
+          "B08YR3MB1W",
+          "B07KSJ6WTM",
+          "B01HBR4OZQ",
+          "B008CTIL20",
+          "B00GQRZFOC"
+        ],
+        "rank": null,
+        "hit": 0,
+        "mrr": 0.0,
+        "ndcg": 0.0,
+        "query_ms": 705.5,
+        "no_search": false,
+        "tools": [
+          "search_products"
+        ],
+        "lora_en": "night hiking flashlight AA battery range over 100m",
+        "lora_intent": "shop",
+        "lora_ms": 218.9,
+        "jaccard_with_hint": 0.889
+      }
+    ]
+  },
+  "hit_diffs": [],
+  "summary": {
+    "gained": 0,
+    "lost": 0,
+    "adopt_mean_jaccard": 0.945,
+    "adopt_ge_0_6": 2
+  }
+}

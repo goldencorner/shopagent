@@ -13,6 +13,39 @@
 
 ---
 
+## 目录
+
+- [1. 它做什么，不做什么](#1-它做什么不做什么)
+- [2. 架构](#2-架构)
+  - [2.1 检索漏斗](#21-检索漏斗)
+  - [2.2 Agent 状态机](#22-agent-状态机)
+  - [2.3 工具与记忆](#23-工具与记忆)
+  - [2.4 三条入口，一套逻辑](#24-三条入口一套逻辑)
+- [3. 快速开始](#3-快速开始)
+  - [3.1 Docker（推荐）](#31-docker推荐)
+  - [3.2 本地开发](#32-本地开发)
+  - [3.3 通过 MCP 调用](#33-通过-mcp-调用)
+  - [3.4 主要配置](#34-主要配置)
+- [4. 评测](#4-评测)
+  - [4.1 两套 50 条评测集：为什么要双轨](#41-两套-50-条评测集为什么要双轨)
+  - [4.2 检索结果](#42-检索结果)
+  - [4.3 精排候选数扫描](#43-精排候选数扫描)
+  - [4.4 失败归因：17 条未命中都去了哪](#44-失败归因17-条未命中都去了哪)
+  - [4.5 Agent 级评测](#45-agent-级评测)
+  - [4.6 复现](#46-复现)
+  - [4.7 消融实验：RRF、router、生成约束](#47-消融实验rrfrouter生成约束)
+  - [4.8 LoRA 小模型接管 router：意图分类 + 中文→英文检索词](#48-lora-小模型接管-router意图分类--中文英文检索词)
+- [5. 延迟与成本](#5-延迟与成本)
+  - [5.1 检索阶段耗时（本机 Ryzen 9 5900X，CPU）](#51-检索阶段耗时本机-ryzen-9-5900xcpu)
+  - [5.2 端到端](#52-端到端)
+- [6. 工程化](#6-工程化)
+- [7. 设计取舍（面试视角）](#7-设计取舍面试视角)
+- [8. 已知限制](#8-已知限制)
+- [9. 目录结构](#9-目录结构)
+- [10. 数据与许可](#10-数据与许可)
+- [11. Roadmap](#11-roadmap)
+- [12. FAQ](#12-faq)
+
 ## 1. 它做什么，不做什么
 
 **能做的事**
@@ -213,7 +246,11 @@ python scripts/07_mcp_server.py      # stdio
 | `SHOPAGENT_RRF_K` / `SHOPAGENT_RRF_WEIGHTS` | `60` / `1,1` | RRF 平滑常数与 [向量, BM25] 两路权重，见 §4.7.1 |
 | `EMBED_MODEL` / `EMBED_DIM` | `BAAI/bge-small-en-v1.5` / `384` | 换 `bge-m3` 需改 `sql/schema.sql` 的维度并重建索引 |
 | `RERANK_MODEL` | `BAAI/bge-reranker-base` | |
-| `SHOPAGENT_ROUTER` | `llm` | `llm` / `keyword` / `shop`，后两者仅用于消融，见 §4.7.2 |
+| `SHOPAGENT_ROUTER` | `llm` | `llm` / `local` / `keyword` / `shop`；页面开关可热改，重启回本值，见 §4.8 |
+| `SHOPAGENT_LOCAL_ROUTER_MODEL` | 空（回退 `QWEN_MODEL`） | 本地 router 的模型 id，实测 `router-lora`，见 §4.8.6 |
+| `SHOPAGENT_LOCAL_ROUTER_BASE_URL` | 空（回退 `QWEN_BASE_URL`） | 本地 OpenAI 兼容接口，默认 `http://127.0.0.1:1234/v1` |
+| `SHOPAGENT_LOCAL_ROUTER_MIN_CONF` | `0.55` | 置信度低于阈值回退 DeepSeek（实测拦不住语用错误，见 §4.8.7） |
+| `SHOPAGENT_LOCAL_ROUTER_TIMEOUT` | `8` | 本地 router 超时秒数，超时回退 DeepSeek |
 | `SHOPAGENT_GENERATE_GUARD` | `1` | 设为 `0` 只保留基础生成规则，用于消融，见 §4.7.3 |
 | `HF_ENDPOINT` | `https://huggingface.co` | 不要设 `hf-mirror.com`：它 308 重定向回官方站，新版 `huggingface_hub` 会抛 `FileMetadataError` |
 
@@ -376,12 +413,14 @@ BM25 加权在融合层有效（两套各 +0.04），但它能否带到最终结
 
 #### 4.7.2 Router：规则路由打平 LLM，去掉 router 则闲聊失效
 
-`SHOPAGENT_ROUTER=llm|keyword|shop`。keyword 规则：含「对比/区别/哪个好」走 compare，
-以问候语开头走 chitchat，其余 shop。
+`SHOPAGENT_ROUTER=llm|keyword|shop|local`。keyword 规则：含「对比/区别/哪个好」走 compare，
+以问候语开头走 chitchat，其余 shop；local 走 LoRA 微调的 Qwen2.5-1.5B（见
+[docs/router_lora.md](docs/router_lora.md)）。
 
 | 配置 | 任务通过 | 意图 | 平均 LLM 调用 | P50 | P95 |
 |---|---|---|---|---|---|
 | baseline（LLM 路由） | **21/21** | 2/2 | 4.91 | 10.3s | 12.4s |
+| router=local（LoRA 1.5B） | **21/21** | 2/2 | **3.95** | **8.5s** | 15.3s |
 | keyword 规则路由 | **21/21** | 2/2 | **3.91** | **8.8s** | 11.5s |
 | shop（去掉 router） | 19/21 | **0/2** | 3.91 | 8.9s | 11.4s |
 
@@ -389,6 +428,11 @@ BM25 加权在融合层有效（两套各 +0.04），但它能否带到最终结
   但意图检查只覆盖 2 条闲聊任务，只能说明“这批任务上可行”，不足以证明分布外泛化，
   所以默认仍是 `llm`。
 - 全部当 shop 后，2 条闲聊任务失败，且会走完整检索链路。这是 router 单独成节点的直接证据。
+- `router=local` 是 2026-11-15 补的一组（其余行是 11-11 的单次运行，P50 不可直接横比）。
+  同一轮里 baseline 是 4.90 次调用 / P50 9.4s，local 是 3.95 次 / 8.5s：
+  通过率不变、平均少约 1 次 LLM 调用，说明本地小模型确实顶掉了 router 那一次调用。
+  P95 反而更高（15.3s）——21 条任务比尾部延迟没有统计意义，且 LLM 调用本身有波动，不下结论。
+  小模型自身的意图准确率、改写质量和检索影响见 [docs/router_lora.md](docs/router_lora.md)。
 
 #### 4.7.3 Generate 约束：去掉后出现编造价格与超预算
 
@@ -417,6 +461,144 @@ python scripts/11_ablation.py agent   # 21 条 × 4 组，调 LLM
 
 对应开关：`SHOPAGENT_RRF_K`、`SHOPAGENT_RRF_WEIGHTS`、`SHOPAGENT_ROUTER`、
 `SHOPAGENT_GENERATE_GUARD`。产物落在 `eval/ablation_*.json`。
+
+### 4.8 LoRA 小模型接管 router：意图分类 + 中文→英文检索词
+
+老链路的 router 调一次 DeepSeek（P50 650–900ms），planner 再把中文需求翻成英文检索词。
+这里用 Qwen2.5-1.5B + LoRA 一次前向同时输出：
+
+```json
+{"intent": "shop|compare|chitchat", "en_query": "english search keywords"}
+```
+
+接入原则和本地 27B 一样：**能用就用，不能用就回退老链路**。完整训练细节和踩坑见
+[docs/router_lora.md](docs/router_lora.md)。2026-11-13 ~ 11-15 在 AutoDL 4090 上完成，
+数据、训练、GGUF 转换、三组评测和页面开关都已落地。
+
+#### 4.8.1 数据：DeepSeek 教师蒸馏
+
+- 24 个类目 × 8 种话术风格批量生成，另加 500 条 30–70 字的长约束 query；
+- 按生成批次切分（`sha1(query) % 10`：0 → valid，1 → test，其余 → train），同一模板不会同时进 train/test；
+- 所有评测 query（21 条 agent 任务、39 条边界集、100 条英文检索、50 条中文检索）从训练集剔除。
+
+| split | 条数 | shop | compare | chitchat |
+|---|---:|---:|---:|---:|
+| train | 2502 | 1191 | 916 | 395 |
+| valid | 321 | 159 | 114 | 48 |
+| test | 333 | 160 | 118 | 55 |
+
+人工边界集 `eval/router_hard.jsonl`（39 条）单独构造，覆盖闲聊夹商品词、隐含对比、否定、指代。
+
+#### 4.8.2 训练（AutoDL 4090 实测）
+
+Qwen2.5-1.5B-Instruct，LoRA r=16 / alpha=32 / dropout=0.05，target 为
+q/k/v/o/gate/up/down，lr 2e-4，3 epoch，bf16，max_len 512，有效 batch 16；
+可训练参数 18,464,768（1.18%）。
+
+- 2502 条 ≈ 468 step，训练 242 秒，`train_loss` 0.242；
+- valid `eval_loss` 0.361 → 0.329 → **0.356**：第 3 个 epoch 已轻微回升，下次应该 2 epoch；
+- 合并 + 转 GGUF Q8_0 约 1 分钟，`router-q8.gguf` 1.53GiB；
+- 基座下载走 ModelScope（10.7MB/s，约 5 分钟），hf-mirror 实测只有 16KB/s；
+- 实例开机约 25 分钟（装依赖 + 下模型 + 训练 + 转换），费用 **2 元以内**。
+
+#### 4.8.3 部署
+
+merge adapter → fp16 → `convert_hf_to_gguf.py --outtype q8_0` → `lms import` → LM Studio。
+Q8_0 常驻约 1.5GiB 显存，和 27B 可以共存。一个坑：`~/.lmstudio/models` 是软链时，
+运行中的 LM Studio 不会重新扫描，`lms import` 完必须重启一次应用。
+
+#### 4.8.4 意图准确率
+
+`scripts/14_eval_router.py --sets hard,test --modes keyword,deepseek,local`：
+
+| 集合 | 方案 | 准确率 | macro-F1 | P50 | P95 | 改写 Jaccard |
+|---|---|---:|---:|---:|---:|---:|
+| hard (39) | keyword | 0.641 | 0.573 | 0ms | 0ms | — |
+| hard (39) | DeepSeek | 0.897 | 0.896 | 654ms | 904ms | 0.644 |
+| hard (39) | base 1.5B | 0.769 | 0.740 | 134ms | 183ms | 0.440 |
+| hard (39) | **LoRA 1.5B** | **0.846** | **0.847** | **128ms** | **163ms** | 0.431 |
+| test (333) | keyword | 0.676 | 0.617 | 0ms | 0ms | — |
+| test (333) | DeepSeek | 0.985 | 0.981 | 774ms | 1132ms | 0.629 |
+| test (333) | **LoRA 1.5B** | **0.979** | **0.976** | **157ms** | **232ms** | **0.663** |
+
+- 边界集从基座 0.769 提到 **0.846**，超过关键词规则（0.641），但没到 DeepSeek（0.897），**P50 快 5 倍**；
+- test 集与教师只差 0.6 个点、改写 Jaccard 反超教师（0.663 vs 0.629）——这说明蒸馏成功，
+  **不能当线上能力宣传**（同分布、教师标签）；
+- hard 上剩下 6 个错例集中在语用：闲聊夹商品词（「谢谢，我先看看瑜伽垫」）、否定和全选
+  （「别给我推荐贵的」「这两款都要」）、问能力（「你能帮我下单吗」）、否定式比较
+  （「有没有比 $50 的哑铃更好的」）。
+
+#### 4.8.5 改写对检索的影响，以及 planner 兜住了多少
+
+`scripts/16_eval_router_retrieval.py` 绕过 planner、直接用改写后的英文串检索，
+隔离「改写本身」的质量（50 条中文长约束 query，hybrid_rerank，Hit@3）：
+
+| 方式 | Hit@3 | MRR | nDCG@3 | P50 改写 |
+|---|---:|---:|---:|---:|
+| 中文直接检索 | 0.000 | 0.000 | 0.000 | 0ms |
+| DeepSeek 现场翻译 | 0.440 | 0.377 | 0.393 | 911ms |
+| base 1.5B 改写（微调前） | 0.120 | 0.100 | — | 252ms |
+| **LoRA 1.5B 改写** | **0.320** | **0.270** | **0.283** | **216ms** |
+| 原始英文 query（上界） | 0.560 | 0.483 | 0.503 | 0ms |
+
+线上并不直接用这个串：`en_query` 只是 planner prompt 的第 7 条提示
+（「小模型已把本轮需求改写成英文检索词：…，调用 search_products 时优先使用它」）。
+`scripts/17_eval_planner_absorb.py` 用 `nodes.py` 里真实的 planner prompt 跑了一遍，
+看最终 `search_products` 的商品命中：
+
+| 方式 | Hit@3 | MRR | nDCG@3 | planner 延迟 | 采纳提示 |
+|---|---:|---:|---:|---:|---:|
+| 原始英文 query（上界） | 0.560 | 0.483 | 0.503 | — | — |
+| `lora_direct`：en_query 直接检索 | 0.320 | 0.270 | 0.283 | — | — |
+| `planner_llm`：老链路 | 0.400 | 0.370 | 0.378 | 1030ms | — |
+| `planner_lora`：**当前线上写法** | **0.400** | 0.337 | 0.353 | 913ms | **46/50，Jaccard 中位数 0.857** |
+| `planner_lora_soft`："初稿，请核对修正" | **0.460** | 0.390 | 0.408 | 934ms | 10/50，Jaccard 均值 0.46 |
+
+- **全链路命中率与老链路持平**（0.400 vs 0.400，逐条 +7 / -7，McNemar p=1.0），
+  排序质量略低（MRR -0.033、nDCG -0.025，不显著）；
+- 但「planner 把改写改对了」不成立：46/50 是原样照抄。`lora_direct → planner_lora` 的 +4 里，
+  3 条的检索词几乎没变，提升来自 planner 传了 `max_price`、超预算商品被过滤；
+  只有 1 条是真改对品类（tennis balls → tennis racket backpack）；
+- 「优先使用它」这个措辞把 planner 锁死在不完美的改写上。改成「初稿、可能漏约束、请核对修正」后，
+  命中升到 0.460（+6 / -3，p=0.51），收益集中在带预算的 27 条（0.333 → 0.444）。
+  50 条样本 95% 置信区间约 ±0.13，这是方向性证据，不是精确排名。
+
+#### 4.8.6 开关：页面 / API / .env
+
+- 页面输入框上方、模型选择器旁边有「LoRA 路由」开关（右侧小圆点显示本地模型是否就绪），
+  打开走本地，关闭走云端 DeepSeek；
+- 接口：`GET /config/router` 返回当前模式、`.env` 默认值和本地模型是否就绪；
+  `POST /config/router {"mode": "local|llm|keyword|shop|default"}` 热改；
+- 只改进程内变量（和精排候选数滑块同一套设计），新请求立刻生效，**重启回到 `.env` 的值**；
+- 本地不可用 / 超时 / JSON 非法 / 置信度低于 0.55 时自动回退 DeepSeek，trace 里写明原因
+  （`router → shop（local 1.00）`、`router → shop（local，本地不可用（模型未加载），回退 llm）`）。
+
+云端部署时容器通过已有的反向 SSH 隧道访问本机 LM Studio（`QWEN_BASE_URL` 指向
+`host.docker.internal:1234`），compose 里加 `SHOPAGENT_LOCAL_ROUTER_MODEL=router-lora` 即可。
+**纯 CPU 小机器不建议开**：1.5B Q8 在 4 核上通常只有个位数 tok/s，会比 DeepSeek 的 0.65s 更慢。
+
+#### 4.8.7 结论与风险
+
+- **能上线，但不要说提升**：意图 hard 0.846（较规则 +20.5pp、较基座 +7.7pp）、
+  全链路商品命中与老链路持平、router 那一跳从 774ms 降到 157ms；
+- 置信度没有区分度：6 个 hard 错例的置信度是 0.81–1.0（「别给我推荐贵的」0.9998），
+  阈值只能拦格式问题，拦不住语用错误，**下一步应按否定词/客套词做输入侧分流**；
+- 长约束改写仍是短板（0.320 vs 0.440），接入策略应是短 query 走本地、长约束回退 DeepSeek；
+  目前只实现了置信度回退，按长度分流还没做；
+- 3 epoch 已过拟合（eval_loss 回升），下次用 2 epoch + 更大 batch，或补 hard 类样本重训。
+
+#### 4.8.8 复现
+
+```bash
+python scripts/12_make_router_data.py --target 3000 --extra-long 500   # 需要 DeepSeek Key
+python scripts/13_train_router_lora.py --model <Qwen2.5-1.5B 本地目录> --epochs 3 --merge
+python scripts/14_eval_router.py --sets hard,test --modes keyword,deepseek,local --local-model router-lora
+python scripts/15_make_zh_retrieval.py
+python scripts/16_eval_router_retrieval.py --store pg --local-model router-lora
+python scripts/17_eval_planner_absorb.py --store pg --local-model router-lora
+```
+
+产物：`eval/router_eval_*.json`、`eval/router_retrieval_*.json`、`eval/planner_absorb_*.json`。
 
 ---
 
@@ -464,8 +646,8 @@ token 统计与每日预算护栏在 Roadmap 里。
 
 ## 6. 工程化
 
-- **测试**：`pytest tests` 共 **41** 个用例——价格过滤、pg `Decimal` 转 float、HTTP 各接口、
-  SSE 失败不落盘、取消令牌、前端静态页、模型可用性探测
+- **测试**：`pytest tests` 共 **60** 个用例——价格过滤、pg `Decimal` 转 float、HTTP 各接口、
+  SSE 失败不落盘、取消令牌、前端静态页、模型可用性探测、router 开关与回退
 - **流式与中断**：SSE `step → token → done`；生成中点「停止」会断开模型流式连接，
   半截答案不写进会话。LangGraph 的 `stream` 是同步的，用 contextvar 把增量塞进队列，
   后台线程跑图、主生成器转发
@@ -474,6 +656,8 @@ token 统计与每日预算护栏在 Roadmap 里。
   只读探测，不会触发模型加载；结果缓存 15s，`?refresh=1` 强制复查
 - **热配置**：精排候选数可通过页面滑块或 `POST /config/rerank_candidates` 实时改，
   新请求立刻生效，进度中请求不受影响；重启回到 `.env` 默认值
+- **router 可热切换**：页面开关或 `POST /config/router` 在 `llm` / `local`（LoRA）之间切，
+  同样只改内存；本地模型不可用时路由自动回退 DeepSeek，开关本身不会把服务切挂
 - **商品明细不常驻内存**：offset 索引 + 3000 条 LRU，10 万条筛选首次 0.7–1.1s，翻页约 3ms。
   对照：3k 语料时代把商品整条放进字典，一轮对话后 RSS 约 2.5GiB；现在 10 万条版本
   API 常驻约 1.1GiB
@@ -491,8 +675,10 @@ API 一览：
 | `GET /sessions` · `GET/DELETE /sessions/{id}` | 会话列表 / 读取 / 删除 |
 | `GET/DELETE /profile` | 长期画像 |
 | `GET /catalog/stats` · `/catalog/products` · `/catalog/products/{asin}` | 商品库概览 / 搜索筛选分页 / 详情 |
-| `GET /health` | 后端、检索模式、商品数、当前精排候选数 |
+| `GET /health` | 后端、检索模式、商品数、当前精排候选数、当前 router 模式 |
 | `POST /config/rerank_candidates` | 热改精排候选数（1–50） |
+| `GET /config/router` | router 模式 + 本地 LoRA 是否就绪（`?refresh=1` 强制探测） |
+| `POST /config/router` | 热切 router：`{"mode": "local"}`，传 `default` 恢复 `.env` |
 
 ---
 
@@ -550,7 +736,8 @@ A：Agent 和脚本的区别就在这里。工具失败转成 `{"error": ...}` �
 2. **评测集自建、样本 50+50 / 21**：1 条 query = 2pp，小数点后三位没有意义；
    两套集都只有 1 个 gold ASIN，通用品（哑铃、泡沫轴）前 3 名出现同质商品其实合理，会被判未命中
 3. **没有语义忠实性评估**：「价格无幻觉」只核对数字，「材质/规格/场景是否编造」没有测
-4. **中文检索靠翻译**：中文 query 的召回质量没有单独评测
+4. **中文检索靠翻译**：50 条中文检索评测上 Hit@3 只有 0.32（LoRA 改写）/ 0.44（DeepSeek 改写），
+   英文原句上界 0.56 —— 跨语言检索本身是短板，不是 router 能解决的，见 §4.8.5
 5. **没有鉴权与限流**，会话存本地 JSON，单进程串行 —— 只能演示，不能当服务
 6. **成本未做 token 计量**，延迟含公网 DeepSeek 调用
 
@@ -571,14 +758,14 @@ shopagent/
 │   ├── tools/               # 4 个工具 + schema（DeepSeek 与 MCP 共用）
 │   ├── memory/              # 长期画像 + 会话历史
 │   ├── agent/               # state / nodes / graph
-│   ├── service.py           # FastAPI：/chat /sessions /catalog …
+│   ├── service.py           # FastAPI：/chat /sessions /catalog /config/router …
 │   └── web/                 # 零依赖前端（HTML/CSS/JS）
-├── scripts/                 # 01 数据 → 02 索引 → … → 10 服务
-├── tests/                   # 41 个 pytest
+├── scripts/                 # 01 数据 → 02 索引 → … → 10 服务；12–17 LoRA 数据/训练/评测
+├── tests/                   # 60 个 pytest
 ├── eval/                    # 评测集、审阅表、逐条排名、结果
 ├── sql/schema.sql           # pgvector 建表 + HNSW
 ├── deploy/                  # 国内云离线部署、Qwen 隧道代理
-├── docs/                    # 截图
+├── docs/                    # 截图 + router_lora.md（小模型训练/部署全记录）
 ├── Dockerfile / docker-compose.yml
 └── data/                    # 商品、索引、会话（gitignore）
 ```
@@ -603,7 +790,11 @@ shopagent/
 - [ ] 评测集扩到 200–300 条、多类别、双人标注并报告 Cohen's κ
 - [ ] token 级成本统计 + 每日预算护栏 + 按 IP 限流
 - [ ] 召回优化：查询改写（预算/属性词拆解）、bge-m3 中英双语 AB
-- [ ] 本地小模型实验：Qwen 1.5B QLoRA（query → 工具参数）+ 简单 DPO
+- [x] 本地小模型实验：Qwen2.5-1.5B LoRA 接管 router（意图 + 中文→英文检索改写），
+      GGUF 部署到 LM Studio，可用性探测 + 回退（[docs/router_lora.md](docs/router_lora.md)）
+- [x] 页面 router 开关：`GET/POST /config/router` 热切 `llm` / `local`，见 §4.8.6
+- [ ] 小模型下一步：planner 提示改成「初稿可修正」（实测 0.400 → 0.460）、
+      补 hard 错例（闲聊夹商品词、否定、全选）、试 2 epoch、按否定词/长度分流
 
 ---
 
